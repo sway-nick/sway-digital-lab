@@ -329,13 +329,12 @@
 
         /* =========================================
            HERO
-           
-           ВАЖНО:
-           cover.jpg — обычная картинка,
-           а не background.
 
-           Поэтому она сохраняет свои
-           реальные пропорции на всех экранах.
+           cover.jpg is a normal image,
+           not a CSS background.
+
+           This keeps the original proportions
+           on all screen sizes.
         ========================================== */
 
         .hero {
@@ -516,19 +515,14 @@
         }
 
 
-        .apps-card {
 
-            min-height: 300px;
+        /* =========================================
+           FEATURED APP — ENGLISH BREAKFAST
+        ========================================== */
 
-            display: flex;
+        .featured-app {
 
-            align-items: center;
-
-            justify-content: center;
-
-            padding: 50px;
-
-            text-align: center;
+            padding: 44px;
 
             border:
                 1px solid
@@ -536,25 +530,275 @@
 
             border-radius: 28px;
 
-            background: var(--bg-card);
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.065),
+                    rgba(255,255,255,0.025)
+                );
+
+            overflow: hidden;
         }
 
 
-        .apps-card h3 {
+        .app-intro {
 
-            margin-bottom: 12px;
+            max-width: 760px;
 
-            font-size: 32px;
-
-            line-height: 1.15;
+            margin-bottom: 34px;
         }
 
 
-        .apps-card p {
+        .app-name {
+
+            margin-bottom: 8px;
+
+            font-size:
+                clamp(
+                    30px,
+                    4vw,
+                    44px
+                );
+
+            line-height: 1.05;
+
+            letter-spacing: -0.035em;
+        }
+
+
+        .app-tagline {
 
             color: var(--muted);
 
-            font-size: 17px;
+            font-size: 18px;
+
+            line-height: 1.65;
+        }
+
+
+
+        /* =========================================
+           APP SCREENSHOTS
+        ========================================== */
+
+        .app-screenshots {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(0,1fr)
+                );
+
+            gap: 18px;
+
+            align-items: start;
+
+            margin-top: 34px;
+        }
+
+
+        .app-screenshot {
+
+            min-width: 0;
+
+            padding: 10px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            border-radius: 22px;
+
+            background:
+                rgba(0,0,0,0.22);
+
+            box-shadow:
+                0 18px 50px
+                rgba(0,0,0,0.22);
+        }
+
+
+        .app-screenshot img {
+
+            width: 100%;
+
+            height: auto;
+
+            border-radius: 15px;
+        }
+
+
+
+        /* =========================================
+           APP DETAILS
+        ========================================== */
+
+        .app-details {
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0,1fr)
+                minmax(0,1.25fr);
+
+            gap: 40px;
+
+            align-items: start;
+
+            margin-top: 42px;
+        }
+
+
+        .app-details h3 {
+
+            margin-bottom: 18px;
+
+            font-size: 25px;
+
+            line-height: 1.2;
+        }
+
+
+        .app-details p {
+
+            color: var(--muted);
+
+            font-size: 16px;
+
+            line-height: 1.7;
+        }
+
+
+
+        /* =========================================
+           BENEFITS
+        ========================================== */
+
+        .benefits {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0,1fr)
+                );
+
+            gap: 12px;
+        }
+
+
+        .benefit {
+
+            padding: 18px;
+
+            border:
+                1px solid
+                var(--line);
+
+            border-radius: 16px;
+
+            background:
+                rgba(255,255,255,0.035);
+        }
+
+
+        .benefit-icon {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 21px;
+        }
+
+
+        .benefit strong {
+
+            display: block;
+
+            margin-bottom: 5px;
+
+            font-size: 14px;
+        }
+
+
+        .benefit span {
+
+            display: block;
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+
+
+        /* =========================================
+           APP ACTION
+        ========================================== */
+
+        .app-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            flex-wrap: wrap;
+
+            margin-top: 34px;
+        }
+
+
+        .app-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 50px;
+
+            padding:
+                13px
+                23px;
+
+            border-radius: 999px;
+
+            background: var(--lime);
+
+            color: #071208;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
+        }
+
+
+        .app-button:hover {
+
+            background: var(--lime-hover);
+
+            transform: translateY(-2px);
+        }
+
+
+        .app-url {
+
+            color: var(--muted);
+
+            font-size: 13px;
         }
 
 
@@ -876,11 +1120,12 @@
 
             margin-top: 35px;
 
-            font-size: clamp(
-                34px,
-                5vw,
-                64px
-            );
+            font-size:
+                clamp(
+                    34px,
+                    5vw,
+                    64px
+                );
 
             line-height: 1.08;
 
@@ -1048,9 +1293,11 @@
                     0 20px 50px
                     rgba(0,0,0,0.35);
 
-                backdrop-filter: blur(18px);
+                backdrop-filter:
+                    blur(18px);
 
-                -webkit-backdrop-filter: blur(18px);
+                -webkit-backdrop-filter:
+                    blur(18px);
             }
 
 
@@ -1095,6 +1342,20 @@
                 grid-template-columns: 1fr;
 
                 gap: 50px;
+            }
+
+
+            .app-screenshots {
+
+                gap: 12px;
+            }
+
+
+            .app-details {
+
+                grid-template-columns: 1fr;
+
+                gap: 28px;
             }
 
         }
@@ -1228,11 +1489,12 @@
 
             .section-title {
 
-                font-size: clamp(
-                    38px,
-                    10vw,
-                    52px
-                );
+                font-size:
+                    clamp(
+                        38px,
+                        10vw,
+                        52px
+                    );
             }
 
 
@@ -1242,19 +1504,63 @@
             }
 
 
-            .apps-card {
+            /* =====================================
+               ENGLISH BREAKFAST MOBILE
+            ====================================== */
 
-                min-height: 240px;
+            .featured-app {
 
                 padding:
-                    30px
-                    20px;
+                    24px
+                    18px;
+
+                border-radius: 22px;
             }
 
 
-            .apps-card h3 {
+            .app-screenshots {
 
-                font-size: 26px;
+                grid-template-columns: 1fr;
+
+                gap: 18px;
+
+                max-width: 430px;
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .app-screenshot {
+
+                padding: 8px;
+            }
+
+
+            .app-details {
+
+                margin-top: 30px;
+            }
+
+
+            .benefits {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .app-button {
+
+                width: 100%;
+            }
+
+
+            .app-url {
+
+                width: 100%;
+
+                text-align: center;
             }
 
 
@@ -1355,11 +1661,12 @@
 
                 margin-bottom: 22px;
 
-                font-size: clamp(
-                    36px,
-                    11vw,
-                    46px
-                );
+                font-size:
+                    clamp(
+                        36px,
+                        11vw,
+                        46px
+                    );
             }
 
 
@@ -1619,29 +1926,213 @@
 
 
                     <p class="section-text">
-                        We are working on new digital products and
-                        applications. More apps are coming soon.
+                        Explore digital products created by
+                        Sway Digital Lab.
                     </p>
 
                 </div>
 
 
-                <div class="apps-card">
+                <!-- =================================
+                     ENGLISH BREAKFAST
+                ================================== -->
 
-                    <div>
+                <div class="featured-app">
 
-                        <h3>
-                            More apps are coming
+
+                    <div class="app-intro">
+
+                        <div class="section-label">
+                            Featured app
+                        </div>
+
+
+                        <h3 class="app-name">
+                            English Breakfast
                         </h3>
 
 
-                        <p>
-                            New ideas are already in development.
+                        <p class="app-tagline">
+                            A focused vocabulary app for practical English —
+                            with levels, categories, favorites and personalized
+                            settings.
                         </p>
 
                     </div>
 
+
+
+                    <!-- SCREENSHOTS -->
+
+                    <div class="app-screenshots">
+
+
+                        <div class="app-screenshot">
+
+                            <img
+                                src="assets/english-breakfast-home.jpg"
+                                alt="English Breakfast home screen"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+
+                        <div class="app-screenshot">
+
+                            <img
+                                src="assets/english-breakfast-categories.jpg"
+                                alt="English Breakfast vocabulary categories"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+
+                        <div class="app-screenshot">
+
+                            <img
+                                src="assets/english-breakfast-settings.jpg"
+                                alt="English Breakfast settings screen"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DETAILS -->
+
+                    <div class="app-details">
+
+
+                        <div>
+
+                            <h3>
+                                Why English Breakfast
+                            </h3>
+
+
+                            <p>
+                                Explore vocabulary from Elementary to Advanced,
+                                practice different word categories and keep
+                                useful words in your favorites.
+                            </p>
+
+                        </div>
+
+
+
+                        <!-- BENEFITS -->
+
+                        <div class="benefits">
+
+
+                            <div class="benefit">
+
+                                <span class="benefit-icon">
+                                    📚
+                                </span>
+
+                                <strong>
+                                    Multiple levels
+                                </strong>
+
+                                <span>
+                                    From Elementary to Advanced vocabulary.
+                                </span>
+
+                            </div>
+
+
+
+                            <div class="benefit">
+
+                                <span class="benefit-icon">
+                                    🔄
+                                </span>
+
+                                <strong>
+                                    Different categories
+                                </strong>
+
+                                <span>
+                                    Vocabulary, irregular verbs and
+                                    phrasal patterns.
+                                </span>
+
+                            </div>
+
+
+
+                            <div class="benefit">
+
+                                <span class="benefit-icon">
+                                    ❤️
+                                </span>
+
+                                <strong>
+                                    Favorite words
+                                </strong>
+
+                                <span>
+                                    Save words you want to practice again.
+                                </span>
+
+                            </div>
+
+
+
+                            <div class="benefit">
+
+                                <span class="benefit-icon">
+                                    🎧
+                                </span>
+
+                                <strong>
+                                    Personal settings
+                                </strong>
+
+                                <span>
+                                    Choose theme, sound effects and
+                                    voice accent.
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- APP BUTTON -->
+
+                    <div class="app-actions">
+
+
+                        <a
+                            class="app-button"
+                            href="https://english-breakfast.pages.dev/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Open English Breakfast →
+                        </a>
+
+
+                        <span class="app-url">
+                            english-breakfast.pages.dev
+                        </span>
+
+                    </div>
+
+
                 </div>
+
 
             </div>
 
