@@ -4,7 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="theme-color" content="#071b14">
+  <meta
+    name="theme-color"
+    content="#071b14"
+  >
 
   <meta
     name="description"
@@ -34,7 +37,6 @@
   >
 
   <title>Sway Digital Lab</title>
-
 
   <style>
 
@@ -86,6 +88,8 @@
       color: var(--text);
 
       line-height: 1.6;
+
+      overflow-x: hidden;
     }
 
     a {
@@ -209,14 +213,7 @@
     }
 
     /*
-      Главный Cover уже содержит:
-      SWAY
-      DIGITAL LAB
-      Simple Tools Brighter Tomorrow
-      IDEAS → APPS → REAL IMPACT
-
-      Поэтому здесь больше ничего
-      поверх него не рисуем.
+      На компьютере Cover заполняет весь Hero.
     */
 
     .hero::before {
@@ -236,9 +233,7 @@
     }
 
     /*
-      Очень лёгкое затемнение снизу.
-      Оно помогает навигации и нижней
-      части экрана лучше читаться.
+      Лёгкое затемнение снизу.
     */
 
     .hero::after {
@@ -323,9 +318,11 @@
     }
 
     .cta.ghost {
-      border: 1px solid rgba(255, 255, 255, 0.35);
+      border:
+        1px solid rgba(255, 255, 255, 0.35);
 
-      background: rgba(0, 0, 0, 0.18);
+      background:
+        rgba(0, 0, 0, 0.18);
 
       color: #fff;
 
@@ -333,7 +330,8 @@
     }
 
     .cta.ghost:hover {
-      background: rgba(0, 0, 0, 0.36);
+      background:
+        rgba(0, 0, 0, 0.36);
     }
 
 
@@ -443,10 +441,6 @@
 
       min-height: 440px;
     }
-
-    /*
-      Большой круг с логотипом.
-    */
 
     .about-logo::before {
       content: "";
@@ -793,9 +787,12 @@
         grid-template-columns:
           repeat(2, 1fr);
       }
-
     }
 
+
+    /* =========================================
+       TABLET / SMALL LAPTOP
+       ========================================= */
 
     @media (max-width: 800px) {
 
@@ -803,12 +800,17 @@
         display: none;
       }
 
+      /*
+        На планшете тоже немного уменьшаем
+        Hero, но оставляем desktop-композицию.
+      */
+
       .hero {
-        min-height: 760px;
+        min-height: 700px;
       }
 
       .hero-content {
-        padding-bottom: 55px;
+        padding-bottom: 45px;
       }
 
       .hero-actions {
@@ -835,7 +837,6 @@
 
         align-items: flex-start;
       }
-
     }
 
 
@@ -845,81 +846,343 @@
 
     @media (max-width: 480px) {
 
-      .container {
-        width:
-          min(
-            100% - 28px,
-            1160px
-          );
+      body {
+        overflow-x: hidden;
       }
 
+      .container {
+        width:
+          calc(100% - 28px);
+      }
+
+
+      /* -------------------------------
+         MOBILE NAV
+         ------------------------------- */
+
       .nav {
-        padding: 18px 0;
+        padding: 16px 0;
+
+        /*
+          Навигация находится поверх Cover.
+        */
+        z-index: 20;
+      }
+
+      .brand {
+        gap: 9px;
       }
 
       .brand img {
-        width: 38px;
-        height: 38px;
+        width: 36px;
+        height: 36px;
       }
 
       .brand span {
         font-size: 14px;
       }
 
-      .hero {
-        min-height: 680px;
+      .links {
+        display: none;
       }
 
+
+      /* -------------------------------
+         MOBILE HERO
+         ------------------------------- */
+
       /*
-        Немного смещаем Cover на телефоне,
-        чтобы композиция выглядела лучше.
+        Главное исправление.
+
+        На мобильном Hero больше НЕ является
+        высоким блоком с background-size: cover.
+
+        Сначала показываем картинку,
+        затем отдельно показываем кнопки.
+      */
+
+      .hero {
+        min-height: 0;
+
+        height: auto;
+
+        display: block;
+
+        overflow: hidden;
+
+        background: #061812;
+      }
+
+
+      /*
+        Cover превращается в отдельный
+        горизонтальный блок.
+
+        Он больше не обрезается по бокам.
       */
 
       .hero::before {
+        position: relative;
+
+        inset: auto;
+
+        display: block;
+
+        width: 100%;
+
+        height: auto;
+
+        /*
+          Формат Cover.
+
+          Если исходная картинка 16:9,
+          она будет показана полностью.
+        */
+
+        aspect-ratio: 16 / 9;
+
+        background-image:
+          url("assets/cover.jpg");
+
+        background-size:
+          100% 100%;
+
         background-position:
-          58% center;
+          center center;
+
+        background-repeat:
+          no-repeat;
+
+        z-index: 0;
       }
 
+
+      /*
+        Убираем затемняющий слой
+        на мобильном.
+
+        Сам Cover уже достаточно
+        хорошо читается.
+      */
+
+      .hero::after {
+        display: none;
+      }
+
+
+      /* -------------------------------
+         MOBILE HERO CONTENT
+         ------------------------------- */
+
       .hero-content {
-        padding-bottom: 38px;
+        position: relative;
+
+        width: 100%;
+
+        padding:
+          22px 0
+          28px;
+
+        display: block;
+
+        background:
+          linear-gradient(
+            180deg,
+            #071b14 0%,
+            #061812 100%
+          );
+
+        z-index: 3;
       }
 
       .hero-actions {
+        width: 100%;
+
+        display: flex;
+
         flex-direction: column;
 
-        width: 100%;
+        align-items: stretch;
+
+        gap: 10px;
       }
 
       .cta {
         width: 100%;
+
+        min-height: 52px;
+
+        padding:
+          14px 20px;
+
+        font-size: 15px;
+      }
+
+      .cta.ghost {
+        margin: 0;
+      }
+
+      .scroll {
+        display: none;
+      }
+
+
+      /* -------------------------------
+         ABOUT
+         ------------------------------- */
+
+      section {
+        padding: 72px 0;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 42px;
       }
 
       .about-logo {
+        min-height: auto;
+
         padding: 0;
       }
 
       .about-logo-inner {
-        width: 78vw;
+        width: min(
+          78vw,
+          300px
+        );
 
-        max-width: 340px;
+        padding: 12px;
       }
 
-      .stats {
-        grid-template-columns: 1fr;
+      .section-head {
+        margin-bottom: 30px;
       }
 
       .section-head h2 {
         font-size: 42px;
+
+        line-height: 1.02;
       }
 
+      .section-head p {
+        font-size: 16px;
+      }
+
+      .copy p {
+        font-size: 16px;
+      }
+
+
+      /* -------------------------------
+         STATS
+         ------------------------------- */
+
+      .stats {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        margin-top: 28px;
+      }
+
+      .stat {
+        padding: 16px;
+      }
+
+
+      /* -------------------------------
+         APPS
+         ------------------------------- */
+
+      .apps {
+        padding-top: 72px;
+      }
+
+      .app-grid {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+      }
+
+      .app {
+        min-height: 230px;
+
+        padding: 24px;
+      }
+
+      .app h3 {
+        font-size: 20px;
+      }
+
+
+      /* -------------------------------
+         VISION
+         ------------------------------- */
+
       .manifesto-box {
-        padding: 55px 0;
+        padding: 50px 0;
       }
 
       .manifesto h2 {
         font-size: 48px;
+
+        line-height: 1.02;
       }
 
+
+      /* -------------------------------
+         FOOTER
+         ------------------------------- */
+
+      .footer-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+      }
+
+      .footer-note {
+        line-height: 1.5;
+      }
+    }
+
+
+    /* =========================================
+       VERY SMALL PHONES
+       ========================================= */
+
+    @media (max-width: 360px) {
+
+      .container {
+        width: calc(100% - 24px);
+      }
+
+      .brand span {
+        font-size: 13px;
+      }
+
+      .hero-content {
+        padding-top: 18px;
+
+        padding-bottom: 24px;
+      }
+
+      .cta {
+        min-height: 50px;
+
+        font-size: 14px;
+      }
+
+      .section-head h2 {
+        font-size: 38px;
+      }
+
+      .manifesto h2 {
+        font-size: 42px;
+      }
     }
 
   </style>
