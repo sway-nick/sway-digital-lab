@@ -13,9 +13,14 @@
 
     <meta name="theme-color" content="#061812">
 
-    <link rel="icon" type="image/png" href="logo.png">
+    <!-- FAVICON — GREEN BLOCK -->
+    <link
+        rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23b7f52d'/%3E%3C/svg%3E"
+    >
 
     <style>
+
         :root {
             --bg: #061812;
             --bg-soft: #081e17;
@@ -33,15 +38,18 @@
             --max-width: 1160px;
         }
 
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
+
 
         body {
             font-family:
@@ -56,35 +64,47 @@
 
             background: var(--bg);
             color: var(--text);
+
             line-height: 1.6;
         }
+
 
         a {
             color: inherit;
             text-decoration: none;
         }
 
+
         img {
             max-width: 100%;
             display: block;
         }
 
+
         .container {
-            width: min(calc(100% - 40px), var(--max-width));
+            width: min(
+                calc(100% - 40px),
+                var(--max-width)
+            );
+
             margin: 0 auto;
         }
 
-        /* =========================
+
+        /* ========================================
            HEADER
-        ========================= */
+        ======================================== */
 
         header {
             position: absolute;
+
             top: 0;
             left: 0;
             right: 0;
+
             z-index: 20;
         }
+
 
         .nav {
             height: 86px;
@@ -94,53 +114,69 @@
             justify-content: space-between;
         }
 
+
         .brand {
             display: flex;
             align-items: center;
+
             gap: 12px;
 
             font-size: 18px;
             font-weight: 700;
+
             letter-spacing: -0.02em;
         }
+
 
         .brand img {
             width: 38px;
             height: 38px;
+
             object-fit: contain;
         }
+
 
         .nav-links {
             display: flex;
             align-items: center;
+
             gap: 32px;
 
             font-size: 14px;
+
             color: rgba(255,255,255,0.82);
         }
+
 
         .nav-links a {
             transition: color .2s ease;
         }
 
+
         .nav-links a:hover {
             color: var(--lime);
         }
+
 
         .menu-button {
             display: none;
 
             border: 0;
+
             background: transparent;
+
             color: white;
 
             font-size: 28px;
+
             cursor: pointer;
         }
 
-        /* =========================
+
+
+        /* ========================================
            HERO
-        ========================= */
+        ======================================== */
 
         .hero {
             min-height: 760px;
@@ -156,13 +192,17 @@
                     rgba(5,19,15,0.70),
                     rgba(5,19,15,0.20)
                 ),
-                url("cover.jpg") center / cover no-repeat;
+                url("assets/cover.jpg")
+                center / cover no-repeat;
         }
+
 
         .hero-content {
             width: min(720px, 100%);
+
             padding-top: 90px;
         }
+
 
         .eyebrow {
             display: inline-block;
@@ -172,6 +212,7 @@
             padding: 7px 12px;
 
             border: 1px solid rgba(183,245,45,0.35);
+
             border-radius: 999px;
 
             color: var(--lime);
@@ -180,21 +221,28 @@
             font-weight: 700;
 
             letter-spacing: .12em;
+
             text-transform: uppercase;
         }
 
+
         .hero h1 {
             font-size: clamp(52px, 8vw, 94px);
+
             line-height: .95;
+
             letter-spacing: -0.055em;
 
             margin-bottom: 28px;
         }
 
+
         .hero h1 span {
             display: block;
+
             color: var(--lime);
         }
+
 
         .hero-description {
             max-width: 600px;
@@ -202,10 +250,12 @@
             color: var(--muted);
 
             font-size: clamp(19px, 2.5vw, 25px);
+
             line-height: 1.45;
 
             margin-bottom: 26px;
         }
+
 
         .hero-tagline {
             color: white;
@@ -214,16 +264,20 @@
             font-weight: 700;
 
             letter-spacing: .08em;
+
             text-transform: uppercase;
         }
 
-        /* =========================
+
+
+        /* ========================================
            SECTIONS
-        ========================= */
+        ======================================== */
 
         section {
             padding: 120px 0;
         }
+
 
         .section-label {
             margin-bottom: 14px;
@@ -234,13 +288,16 @@
             font-weight: 700;
 
             letter-spacing: .14em;
+
             text-transform: uppercase;
         }
+
 
         .section-title {
             max-width: 800px;
 
             font-size: clamp(38px, 5vw, 62px);
+
             line-height: 1.02;
 
             letter-spacing: -0.045em;
@@ -248,61 +305,77 @@
             margin-bottom: 28px;
         }
 
+
         .section-text {
             max-width: 720px;
 
             color: var(--muted);
 
             font-size: 18px;
+
             line-height: 1.75;
         }
 
-        /* =========================
+
+
+        /* ========================================
            ABOUT
-        ========================= */
+        ======================================== */
 
         .about {
             background: var(--bg-soft);
         }
 
+
         .about-grid {
             display: grid;
+
             grid-template-columns: 1fr 1fr;
+
             gap: 80px;
 
             align-items: center;
         }
 
+
         .about-image {
             border-radius: 28px;
+
             overflow: hidden;
 
             border: 1px solid var(--line);
         }
 
+
         .about-image img {
             width: 100%;
+
             height: 520px;
 
             object-fit: cover;
         }
 
-        /* =========================
+
+
+        /* ========================================
            APPS
-        ========================= */
+        ======================================== */
 
         .apps {
             background: var(--bg);
         }
 
+
         .apps-header {
             margin-bottom: 50px;
         }
+
 
         .apps-card {
             min-height: 300px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
@@ -311,31 +384,40 @@
             padding: 50px;
 
             border: 1px solid var(--line);
+
             border-radius: 28px;
 
             background: var(--bg-card);
         }
 
+
         .apps-card h3 {
             font-size: 32px;
+
             margin-bottom: 12px;
         }
 
+
         .apps-card p {
             color: var(--muted);
+
             font-size: 17px;
         }
 
-        /* =========================
+
+
+        /* ========================================
            CONTACT
-        ========================= */
+        ======================================== */
 
         .contact {
             background: var(--bg-soft);
         }
 
+
         .contact-grid {
             display: grid;
+
             grid-template-columns: .85fr 1.15fr;
 
             gap: 80px;
@@ -343,14 +425,17 @@
             align-items: start;
         }
 
+
         .contact-description {
             color: var(--muted);
 
             font-size: 18px;
+
             line-height: 1.7;
 
             max-width: 480px;
         }
+
 
         .contact-email {
             display: inline-block;
@@ -362,30 +447,40 @@
             font-weight: 600;
         }
 
+
         .suggestion-form {
             display: flex;
+
             flex-direction: column;
+
             gap: 18px;
         }
 
+
         .form-group {
             display: flex;
+
             flex-direction: column;
+
             gap: 8px;
         }
 
+
         .form-group label {
             font-size: 13px;
+
             font-weight: 600;
 
             color: rgba(255,255,255,0.8);
         }
+
 
         .form-group input,
         .form-group textarea {
             width: 100%;
 
             border: 1px solid var(--line);
+
             border-radius: 14px;
 
             background: rgba(255,255,255,0.045);
@@ -395,6 +490,7 @@
             padding: 15px 16px;
 
             font-family: inherit;
+
             font-size: 16px;
 
             outline: none;
@@ -404,30 +500,39 @@
                 background .2s ease;
         }
 
+
         .form-group input:focus,
         .form-group textarea:focus {
             border-color: var(--lime);
+
             background: rgba(255,255,255,0.07);
         }
 
+
         .form-group textarea {
             min-height: 150px;
+
             resize: vertical;
         }
+
 
         .submit-button {
             align-self: flex-start;
 
             border: 0;
+
             border-radius: 999px;
 
             background: var(--lime);
+
             color: #071208;
 
             padding: 14px 25px;
 
             font-family: inherit;
+
             font-size: 15px;
+
             font-weight: 800;
 
             cursor: pointer;
@@ -437,20 +542,27 @@
                 background .2s ease;
         }
 
+
         .submit-button:hover {
             background: var(--lime-hover);
+
             transform: translateY(-2px);
         }
 
+
         .submit-button:disabled {
             opacity: .6;
+
             cursor: wait;
+
             transform: none;
         }
 
-        /* =========================
+
+
+        /* ========================================
            SUCCESS MESSAGE
-        ========================= */
+        ======================================== */
 
         .form-success {
             display: none;
@@ -458,14 +570,17 @@
             padding: 28px;
 
             border: 1px solid rgba(183,245,45,0.30);
+
             border-radius: 20px;
 
             background: rgba(183,245,45,0.07);
         }
 
+
         .form-success.show {
             display: block;
         }
+
 
         .form-success h3 {
             color: var(--lime);
@@ -475,14 +590,18 @@
             margin-bottom: 8px;
         }
 
+
         .form-success p {
             color: var(--muted);
         }
+
 
         .form-error {
             display: none;
 
             padding: 16px 18px;
+
+            margin-bottom: 18px;
 
             border-radius: 14px;
 
@@ -493,24 +612,30 @@
             color: #ffb4b4;
         }
 
+
         .form-error.show {
             display: block;
         }
 
-        /* =========================
+
+
+        /* ========================================
            VISION
-        ========================= */
+        ======================================== */
 
         .vision {
             background: var(--bg-dark);
         }
 
+
         .vision-inner {
             max-width: 900px;
         }
 
+
         .vision-quote {
             font-size: clamp(34px, 5vw, 64px);
+
             line-height: 1.08;
 
             letter-spacing: -0.045em;
@@ -518,13 +643,16 @@
             margin-top: 35px;
         }
 
+
         .vision-quote span {
             color: var(--lime);
         }
 
-        /* =========================
+
+
+        /* ========================================
            FOOTER
-        ========================= */
+        ======================================== */
 
         footer {
             padding: 40px 0;
@@ -534,17 +662,22 @@
             border-top: 1px solid var(--line);
         }
 
+
         .footer-inner {
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             gap: 20px;
         }
 
+
         .footer-brand {
             font-weight: 700;
         }
+
 
         .footer-email {
             color: var(--muted);
@@ -554,13 +687,16 @@
             transition: color .2s ease;
         }
 
+
         .footer-email:hover {
             color: var(--lime);
         }
 
-        /* =========================
+
+
+        /* ========================================
            RESPONSIVE
-        ========================= */
+        ======================================== */
 
         @media (max-width: 900px) {
 
@@ -570,9 +706,11 @@
                 position: absolute;
 
                 top: 75px;
+
                 right: 20px;
 
                 flex-direction: column;
+
                 align-items: stretch;
 
                 gap: 0;
@@ -584,22 +722,27 @@
                 background: #071b14;
 
                 border: 1px solid var(--line);
+
                 border-radius: 16px;
 
                 box-shadow: 0 20px 50px rgba(0,0,0,.35);
             }
 
+
             .nav-links.open {
                 display: flex;
             }
+
 
             .nav-links a {
                 padding: 12px 14px;
             }
 
+
             .menu-button {
                 display: block;
             }
+
 
             .about-grid,
             .contact-grid {
@@ -608,14 +751,18 @@
                 gap: 50px;
             }
 
+
             .about-image {
                 order: 2;
             }
+
 
             .about-image img {
                 height: 420px;
             }
         }
+
+
 
         @media (max-width: 800px) {
 
@@ -623,53 +770,74 @@
                 min-height: 680px;
             }
 
+
             .hero-content {
                 padding-top: 80px;
             }
 
+
             .hero h1 {
-                font-size: clamp(48px, 13vw, 76px);
+                font-size: clamp(
+                    48px,
+                    13vw,
+                    76px
+                );
             }
 
+
+            /* Убираем большую картинку About */
             .about-image {
                 display: none;
             }
+
 
             section {
                 padding: 90px 0;
             }
         }
 
+
+
         @media (max-width: 600px) {
 
             .container {
-                width: min(calc(100% - 28px), var(--max-width));
+                width: min(
+                    calc(100% - 28px),
+                    var(--max-width)
+                );
             }
+
 
             .nav {
                 height: 74px;
             }
 
+
             .brand {
                 font-size: 16px;
             }
+
 
             .brand img {
                 width: 34px;
                 height: 34px;
             }
 
+
             .hero {
                 min-height: 620px;
             }
+
 
             .hero-description {
                 font-size: 18px;
             }
 
+
             .hero-tagline {
                 font-size: 11px;
             }
+
 
             .apps-card {
                 min-height: 240px;
@@ -677,459 +845,642 @@
                 padding: 30px 20px;
             }
 
+
             .apps-card h3 {
                 font-size: 26px;
             }
+
 
             .submit-button {
                 width: 100%;
             }
 
+
             .footer-inner {
                 flex-direction: column;
+
                 align-items: flex-start;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
-<header>
-    <div class="container nav">
 
-        <a href="#top" class="brand">
-            <img src="logo.png" alt="Sway Digital Lab logo">
-            <span>Sway Digital Lab</span>
-        </a>
+    <!-- ========================================
+         HEADER
+    ======================================== -->
 
-        <nav class="nav-links" id="navLinks">
-            <a href="#about">About</a>
-            <a href="#apps">Apps</a>
-            <a href="#contact">Contact</a>
-        </nav>
+    <header>
 
-        <button
-            class="menu-button"
-            id="menuButton"
-            aria-label="Open menu"
-            type="button"
-        >
-            ☰
-        </button>
+        <div class="container nav">
 
-    </div>
-</header>
-
-
-<main id="top">
-
-    <!-- HERO -->
-
-    <section class="hero">
-
-        <div class="container">
-
-            <div class="hero-content">
-
-                <div class="eyebrow">
-                    Independent digital studio
-                </div>
-
-                <h1>
-                    Sway
-                    <span>DIGITAL LAB</span>
-                </h1>
-
-                <p class="hero-description">
-                    Simple tools for a brighter tomorrow.
-                </p>
-
-                <div class="hero-tagline">
-                    Ideas → Apps → Real Impact
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section class="about" id="about">
-
-        <div class="container about-grid">
-
-            <div>
-
-                <div class="section-label">
-                    About
-                </div>
-
-                <h2 class="section-title">
-                    Small ideas can create meaningful change.
-                </h2>
-
-                <p class="section-text">
-                    Sway Digital Lab is an independent digital studio focused
-                    on creating simple, useful and thoughtful digital products.
-                    We explore ideas, build applications and turn concepts
-                    into tools that can make everyday life a little easier.
-                </p>
-
-            </div>
-
-            <div class="about-image">
+            <a href="#top" class="brand">
 
                 <img
-                    src="cover.jpg"
-                    alt="Green apple in a mountain landscape"
+                    src="assets/logo.png"
+                    alt="Sway Digital Lab logo"
                 >
 
-            </div>
+                <span>
+                    Sway Digital Lab
+                </span>
+
+            </a>
+
+
+            <nav
+                class="nav-links"
+                id="navLinks"
+            >
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#apps">
+                    Apps
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+            </nav>
+
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Open menu"
+                type="button"
+            >
+                ☰
+            </button>
 
         </div>
 
-    </section>
+    </header>
 
 
-    <!-- APPS -->
 
-    <section class="apps" id="apps">
+    <!-- ========================================
+         MAIN
+    ======================================== -->
 
-        <div class="container">
+    <main id="top">
 
-            <div class="apps-header">
 
-                <div class="section-label">
-                    Apps
+        <!-- ====================================
+             HERO
+        ==================================== -->
+
+        <section class="hero">
+
+            <div class="container">
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        Independent digital studio
+                    </div>
+
+
+                    <h1>
+                        Sway
+
+                        <span>
+                            DIGITAL LAB
+                        </span>
+                    </h1>
+
+
+                    <p class="hero-description">
+                        Simple tools for a brighter tomorrow.
+                    </p>
+
+
+                    <div class="hero-tagline">
+                        Ideas → Apps → Real Impact
+                    </div>
+
                 </div>
-
-                <h2 class="section-title">
-                    Ideas becoming products.
-                </h2>
-
-                <p class="section-text">
-                    We are working on new digital products and applications.
-                    More apps are coming soon.
-                </p>
 
             </div>
 
+        </section>
 
-            <div class="apps-card">
+
+
+        <!-- ====================================
+             ABOUT
+        ==================================== -->
+
+        <section
+            class="about"
+            id="about"
+        >
+
+            <div class="container about-grid">
+
 
                 <div>
 
-                    <h3>
-                        More apps are coming
-                    </h3>
+                    <div class="section-label">
+                        About
+                    </div>
 
-                    <p>
-                        New ideas are already in development.
+
+                    <h2 class="section-title">
+                        Small ideas can create meaningful change.
+                    </h2>
+
+
+                    <p class="section-text">
+                        Sway Digital Lab is an independent digital studio
+                        focused on creating simple, useful and thoughtful
+                        digital products. We explore ideas, build applications
+                        and turn concepts into tools that can make everyday
+                        life a little easier.
                     </p>
 
                 </div>
 
-            </div>
 
-        </div>
+                <div class="about-image">
 
-    </section>
-
-
-    <!-- CONTACT -->
-
-    <section class="contact" id="contact">
-
-        <div class="container contact-grid">
-
-            <div>
-
-                <div class="section-label">
-                    Contact
-                </div>
-
-                <h2 class="section-title">
-                    Have an idea?
-                </h2>
-
-                <p class="contact-description">
-                    Have a suggestion for an app, a feature or a completely
-                    new idea? Tell us about it.
-                </p>
-
-                <a
-                    class="contact-email"
-                    href="mailto:lipniagovnikola@gmail.com"
-                >
-                    lipniagovnikola@gmail.com
-                </a>
-
-            </div>
-
-
-            <div>
-
-                <!-- SUCCESS MESSAGE -->
-
-                <div
-                    class="form-success"
-                    id="formSuccess"
-                >
-                    <h3>
-                        Thank you!
-                    </h3>
-
-                    <p>
-                        Your suggestion has been sent successfully.
-                        We really appreciate your idea.
-                    </p>
-                </div>
-
-
-                <!-- ERROR MESSAGE -->
-
-                <div
-                    class="form-error"
-                    id="formError"
-                >
-                    Something went wrong. Please try again.
-                </div>
-
-
-                <!-- FORM -->
-
-                <form
-                    class="suggestion-form"
-                    id="suggestionForm"
-                    action="https://formspree.io/f/mnpnjzon"
-                    method="POST"
-                >
-
-                    <div class="form-group">
-
-                        <label for="name">
-                            Your name
-                        </label>
-
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="Your name"
-                            autocomplete="name"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="email">
-                            Your email
-                        </label>
-
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="you@example.com"
-                            autocomplete="email"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="suggestion">
-                            Your suggestion
-                        </label>
-
-                        <textarea
-                            id="suggestion"
-                            name="suggestion"
-                            placeholder="Tell us about your idea..."
-                            required
-                        ></textarea>
-
-                    </div>
-
-
-                    <button
-                        class="submit-button"
-                        id="submitButton"
-                        type="submit"
+                    <img
+                        src="assets/cover.jpg"
+                        alt="Green apple in a mountain landscape"
                     >
-                        Send suggestion →
-                    </button>
 
-                </form>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- VISION -->
-
-    <section class="vision">
-
-        <div class="container">
-
-            <div class="vision-inner">
-
-                <div class="section-label">
-                    Our vision
-                </div>
-
-                <div class="vision-quote">
-                    Build simple things.
-                    <span>Make them useful.</span>
-                    Leave a positive impact.
                 </div>
 
             </div>
 
-        </div>
-
-    </section>
-
-</main>
+        </section>
 
 
-<!-- FOOTER -->
 
-<footer>
+        <!-- ====================================
+             APPS
+        ==================================== -->
 
-    <div class="container footer-inner">
-
-        <div class="footer-brand">
-            Sway Digital Lab
-        </div>
-
-        <a
-            class="footer-email"
-            href="mailto:lipniagovnikola@gmail.com"
+        <section
+            class="apps"
+            id="apps"
         >
-            lipniagovnikola@gmail.com
-        </a>
 
-    </div>
-
-</footer>
+            <div class="container">
 
 
-<script>
+                <div class="apps-header">
 
-    /* =========================
-       MOBILE MENU
-    ========================= */
-
-    const menuButton = document.getElementById("menuButton");
-    const navLinks = document.getElementById("navLinks");
-
-    menuButton.addEventListener("click", function () {
-
-        navLinks.classList.toggle("open");
-
-    });
+                    <div class="section-label">
+                        Apps
+                    </div>
 
 
-    navLinks.querySelectorAll("a").forEach(function(link) {
-
-        link.addEventListener("click", function() {
-
-            navLinks.classList.remove("open");
-
-        });
-
-    });
+                    <h2 class="section-title">
+                        Ideas becoming products.
+                    </h2>
 
 
-    /* =========================
-       FORMSPREE FORM
-    ========================= */
+                    <p class="section-text">
+                        We are working on new digital products and
+                        applications. More apps are coming soon.
+                    </p>
 
-    const form = document.getElementById("suggestionForm");
-    const formSuccess = document.getElementById("formSuccess");
-    const formError = document.getElementById("formError");
-    const submitButton = document.getElementById("submitButton");
+                </div>
 
-    form.addEventListener("submit", async function(event) {
 
-        event.preventDefault();
+                <div class="apps-card">
 
-        formError.classList.remove("show");
+                    <div>
 
-        submitButton.disabled = true;
-        submitButton.textContent = "Sending...";
+                        <h3>
+                            More apps are coming
+                        </h3>
 
-        const formData = new FormData(form);
 
-        try {
+                        <p>
+                            New ideas are already in development.
+                        </p>
 
-            const response = await fetch(
-                form.action,
-                {
-                    method: "POST",
-                    body: formData,
-                    headers: {
-                        "Accept": "application/json"
-                    }
-                }
-            );
+                    </div>
 
-            if (response.ok) {
+                </div>
 
-                form.reset();
+            </div>
 
-                form.style.display = "none";
+        </section>
 
-                formSuccess.classList.add("show");
 
-            } else {
 
-                formError.classList.add("show");
+        <!-- ====================================
+             CONTACT
+        ==================================== -->
 
-                submitButton.disabled = false;
-                submitButton.textContent = "Send suggestion →";
+        <section
+            class="contact"
+            id="contact"
+        >
+
+            <div class="container contact-grid">
+
+
+                <div>
+
+                    <div class="section-label">
+                        Contact
+                    </div>
+
+
+                    <h2 class="section-title">
+                        Have an idea?
+                    </h2>
+
+
+                    <p class="contact-description">
+                        Have a suggestion for an app, a feature or a
+                        completely new idea? Tell us about it.
+                    </p>
+
+
+                    <a
+                        class="contact-email"
+                        href="mailto:lipniagovnikola@gmail.com"
+                    >
+                        lipniagovnik@gmail.com
+                    </a>
+
+                </div>
+
+
+
+                <div>
+
+
+                    <!-- SUCCESS -->
+
+                    <div
+                        class="form-success"
+                        id="formSuccess"
+                    >
+
+                        <h3>
+                            Thank you!
+                        </h3>
+
+
+                        <p>
+                            Your suggestion has been sent successfully.
+                            We really appreciate your idea.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- ERROR -->
+
+                    <div
+                        class="form-error"
+                        id="formError"
+                    >
+                        Something went wrong.
+                        Please try again.
+                    </div>
+
+
+
+                    <!-- FORM -->
+
+                    <form
+                        class="suggestion-form"
+                        id="suggestionForm"
+                        action="https://formspree.io/f/mnpnjzon"
+                        method="POST"
+                    >
+
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Your name
+                            </label>
+
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Your name"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Your email
+                            </label>
+
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="suggestion">
+                                Your suggestion
+                            </label>
+
+
+                            <textarea
+                                id="suggestion"
+                                name="suggestion"
+                                placeholder="Tell us about your idea..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+
+                        <button
+                            class="submit-button"
+                            id="submitButton"
+                            type="submit"
+                        >
+                            Send suggestion →
+                        </button>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ====================================
+             VISION
+        ==================================== -->
+
+        <section class="vision">
+
+            <div class="container">
+
+                <div class="vision-inner">
+
+                    <div class="section-label">
+                        Our vision
+                    </div>
+
+
+                    <div class="vision-quote">
+
+                        Build simple things.
+
+                        <span>
+                            Make them useful.
+                        </span>
+
+                        Leave a positive impact.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+
+    <footer>
+
+        <div class="container footer-inner">
+
+
+            <div class="footer-brand">
+                Sway Digital Lab
+            </div>
+
+
+            <a
+                class="footer-email"
+                href="mailto:lipniagovnikola@gmail.com"
+            >
+                lipniagovnikola@gmail.com
+            </a>
+
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ========================================
+         JAVASCRIPT
+    ======================================== -->
+
+    <script>
+
+        /* ================================
+           MOBILE MENU
+        ================================= */
+
+        const menuButton =
+            document.getElementById("menuButton");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        menuButton.addEventListener(
+            "click",
+            function () {
+
+                navLinks.classList.toggle("open");
 
             }
-
-        } catch (error) {
-
-            formError.classList.add("show");
-
-            submitButton.disabled = false;
-            submitButton.textContent = "Send suggestion →";
-
-        }
-
-    });
-
-</script>
+        );
 
 
-<!-- STRUCTURED DATA -->
+        navLinks
+            .querySelectorAll("a")
+            .forEach(function(link) {
 
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Sway Digital Lab",
-    "url": "https://sway-nick.github.io/sway-digital-lab/",
-    "logo": "https://sway-nick.github.io/sway-digital-lab/logo.png",
-    "email": "lipniagovnikola@gmail.com"
-}
-</script>
+                link.addEventListener(
+                    "click",
+                    function() {
+
+                        navLinks.classList.remove("open");
+
+                    }
+                );
+
+            });
+
+
+
+        /* ================================
+           FORMSPREE
+        ================================= */
+
+        const form =
+            document.getElementById("suggestionForm");
+
+        const formSuccess =
+            document.getElementById("formSuccess");
+
+        const formError =
+            document.getElementById("formError");
+
+        const submitButton =
+            document.getElementById("submitButton");
+
+
+        form.addEventListener(
+            "submit",
+            async function(event) {
+
+                event.preventDefault();
+
+
+                formError.classList.remove("show");
+
+
+                submitButton.disabled = true;
+
+                submitButton.textContent =
+                    "Sending...";
+
+
+                const formData =
+                    new FormData(form);
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            form.action,
+                            {
+                                method: "POST",
+
+                                body: formData,
+
+                                headers: {
+                                    "Accept":
+                                        "application/json"
+                                }
+                            }
+                        );
+
+
+                    if (response.ok) {
+
+                        form.reset();
+
+                        form.style.display =
+                            "none";
+
+                        formSuccess.classList.add(
+                            "show"
+                        );
+
+                    } else {
+
+                        formError.classList.add(
+                            "show"
+                        );
+
+                        submitButton.disabled =
+                            false;
+
+                        submitButton.textContent =
+                            "Send suggestion →";
+                    }
+
+                }
+
+                catch (error) {
+
+                    formError.classList.add(
+                        "show"
+                    );
+
+                    submitButton.disabled =
+                        false;
+
+                    submitButton.textContent =
+                        "Send suggestion →";
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+
+    <!-- ========================================
+         STRUCTURED DATA
+    ======================================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+
+        "@type": "Organization",
+
+        "name": "Sway Digital Lab",
+
+        "url":
+            "https://sway-nick.github.io/sway-digital-lab/",
+
+        "logo":
+            "https://sway-nick.github.io/sway-digital-lab/assets/logo.png",
+
+        "email":
+            "lipniagovnikola@gmail.com"
+    }
+
+    </script>
+
 
 </body>
 </html>
