@@ -10,9 +10,7 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>
-        Sway Digital Lab — Independent Digital Studio
-    </title>
+    <title>Sway Digital Lab — Independent Digital Studio</title>
 
     <meta
         name="description"
@@ -24,11 +22,7 @@
         content="#061812"
     >
 
-
-    <!-- =========================================
-         FAVICON
-    ========================================== -->
-
+    <!-- FAVICON -->
     <link
         rel="icon"
         type="image/png"
@@ -63,6 +57,8 @@
             --line: rgba(255,255,255,0.10);
 
             --max-width: 1160px;
+
+            --header-height: 64px;
         }
 
 
@@ -161,7 +157,7 @@
 
 
         /* =========================================
-           HEADER
+           FIXED HEADER
         ========================================== */
 
         header {
@@ -176,41 +172,60 @@
 
             z-index: 1000;
 
+            height: var(--header-height);
+
+            background:
+                rgba(3, 18, 13, 0.58);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            backdrop-filter:
+                blur(18px)
+                saturate(130%);
+
+            -webkit-backdrop-filter:
+                blur(18px)
+                saturate(130%);
+
+            box-shadow:
+                0 8px 30px
+                rgba(0,0,0,0.12);
+
             pointer-events: none;
         }
 
 
-        /*
-           Header itself is fixed,
-           but the logo and menu receive clicks.
-        */
-
         .nav {
 
-            min-height: 86px;
+            width: min(
+                calc(100% - 40px),
+                var(--max-width)
+            );
+
+            height: 100%;
+
+            margin-left: auto;
+
+            margin-right: auto;
 
             display: flex;
 
             align-items: center;
 
-            justify-content: flex-end;
+            justify-content: space-between;
+
+            pointer-events: none;
         }
 
 
 
         /* =========================================
-           FIXED BRAND
+           BRAND
         ========================================== */
 
         .brand {
-
-            position: fixed;
-
-            top: 18px;
-
-            left: 24px;
-
-            z-index: 1001;
 
             display: flex;
 
@@ -218,40 +233,15 @@
 
             gap: 10px;
 
-            padding:
-                6px
-                12px
-                6px
-                6px;
-
-            border-radius: 14px;
-
-            background:
-                rgba(3,20,14,0.45);
-
-            backdrop-filter: blur(10px);
-
-            -webkit-backdrop-filter: blur(10px);
-
             color: #ffffff;
 
-            font-size: 18px;
+            font-size: 17px;
 
             font-weight: 700;
 
             letter-spacing: -0.02em;
 
             pointer-events: auto;
-
-            transition:
-                background 0.2s ease;
-        }
-
-
-        .brand:hover {
-
-            background:
-                rgba(3,20,14,0.62);
         }
 
 
@@ -264,6 +254,14 @@
             flex: 0 0 38px;
 
             object-fit: contain;
+
+            border-radius: 50%;
+        }
+
+
+        .brand span {
+
+            white-space: nowrap;
         }
 
 
@@ -318,7 +316,7 @@
 
             color: #ffffff;
 
-            font-size: 30px;
+            font-size: 29px;
 
             line-height: 1;
 
@@ -332,11 +330,12 @@
         /* =========================================
            HERO
            
-           cover.jpg is a normal image.
-           It is NOT a background.
-           
-           This prevents cropping on different
-           screen sizes.
+           ВАЖНО:
+           cover.jpg — обычная картинка,
+           а не background.
+
+           Поэтому она сохраняет свои
+           реальные пропорции на всех экранах.
         ========================================== */
 
         .hero {
@@ -903,8 +902,7 @@
         footer {
 
             padding:
-                40px
-                0;
+                40px 0;
 
             background: #030d09;
 
@@ -951,13 +949,13 @@
 
 
         /* =========================================
-           TABLET
            ≤ 1100px
         ========================================== */
 
         @media (max-width: 1100px) {
 
-            .container {
+            .container,
+            .nav {
 
                 width: min(
                     calc(100% - 36px),
@@ -982,15 +980,36 @@
 
 
         /* =========================================
-           TABLET / SMALL DESKTOP
            ≤ 900px
         ========================================== */
 
         @media (max-width: 900px) {
 
+            :root {
+
+                --header-height: 58px;
+            }
+
+
             .nav {
 
-                min-height: 74px;
+                min-height: 58px;
+            }
+
+
+            .brand {
+
+                font-size: 16px;
+            }
+
+
+            .brand img {
+
+                width: 34px;
+
+                height: 34px;
+
+                flex-basis: 34px;
             }
 
 
@@ -1000,13 +1019,15 @@
 
                 position: absolute;
 
-                top: 68px;
+                top: 66px;
 
                 right: 20px;
 
+                width: 190px;
+
                 min-width: 190px;
 
-                padding: 10px;
+                padding: 8px;
 
                 flex-direction: column;
 
@@ -1020,11 +1041,16 @@
 
                 border-radius: 16px;
 
-                background: #071b14;
+                background:
+                    rgba(5,19,14,0.94);
 
                 box-shadow:
                     0 20px 50px
                     rgba(0,0,0,0.35);
+
+                backdrop-filter: blur(18px);
+
+                -webkit-backdrop-filter: blur(18px);
             }
 
 
@@ -1076,38 +1102,53 @@
 
 
         /* =========================================
-           MOBILE
            ≤ 700px
         ========================================== */
 
         @media (max-width: 700px) {
 
-            .container {
+            .container,
+            .nav {
 
                 width:
                     calc(100% - 28px);
             }
 
 
+            :root {
+
+                --header-height: 54px;
+            }
+
+
             /*
-               FIXED LOGO
+               Compact mobile header
             */
+
+            header {
+
+                height: 54px;
+
+                background:
+                    rgba(3,18,13,0.64);
+
+                backdrop-filter:
+                    blur(16px);
+
+                -webkit-backdrop-filter:
+                    blur(16px);
+            }
+
+
+            .nav {
+
+                min-height: 54px;
+            }
+
 
             .brand {
 
-                top: 14px;
-
-                left: 14px;
-
                 gap: 8px;
-
-                padding:
-                    5px
-                    10px
-                    5px
-                    5px;
-
-                border-radius: 12px;
 
                 font-size: 15px;
             }
@@ -1123,14 +1164,28 @@
             }
 
 
+            .menu-button {
+
+                width: 40px;
+
+                height: 40px;
+
+                font-size: 27px;
+            }
+
+
+            .nav-links {
+
+                top: 61px;
+
+                right: 14px;
+            }
+
+
             /*
-               HERO
-
+               HERO:
                No fixed height.
-               No aspect-ratio.
-               No cover.
-
-               The real image ratio is preserved.
+               No background-size: cover.
             */
 
             .hero {
@@ -1154,7 +1209,7 @@
 
 
             /*
-               Hide About image on small screens.
+               Hide About image on mobile.
             */
 
             .about-image {
@@ -1213,24 +1268,40 @@
 
 
         /* =========================================
-           SMALL PHONES
            ≤ 480px
         ========================================== */
 
         @media (max-width: 480px) {
 
-            .container {
+            .container,
+            .nav {
 
                 width:
                     calc(100% - 24px);
             }
 
 
+            :root {
+
+                --header-height: 52px;
+            }
+
+
+            header {
+
+                height: 52px;
+            }
+
+
+            .nav {
+
+                min-height: 52px;
+            }
+
+
             .brand {
 
-                top: 12px;
-
-                left: 10px;
+                gap: 7px;
 
                 font-size: 14px;
             }
@@ -1238,29 +1309,29 @@
 
             .brand img {
 
-                width: 34px;
+                width: 32px;
 
-                height: 34px;
+                height: 32px;
 
-                flex-basis: 34px;
+                flex-basis: 32px;
             }
 
 
             .menu-button {
 
-                width: 40px;
+                width: 38px;
 
-                height: 40px;
+                height: 38px;
 
-                font-size: 27px;
+                font-size: 26px;
             }
 
 
             .nav-links {
 
-                top: 60px;
+                top: 59px;
 
-                right: 10px;
+                right: 12px;
             }
 
 
@@ -1331,23 +1402,18 @@
 
 
         /* =========================================
-           VERY SMALL PHONES
            ≤ 360px
         ========================================== */
 
         @media (max-width: 360px) {
 
-            .container {
+            .container,
+            .nav {
 
                 width:
                     calc(100% - 20px);
             }
 
-
-            /*
-               На очень маленьком экране
-               оставляем только круглое яблоко.
-            */
 
             .brand span {
 
@@ -1355,25 +1421,13 @@
             }
 
 
-            .brand {
-
-                top: 10px;
-
-                left: 10px;
-
-                padding: 4px;
-
-                border-radius: 12px;
-            }
-
-
             .brand img {
 
-                width: 38px;
+                width: 36px;
 
-                height: 38px;
+                height: 36px;
 
-                flex-basis: 38px;
+                flex-basis: 36px;
             }
 
 
@@ -1395,7 +1449,6 @@
 </head>
 
 
-
 <body>
 
 
@@ -1405,10 +1458,10 @@
 
     <header>
 
-        <div class="container nav">
+        <div class="nav">
 
 
-            <!-- FIXED LOGO -->
+            <!-- LOGO -->
 
             <a
                 href="#top"
@@ -1421,13 +1474,11 @@
                     alt="Sway Digital Lab logo"
                 >
 
-
                 <span>
                     Sway Digital Lab
                 </span>
 
             </a>
-
 
 
             <!-- NAVIGATION -->
@@ -1441,18 +1492,15 @@
                     About
                 </a>
 
-
                 <a href="#apps">
                     Apps
                 </a>
-
 
                 <a href="#contact">
                     Contact
                 </a>
 
             </nav>
-
 
 
             <!-- MOBILE MENU -->
@@ -1478,7 +1526,6 @@
     ========================================== -->
 
     <main id="top">
-
 
 
         <!-- =====================================
@@ -1646,7 +1693,7 @@
                 <div class="form-wrapper">
 
 
-                    <!-- SUCCESS MESSAGE -->
+                    <!-- SUCCESS -->
 
                     <div
                         class="form-success"
@@ -1667,7 +1714,7 @@
 
 
 
-                    <!-- ERROR MESSAGE -->
+                    <!-- ERROR -->
 
                     <div
                         class="form-error"
@@ -1760,7 +1807,6 @@
                         >
                             Send suggestion →
                         </button>
-
 
                     </form>
 
