@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -8,7 +10,9 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Sway Digital Lab — Independent Digital Studio</title>
+    <title>
+        Sway Digital Lab — Independent Digital Studio
+    </title>
 
     <meta
         name="description"
@@ -19,6 +23,7 @@
         name="theme-color"
         content="#061812"
     >
+
 
     <!-- =========================================
          FAVICON
@@ -45,7 +50,7 @@
 
             --bg-dark: #05130f;
 
-            --bg-card: rgba(255, 255, 255, 0.045);
+            --bg-card: rgba(255,255,255,0.045);
 
             --text: #f6f8f5;
 
@@ -55,7 +60,7 @@
 
             --lime-hover: #c9ff55;
 
-            --line: rgba(255, 255, 255, 0.10);
+            --line: rgba(255,255,255,0.10);
 
             --max-width: 1160px;
         }
@@ -69,6 +74,7 @@
         *,
         *::before,
         *::after {
+
             box-sizing: border-box;
 
             margin: 0;
@@ -78,6 +84,7 @@
 
 
         html {
+
             scroll-behavior: smooth;
 
             background: var(--bg);
@@ -86,9 +93,9 @@
 
         body {
 
-            margin: 0;
-
             min-width: 320px;
+
+            margin: 0;
 
             background: var(--bg);
 
@@ -111,6 +118,7 @@
 
 
         a {
+
             color: inherit;
 
             text-decoration: none;
@@ -118,6 +126,7 @@
 
 
         img {
+
             display: block;
 
             max-width: 100%;
@@ -127,6 +136,7 @@
         button,
         input,
         textarea {
+
             font: inherit;
         }
 
@@ -156,7 +166,7 @@
 
         header {
 
-            position: absolute;
+            position: fixed;
 
             top: 0;
 
@@ -164,9 +174,16 @@
 
             right: 0;
 
-            z-index: 100;
+            z-index: 1000;
+
+            pointer-events: none;
         }
 
+
+        /*
+           Header itself is fixed,
+           but the logo and menu receive clicks.
+        */
 
         .nav {
 
@@ -176,17 +193,45 @@
 
             align-items: center;
 
-            justify-content: space-between;
+            justify-content: flex-end;
         }
 
 
+
+        /* =========================================
+           FIXED BRAND
+        ========================================== */
+
         .brand {
+
+            position: fixed;
+
+            top: 18px;
+
+            left: 24px;
+
+            z-index: 1001;
 
             display: flex;
 
             align-items: center;
 
-            gap: 12px;
+            gap: 10px;
+
+            padding:
+                6px
+                12px
+                6px
+                6px;
+
+            border-radius: 14px;
+
+            background:
+                rgba(3,20,14,0.45);
+
+            backdrop-filter: blur(10px);
+
+            -webkit-backdrop-filter: blur(10px);
 
             color: #ffffff;
 
@@ -195,6 +240,18 @@
             font-weight: 700;
 
             letter-spacing: -0.02em;
+
+            pointer-events: auto;
+
+            transition:
+                background 0.2s ease;
+        }
+
+
+        .brand:hover {
+
+            background:
+                rgba(3,20,14,0.62);
         }
 
 
@@ -204,11 +261,16 @@
 
             height: 38px;
 
-            object-fit: contain;
-
             flex: 0 0 38px;
+
+            object-fit: contain;
         }
 
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================== */
 
         .nav-links {
 
@@ -218,17 +280,19 @@
 
             gap: 32px;
 
-            color: rgba(255, 255, 255, 0.9);
+            color:
+                rgba(255,255,255,0.92);
 
             font-size: 14px;
+
+            pointer-events: auto;
         }
 
 
         .nav-links a {
 
             transition:
-                color 0.2s ease,
-                opacity 0.2s ease;
+                color 0.2s ease;
         }
 
 
@@ -259,6 +323,8 @@
             line-height: 1;
 
             cursor: pointer;
+
+            pointer-events: auto;
         }
 
 
@@ -266,12 +332,11 @@
         /* =========================================
            HERO
            
-           ВАЖНО:
-           cover.jpg теперь НЕ background-image.
-           Это обычная картинка.
+           cover.jpg is a normal image.
+           It is NOT a background.
            
-           Поэтому она никогда не будет обрезаться
-           из-за размера экрана.
+           This prevents cropping on different
+           screen sizes.
         ========================================== */
 
         .hero {
@@ -306,7 +371,7 @@
 
 
         /* =========================================
-           GENERAL SECTIONS
+           SECTIONS
         ========================================== */
 
         section {
@@ -385,8 +450,8 @@
             display: grid;
 
             grid-template-columns:
-                minmax(0, 1fr)
-                minmax(0, 1fr);
+                minmax(0,1fr)
+                minmax(0,1fr);
 
             gap: 80px;
 
@@ -466,7 +531,9 @@
 
             text-align: center;
 
-            border: 1px solid var(--line);
+            border:
+                1px solid
+                var(--line);
 
             border-radius: 28px;
 
@@ -508,8 +575,8 @@
             display: grid;
 
             grid-template-columns:
-                minmax(0, 0.85fr)
-                minmax(0, 1.15fr);
+                minmax(0,0.85fr)
+                minmax(0,1.15fr);
 
             gap: 80px;
 
@@ -547,7 +614,8 @@
 
             word-break: break-word;
 
-            transition: color 0.2s ease;
+            transition:
+                color 0.2s ease;
         }
 
 
@@ -596,7 +664,8 @@
 
         .form-group label {
 
-            color: rgba(255, 255, 255, 0.82);
+            color:
+                rgba(255,255,255,0.82);
 
             font-size: 13px;
 
@@ -611,20 +680,22 @@
 
             min-width: 0;
 
-            border: 1px solid var(--line);
+            padding:
+                15px
+                16px;
+
+            border:
+                1px solid
+                var(--line);
 
             border-radius: 14px;
 
             outline: none;
 
             background:
-                rgba(255, 255, 255, 0.045);
+                rgba(255,255,255,0.045);
 
             color: #ffffff;
-
-            padding:
-                15px
-                16px;
 
             font-size: 16px;
 
@@ -649,7 +720,7 @@
             border-color: var(--lime);
 
             background:
-                rgba(255, 255, 255, 0.07);
+                rgba(255,255,255,0.07);
         }
 
 
@@ -723,12 +794,12 @@
 
             border:
                 1px solid
-                rgba(183, 245, 45, 0.30);
+                rgba(183,245,45,0.30);
 
             border-radius: 20px;
 
             background:
-                rgba(183, 245, 45, 0.07);
+                rgba(183,245,45,0.07);
         }
 
 
@@ -768,12 +839,12 @@
 
             border:
                 1px solid
-                rgba(255, 80, 80, 0.25);
+                rgba(255,80,80,0.25);
 
             border-radius: 14px;
 
             background:
-                rgba(255, 80, 80, 0.10);
+                rgba(255,80,80,0.10);
 
             color: #ffb4b4;
         }
@@ -881,7 +952,7 @@
 
         /* =========================================
            TABLET
-           901px → 1100px
+           ≤ 1100px
         ========================================== */
 
         @media (max-width: 1100px) {
@@ -911,7 +982,7 @@
 
 
         /* =========================================
-           TABLET
+           TABLET / SMALL DESKTOP
            ≤ 900px
         ========================================== */
 
@@ -953,7 +1024,7 @@
 
                 box-shadow:
                     0 20px 50px
-                    rgba(0, 0, 0, 0.35);
+                    rgba(0,0,0,0.35);
             }
 
 
@@ -1018,21 +1089,48 @@
             }
 
 
-            section {
+            /*
+               FIXED LOGO
+            */
 
-                padding-top: 80px;
+            .brand {
 
-                padding-bottom: 80px;
+                top: 14px;
+
+                left: 14px;
+
+                gap: 8px;
+
+                padding:
+                    5px
+                    10px
+                    5px
+                    5px;
+
+                border-radius: 12px;
+
+                font-size: 15px;
+            }
+
+
+            .brand img {
+
+                width: 34px;
+
+                height: 34px;
+
+                flex-basis: 34px;
             }
 
 
             /*
-               Самое важное:
-               Hero больше НЕ имеет фиксированной
-               высоты вообще.
+               HERO
 
-               Высота автоматически определяется
-               реальной высотой cover.jpg.
+               No fixed height.
+               No aspect-ratio.
+               No cover.
+
+               The real image ratio is preserved.
             */
 
             .hero {
@@ -1056,13 +1154,20 @@
 
 
             /*
-               На маленьком экране круглый логотип
-               в About скрываем, как договаривались.
+               Hide About image on small screens.
             */
 
             .about-image {
 
                 display: none;
+            }
+
+
+            section {
+
+                padding-top: 80px;
+
+                padding-bottom: 80px;
             }
 
 
@@ -1123,9 +1228,11 @@
 
             .brand {
 
-                gap: 9px;
+                top: 12px;
 
-                font-size: 15px;
+                left: 10px;
+
+                font-size: 14px;
             }
 
 
@@ -1151,9 +1258,9 @@
 
             .nav-links {
 
-                top: 64px;
+                top: 60px;
 
-                right: 12px;
+                right: 10px;
             }
 
 
@@ -1237,19 +1344,36 @@
             }
 
 
+            /*
+               На очень маленьком экране
+               оставляем только круглое яблоко.
+            */
+
+            .brand span {
+
+                display: none;
+            }
+
+
             .brand {
 
-                font-size: 14px;
+                top: 10px;
+
+                left: 10px;
+
+                padding: 4px;
+
+                border-radius: 12px;
             }
 
 
             .brand img {
 
-                width: 32px;
+                width: 38px;
 
-                height: 32px;
+                height: 38px;
 
-                flex-basis: 32px;
+                flex-basis: 38px;
             }
 
 
@@ -1267,6 +1391,7 @@
         }
 
     </style>
+
 </head>
 
 
@@ -1275,7 +1400,7 @@
 
 
     <!-- =========================================
-         HEADER
+         FIXED HEADER
     ========================================== -->
 
     <header>
@@ -1283,9 +1408,12 @@
         <div class="container nav">
 
 
+            <!-- FIXED LOGO -->
+
             <a
                 href="#top"
                 class="brand"
+                aria-label="Sway Digital Lab"
             >
 
                 <img
@@ -1293,12 +1421,16 @@
                     alt="Sway Digital Lab logo"
                 >
 
+
                 <span>
                     Sway Digital Lab
                 </span>
 
             </a>
 
+
+
+            <!-- NAVIGATION -->
 
             <nav
                 class="nav-links"
@@ -1321,6 +1453,9 @@
 
             </nav>
 
+
+
+            <!-- MOBILE MENU -->
 
             <button
                 class="menu-button"
@@ -1345,11 +1480,9 @@
     <main id="top">
 
 
+
         <!-- =====================================
              HERO
-
-             cover.jpg выводится как обычный img.
-             Никаких cover / aspect-ratio / fixed height.
         ====================================== -->
 
         <section class="hero">
@@ -1513,7 +1646,7 @@
                 <div class="form-wrapper">
 
 
-                    <!-- SUCCESS -->
+                    <!-- SUCCESS MESSAGE -->
 
                     <div
                         class="form-success"
@@ -1534,7 +1667,7 @@
 
 
 
-                    <!-- ERROR -->
+                    <!-- ERROR MESSAGE -->
 
                     <div
                         class="form-error"
@@ -1815,6 +1948,7 @@
 
                 submitButton.disabled = true;
 
+
                 submitButton.textContent =
                     "Sending...";
 
@@ -1829,14 +1963,18 @@
                         await fetch(
                             form.action,
                             {
+
                                 method: "POST",
 
                                 body: formData,
 
                                 headers: {
+
                                     "Accept":
                                         "application/json"
+
                                 }
+
                             }
                         );
 
@@ -1848,11 +1986,14 @@
                         form.style.display =
                             "none";
 
+
                         formSuccess.classList.add(
                             "show"
                         );
 
-                    } else {
+                    }
+
+                    else {
 
                         throw new Error(
                             "Form submission failed"
@@ -1860,7 +2001,9 @@
 
                     }
 
-                } catch (error) {
+                }
+
+                catch (error) {
 
                     formError.classList.add(
                         "show"
@@ -1887,7 +2030,9 @@
          STRUCTURED DATA
     ========================================== -->
 
-    <script type="application/ld+json">
+    <script
+        type="application/ld+json"
+    >
 
     {
         "@context": "https://schema.org",
@@ -1910,4 +2055,5 @@
 
 
 </body>
+
 </html>
