@@ -5,123 +5,158 @@
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
+    content="width=device-width, initial-scale=1"
   >
 
-  <meta name="theme-color" content="#061812">
-  <meta name="color-scheme" content="dark">
+  <meta
+    name="theme-color"
+    content="#061812"
+  >
+
+  <meta
+    name="color-scheme"
+    content="dark"
+  >
 
   <meta
     name="description"
     content="Sway Digital Lab — simple apps and digital tools for everyday life."
   >
 
-  <meta name="robots" content="index, follow">
+  <meta
+    name="robots"
+    content="index, follow"
+  >
 
-  <link rel="canonical" href="https://sway-nick.github.io/sway-digital-lab/">
+  <link
+    rel="canonical"
+    href="https://sway-nick.github.io/sway-digital-lab/"
+  >
 
   <link
     rel="icon"
     type="image/png"
-    href="assets/logo.png"
+    href="logo.png"
   >
 
   <link
     rel="apple-touch-icon"
-    href="assets/logo.png"
+    href="logo.png"
   >
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta
-    property="og:title"
-    content="Sway Digital Lab — Simple Apps for Everyday Life"
-  >
-  <meta
-    property="og:description"
-    content="Simple tools for a brighter tomorrow."
-  >
-  <meta
-    property="og:url"
-    content="https://sway-nick.github.io/sway-digital-lab/"
-  >
-  <meta
-    property="og:image"
-    content="https://sway-nick.github.io/sway-digital-lab/assets/cover.jpg"
-  >
-  <meta property="og:site_name" content="Sway Digital Lab">
-
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta
-    name="twitter:title"
-    content="Sway Digital Lab — Simple Apps for Everyday Life"
-  >
-  <meta
-    name="twitter:description"
-    content="Simple tools for a brighter tomorrow."
-  >
-  <meta
-    name="twitter:image"
-    content="https://sway-nick.github.io/sway-digital-lab/assets/cover.jpg"
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
   >
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
 
-  <title>Sway Digital Lab — Simple Apps for Everyday Life</title>
+  <!-- Open Graph -->
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Sway Digital Lab — Simple Apps"
+  >
+
+  <meta
+    property="og:description"
+    content="Simple tools for a brighter tomorrow."
+  >
+
+  <meta
+    property="og:url"
+    content="https://sway-nick.github.io/sway-digital-lab/"
+  >
+
+  <meta
+    property="og:image"
+    content="https://sway-nick.github.io/sway-digital-lab/cover.jpg"
+  >
+
+  <meta
+    property="og:site_name"
+    content="Sway Digital Lab"
+  >
+
+  <!-- Twitter -->
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <meta
+    name="twitter:title"
+    content="Sway Digital Lab — Simple Apps"
+  >
+
+  <meta
+    name="twitter:description"
+    content="Simple tools for a brighter tomorrow."
+  >
+
+  <meta
+    name="twitter:image"
+    content="https://sway-nick.github.io/sway-digital-lab/cover.jpg"
+  >
+
+  <title>
+    Sway Digital Lab — Simple Apps for Everyday Life
+  </title>
+
+
+  <!-- =====================================================
+       STYLES
+  ====================================================== -->
 
   <style>
 
-    /* =========================================================
-       VARIABLES
-    ========================================================= */
-
     :root {
+
       --bg: #061812;
-      --bg-deep: #05130f;
-      --bg-section: #081e17;
-      --bg-card: rgba(255, 255, 255, 0.055);
+      --bg-soft: #081e17;
+      --bg-dark: #05130f;
+      --bg-card: rgba(255,255,255,.055);
 
       --text: #f6f8f5;
       --muted: #b8c8c0;
-      --muted-light: #d7e1dc;
 
       --lime: #b7f52d;
       --lime-hover: #c9ff55;
 
-      --line: rgba(255, 255, 255, 0.12);
+      --line: rgba(255,255,255,.12);
 
-      --container: 1160px;
-      --radius: 22px;
+      --max-width: 1160px;
 
-      --header-height: 88px;
     }
 
 
-    /* =========================================================
-       RESET
-    ========================================================= */
-
-    *,
-    *::before,
-    *::after {
+    * {
       box-sizing: border-box;
     }
 
+
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 100px;
+      scroll-padding-top: 90px;
     }
 
+
     body {
+
       margin: 0;
-      min-width: 320px;
 
       font-family:
         Inter,
@@ -132,70 +167,69 @@
         sans-serif;
 
       background: var(--bg);
+
       color: var(--text);
 
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+
+      overflow-x: hidden;
+
     }
 
+
+    body,
+    button,
+    input,
+    textarea {
+      font-family: inherit;
+    }
+
+
     img {
-      display: block;
       max-width: 100%;
     }
+
 
     a {
       color: inherit;
       text-decoration: none;
     }
 
+
     button,
-    a {
-      -webkit-tap-highlight-color: transparent;
+    input,
+    textarea {
+      font-size: inherit;
     }
 
-
-    /* =========================================================
-       ACCESSIBILITY
-    ========================================================= */
 
     :focus-visible {
+
       outline: 3px solid var(--lime);
+
       outline-offset: 4px;
+
     }
 
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-
-    /* =========================================================
-       CONTAINER
-    ========================================================= */
 
     .container {
+
       width: min(
-        var(--container),
-        calc(100% - 40px)
+        var(--max-width),
+        calc(100% - 48px)
       );
 
       margin-inline: auto;
+
     }
 
 
-    /* =========================================================
+    /* =====================================================
        HEADER
-    ========================================================= */
+    ====================================================== */
 
     .nav {
+
       position: absolute;
 
       top: 0;
@@ -205,303 +239,469 @@
       z-index: 20;
 
       padding: 22px 0;
+
     }
+
 
     .nav-inner {
-      min-height: 44px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
 
-      gap: 20px;
+      gap: 30px;
+
     }
 
+
     .brand {
+
       display: flex;
+
       align-items: center;
 
       gap: 12px;
 
       font-weight: 700;
-      font-size: 16px;
 
       white-space: nowrap;
+
     }
 
-    .brand img {
-      width: 42px;
-      height: 42px;
 
-      flex: 0 0 auto;
+    .brand img {
+
+      width: 44px;
+      height: 44px;
 
       border-radius: 50%;
+
       border: 2px solid var(--lime);
 
       object-fit: cover;
+
     }
 
+
+    .brand span {
+
+      font-size: 16px;
+
+      letter-spacing: .01em;
+
+    }
+
+
     .links {
+
       display: flex;
+
       align-items: center;
+
       gap: 30px;
 
       color: #e6eee9;
 
       font-size: 14px;
+
     }
+
 
     .links a {
-      opacity: 0.88;
-      transition: color 0.2s ease, opacity 0.2s ease;
+
+      opacity: .9;
+
+      transition:
+        color .2s ease,
+        opacity .2s ease;
+
     }
 
 
-    /* =========================================================
+    @media (hover: hover) and (pointer: fine) {
+
+      .links a:hover {
+
+        color: var(--lime);
+
+        opacity: 1;
+
+      }
+
+    }
+
+
+    .menu-button {
+
+      display: none;
+
+      width: 44px;
+      height: 44px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 12px;
+
+      background: rgba(0,0,0,.2);
+
+      color: white;
+
+      cursor: pointer;
+
+    }
+
+
+    /* =====================================================
        HERO
-    ========================================================= */
+    ====================================================== */
 
     .hero {
+
       position: relative;
 
-      min-height: min(820px, 100svh);
+      min-height: min(
+        820px,
+        100svh
+      );
+
+      padding: 0;
 
       display: flex;
+
       align-items: flex-end;
 
       overflow: hidden;
 
-      padding: 0;
-
       background: #0b2119;
+
     }
 
+
     .hero::before {
+
       content: "";
 
       position: absolute;
+
       inset: 0;
 
       background:
+
         linear-gradient(
           90deg,
-          rgba(3, 17, 12, 0.88) 0%,
-          rgba(3, 17, 12, 0.54) 43%,
-          rgba(3, 17, 12, 0.12) 75%
+          rgba(3,17,12,.86) 0%,
+          rgba(3,17,12,.55) 45%,
+          rgba(3,17,12,.12) 78%
         ),
+
         linear-gradient(
           0deg,
-          rgba(3, 17, 12, 0.72),
-          transparent 55%
+          rgba(3,17,12,.78),
+          transparent 60%
         ),
-        url("assets/cover.jpg") center / cover no-repeat;
 
-      z-index: 0;
+        url("cover.jpg")
+        center center /
+        cover
+        no-repeat;
+
     }
 
+
     .hero-content {
+
       position: relative;
+
       z-index: 2;
 
       width: 100%;
 
-      padding: 0 0 92px;
+      padding-top: 150px;
+      padding-bottom: 76px;
 
-      max-width: 760px;
+      max-width: 780px;
+
     }
 
+
     .eyebrow {
+
       margin-bottom: 18px;
 
       color: var(--lime);
 
       font-size: 13px;
+
       font-weight: 700;
 
-      letter-spacing: 0.26em;
+      letter-spacing: .24em;
+
       text-transform: uppercase;
+
     }
 
+
     .hero h1 {
-      margin: 0 0 24px;
 
-      font-size: clamp(
-        56px,
-        9vw,
-        112px
-      );
+      margin: 0;
 
-      line-height: 0.9;
+      font-size:
+        clamp(
+          64px,
+          9vw,
+          112px
+        );
+
+      line-height: .88;
 
       font-weight: 800;
 
-      letter-spacing: -0.07em;
+      letter-spacing: -.075em;
+
     }
 
+
     .hero h1 span {
+
       display: block;
 
       margin-top: 18px;
-      margin-left: 8px;
+
+      margin-left: 6px;
 
       color: var(--lime);
 
-      font-size: clamp(
-        22px,
-        3.5vw,
-        42px
-      );
+      font-size:
+        clamp(
+          22px,
+          3.5vw,
+          42px
+        );
 
       line-height: 1;
 
-      letter-spacing: 0.34em;
+      letter-spacing: .28em;
+
     }
 
-    .hero p {
-      max-width: 620px;
 
-      margin: 28px 0;
+    .hero-description {
+
+      margin: 30px 0 0;
+
+      max-width: 620px;
 
       color: #eef5f0;
 
-      font-size: clamp(
-        18px,
-        2vw,
-        24px
-      );
+      font-size:
+        clamp(
+          18px,
+          2vw,
+          24px
+        );
+
+      line-height: 1.45;
+
     }
 
-    .hero .tagline {
-      margin-top: 0;
+
+    .tagline {
+
+      margin: 22px 0 30px;
 
       color: #d7e1dc;
 
-      font-size: 15px;
+      font-size: 14px;
 
-      letter-spacing: 0.25em;
+      letter-spacing: .22em;
 
       text-transform: uppercase;
+
     }
 
 
-    /* =========================================================
-       BUTTONS
-    ========================================================= */
+    .hero-buttons {
+
+      display: flex;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+    }
+
 
     .cta {
+
       display: inline-flex;
 
       align-items: center;
+
       justify-content: center;
 
       gap: 10px;
 
       min-height: 52px;
 
-      padding: 14px 22px;
+      padding: 14px 23px;
+
+      border-radius: 999px;
 
       background: var(--lime);
 
       color: #10200f;
 
-      border: 1px solid transparent;
-      border-radius: 999px;
+      font-size: 15px;
 
       font-weight: 800;
 
+      border: 1px solid transparent;
+
       transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
+        transform .2s ease,
+        background .2s ease;
+
     }
 
-    .ghost {
-      margin-left: 10px;
 
-      background: rgba(0, 0, 0, 0.12);
+    .cta.ghost {
 
-      color: #fff;
+      background: rgba(0,0,0,.15);
 
-      border-color: rgba(255, 255, 255, 0.28);
+      border-color:
+        rgba(255,255,255,.28);
+
+      color: white;
+
     }
+
+
+    @media (hover: hover) and (pointer: fine) {
+
+      .cta:hover {
+
+        transform: translateY(-2px);
+
+        background: var(--lime-hover);
+
+      }
+
+
+      .cta.ghost:hover {
+
+        background: rgba(255,255,255,.08);
+
+      }
+
+    }
+
 
     .scroll {
+
       position: absolute;
 
-      right: 40px;
-      bottom: 38px;
+      right: 34px;
+
+      bottom: 36px;
 
       z-index: 2;
 
       writing-mode: vertical-rl;
 
-      letter-spacing: 0.18em;
-
-      text-transform: uppercase;
+      color: #dce7e1;
 
       font-size: 11px;
 
-      color: #dce7e1;
+      letter-spacing: .18em;
 
-      opacity: 0.7;
+      text-transform: uppercase;
+
+      opacity: .7;
+
     }
 
 
-    /* =========================================================
-       GENERAL SECTIONS
-    ========================================================= */
+    /* =====================================================
+       COMMON SECTIONS
+    ====================================================== */
 
     .section {
+
       padding: 110px 0;
+
     }
+
 
     .section-head {
-      max-width: 700px;
+
+      max-width: 760px;
 
       margin-bottom: 48px;
+
     }
 
+
     .kicker {
+
       color: var(--lime);
 
       font-size: 12px;
+
       font-weight: 700;
 
-      letter-spacing: 0.22em;
+      letter-spacing: .22em;
 
       text-transform: uppercase;
+
     }
 
+
     .section-head h2 {
+
       margin: 14px 0;
 
-      font-size: clamp(
-        36px,
-        5vw,
-        62px
-      );
+      font-size:
+        clamp(
+          38px,
+          5vw,
+          62px
+        );
 
       line-height: 1.02;
 
-      letter-spacing: -0.045em;
+      letter-spacing: -.05em;
+
     }
 
+
     .section-head p {
+
+      margin: 0;
+
       color: var(--muted);
 
       font-size: 18px;
+
     }
 
 
-    /* =========================================================
+    /* =====================================================
        ABOUT
-    ========================================================= */
+    ====================================================== */
 
     .about {
-      background: var(--bg-section);
+
+      background: var(--bg-soft);
+
     }
 
+
     .about-grid {
+
       display: grid;
 
       grid-template-columns:
@@ -511,46 +711,63 @@
       gap: 70px;
 
       align-items: center;
+
     }
 
-    .about-image {
-      overflow: hidden;
 
-      border-radius: 28px;
+    .about-image {
+
+      overflow: hidden;
 
       border: 1px solid var(--line);
 
+      border-radius: 28px;
+
       box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.28);
+        0 30px 80px
+        rgba(0,0,0,.28);
+
     }
 
+
     .about-image img {
+
+      display: block;
+
       width: 100%;
-      height: auto;
 
       aspect-ratio: 1 / 1;
 
       object-fit: cover;
+
     }
 
+
     .copy p {
+
       color: var(--muted);
 
       font-size: 17px;
+
     }
 
+
     .stats {
+
       display: grid;
 
       grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+        repeat(3, 1fr);
 
       gap: 12px;
 
       margin-top: 34px;
+
     }
 
+
     .stat {
+
       min-width: 0;
 
       padding: 18px;
@@ -560,250 +777,346 @@
       border-radius: 16px;
 
       background: var(--bg-card);
+
     }
 
-    .stat b {
-      display: block;
 
-      margin-bottom: 4px;
+    .stat b {
+
+      display: block;
 
       color: var(--lime);
 
       font-size: 25px;
+
     }
 
+
     .stat span {
+
+      display: block;
+
+      margin-top: 4px;
+
       color: #a9b9b1;
 
       font-size: 12px;
+
     }
 
 
-    /* =========================================================
+    /* =====================================================
        APPS
-    ========================================================= */
+    ====================================================== */
 
     .apps {
+
       background: var(--bg);
+
     }
 
-    .app-grid {
-      display: grid;
 
-      grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+    .coming-soon {
 
-      gap: 18px;
-    }
+      max-width: 820px;
 
-    .app {
-      min-height: 250px;
-
-      display: flex;
-      flex-direction: column;
-
-      padding: 28px;
+      padding: 38px;
 
       border: 1px solid var(--line);
 
-      border-radius: var(--radius);
+      border-radius: 24px;
 
       background:
         linear-gradient(
           145deg,
-          rgba(255, 255, 255, 0.07),
-          rgba(255, 255, 255, 0.025)
+          rgba(255,255,255,.07),
+          rgba(255,255,255,.025)
         );
+
     }
 
-    .app-icon {
-      width: 58px;
-      height: 58px;
 
-      margin-bottom: 22px;
+    .coming-soon h3 {
 
-      border-radius: 17px;
+      margin: 0 0 10px;
 
-      object-fit: cover;
+      font-size: 28px;
+
     }
 
-    .app h3 {
-      margin: 0 0 8px;
 
-      font-size: 22px;
-    }
+    .coming-soon p {
 
-    .app p {
       margin: 0;
 
       color: var(--muted);
 
-      font-size: 14px;
+      font-size: 16px;
+
     }
 
-    .app .status {
-      margin-top: auto;
-      padding-top: 24px;
+
+    .status {
+
+      display: inline-block;
+
+      margin-top: 24px;
 
       color: var(--lime);
 
       font-size: 12px;
 
-      letter-spacing: 0.16em;
+      font-weight: 700;
+
+      letter-spacing: .16em;
 
       text-transform: uppercase;
 
-      font-weight: 700;
     }
 
 
-    /* =========================================================
-       CONTACTS
-    ========================================================= */
+    /* =====================================================
+       CONTACT
+    ====================================================== */
 
     .contact {
-      background: var(--bg-section);
+
+      background: var(--bg-soft);
+
     }
 
-    .contact-grid {
-      display: grid;
 
-      grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1fr);
+    .suggestion-form {
 
-      gap: 18px;
-    }
+      width: 100%;
 
-    .contact-card {
+      max-width: 760px;
+
       display: flex;
 
-      align-items: center;
+      flex-direction: column;
 
-      gap: 18px;
+      gap: 20px;
 
-      min-width: 0;
+    }
 
-      padding: 24px;
+
+    .form-field {
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 8px;
+
+    }
+
+
+    .form-field label {
+
+      color: #dce7e1;
+
+      font-size: 13px;
+
+      font-weight: 600;
+
+      letter-spacing: .04em;
+
+    }
+
+
+    .form-field input,
+    .form-field textarea {
+
+      width: 100%;
+
+      padding: 16px 18px;
 
       border: 1px solid var(--line);
 
-      border-radius: 20px;
+      border-radius: 14px;
 
-      background: var(--bg-card);
+      background: rgba(255,255,255,.045);
+
+      color: var(--text);
+
+      outline: none;
 
       transition:
-        border-color 0.2s ease,
-        transform 0.2s ease;
+        border-color .2s ease,
+        background .2s ease;
+
     }
 
-    .contact-icon {
-      width: 52px;
-      height: 52px;
 
-      flex: 0 0 52px;
+    .form-field input {
 
-      display: flex;
+      min-height: 54px;
+
+    }
+
+
+    .form-field textarea {
+
+      min-height: 160px;
+
+      resize: vertical;
+
+    }
+
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+
+      color: #81928a;
+
+    }
+
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+
+      border-color: var(--lime);
+
+      background: rgba(255,255,255,.07);
+
+    }
+
+
+    .form-submit {
+
+      align-self: flex-start;
+
+      display: inline-flex;
 
       align-items: center;
+
       justify-content: center;
 
-      border-radius: 50%;
+      gap: 12px;
 
-      background: rgba(183, 245, 45, 0.12);
+      min-height: 52px;
 
-      color: var(--lime);
+      padding: 14px 24px;
 
-      font-size: 22px;
-    }
+      border: 0;
 
-    .contact-label {
-      margin-bottom: 3px;
+      border-radius: 999px;
 
-      color: var(--muted);
+      background: var(--lime);
 
-      font-size: 12px;
+      color: #10200f;
 
-      letter-spacing: 0.16em;
+      font-weight: 800;
 
-      text-transform: uppercase;
-    }
+      cursor: pointer;
 
-    .contact-value {
-      color: #fff;
+      transition:
+        transform .2s ease,
+        background .2s ease;
 
-      font-size: 18px;
-      font-weight: 600;
-
-      overflow-wrap: anywhere;
     }
 
 
-    /* =========================================================
-       MANIFESTO
-    ========================================================= */
+    @media (hover: hover) and (pointer: fine) {
+
+      .form-submit:hover {
+
+        transform: translateY(-2px);
+
+        background: var(--lime-hover);
+
+      }
+
+    }
+
+
+    /* =====================================================
+       VISION
+    ====================================================== */
 
     .manifesto {
+
       background:
         linear-gradient(
           135deg,
           #0c291e,
           #071811
         );
+
     }
 
+
     .manifesto-box {
+
       padding: 70px 0;
 
       border-top: 1px solid var(--line);
+
       border-bottom: 1px solid var(--line);
+
     }
 
+
     .manifesto h2 {
+
       max-width: 1000px;
 
-      margin: 0;
+      margin: 14px 0 0;
 
-      font-size: clamp(
-        42px,
-        6vw,
-        80px
-      );
+      font-size:
+        clamp(
+          42px,
+          6vw,
+          80px
+        );
 
       line-height: 1;
 
-      letter-spacing: -0.055em;
+      letter-spacing: -.055em;
+
     }
 
+
     .manifesto h2 em {
+
       color: var(--lime);
 
       font-style: normal;
+
     }
 
 
-    /* =========================================================
+    /* =====================================================
        FOOTER
-    ========================================================= */
+    ====================================================== */
 
     footer {
+
       padding: 42px 0;
 
       border-top: 1px solid var(--line);
 
-      background: var(--bg-deep);
+      background: var(--bg-dark);
+
     }
+
 
     .footer-inner {
+
       display: flex;
 
-      justify-content: space-between;
       align-items: center;
 
+      justify-content: space-between;
+
       gap: 30px;
+
     }
 
+
     .footer-brand {
+
       display: flex;
 
       align-items: center;
@@ -811,9 +1124,12 @@
       gap: 12px;
 
       font-weight: 700;
+
     }
 
+
     .footer-brand img {
+
       width: 34px;
       height: 34px;
 
@@ -821,437 +1137,537 @@
 
       border: 1px solid var(--lime);
 
-      object-fit: cover;
     }
 
-    .footer-contacts {
+
+    .footer-contact {
+
       display: flex;
 
-      align-items: center;
+      flex-direction: column;
 
-      gap: 22px;
+      align-items: flex-end;
+
+      gap: 5px;
+
+    }
+
+
+    .footer-contact a {
 
       color: var(--muted);
 
       font-size: 13px;
+
+      transition: color .2s ease;
+
     }
 
-    .footer-contacts a {
-      transition: color 0.2s ease;
-    }
-
-    .footer-note {
-      color: #81928a;
-
-      font-size: 12px;
-    }
-
-
-    /* =========================================================
-       HOVER — ONLY DEVICES WITH MOUSE
-    ========================================================= */
 
     @media (hover: hover) and (pointer: fine) {
 
-      .links a:hover {
+      .footer-contact a:hover {
+
         color: var(--lime);
-        opacity: 1;
-      }
 
-      .cta:hover {
-        transform: translateY(-2px);
-        background: var(--lime-hover);
-      }
-
-      .ghost:hover {
-        background: rgba(255, 255, 255, 0.08);
-      }
-
-      .contact-card:hover {
-        transform: translateY(-2px);
-        border-color: rgba(183, 245, 45, 0.35);
-      }
-
-      .footer-contacts a:hover {
-        color: var(--lime);
       }
 
     }
 
 
-    /* =========================================================
+    .footer-note {
+
+      color: #81928a;
+
+      font-size: 12px;
+
+    }
+
+
+    /* =====================================================
        TABLET
-    ========================================================= */
+    ====================================================== */
 
     @media (max-width: 1000px) {
 
       .container {
+
         width: min(
-          var(--container),
-          calc(100% - 36px)
+          100% - 40px,
+          var(--max-width)
         );
+
       }
+
 
       .hero-content {
-        max-width: 680px;
+
+        max-width: 700px;
+
+        padding-top: 140px;
+
         padding-bottom: 70px;
+
       }
 
-      .hero h1 {
-        font-size: clamp(
-          54px,
-          10vw,
-          92px
-        );
-      }
 
       .about-grid {
+
+        grid-template-columns:
+          1fr 1fr;
+
         gap: 40px;
+
       }
 
-      .app-grid {
-        grid-template-columns:
-          repeat(2, minmax(0, 1fr));
+
+      .about-image {
+
+        border-radius: 24px;
+
+      }
+
+
+      .section {
+
+        padding: 90px 0;
+
       }
 
     }
 
 
-    /* =========================================================
-       <= 800 PX
-       
-       IMPORTANT:
-       Большой логотип/фотография в About
-       полностью скрывается.
-    ========================================================= */
+    /* =====================================================
+       MOBILE / SMALL TABLET
+    ====================================================== */
 
     @media (max-width: 800px) {
 
-      .nav {
-        padding: 16px 0;
-      }
-
       .container {
+
         width: min(
-          var(--container),
-          calc(100% - 32px)
+          100% - 32px,
+          var(--max-width)
         );
+
       }
 
-      .links {
-        gap: 16px;
 
-        font-size: 13px;
+      .nav {
+
+        padding: 16px 0;
+
       }
 
-      .brand span {
-        font-size: 14px;
-      }
 
       .brand img {
-        width: 38px;
-        height: 38px;
+
+        width: 40px;
+        height: 40px;
+
       }
 
-      .hero {
-        min-height: min(
-          760px,
-          100svh
-        );
+
+      .brand span {
+
+        font-size: 15px;
+
       }
 
-      .hero-content {
-        max-width: none;
 
-        padding:
-          0
-          0
-          58px;
-      }
+      .links {
 
-      .hero h1 {
-        font-size: clamp(
-          58px,
-          12vw,
-          82px
-        );
-      }
-
-      .hero h1 span {
-        font-size: clamp(
-          20px,
-          4vw,
-          32px
-        );
-
-        letter-spacing: 0.28em;
-      }
-
-      .hero p {
-        font-size: 19px;
-      }
-
-      .hero .tagline {
-        font-size: 13px;
-      }
-
-      .scroll {
         display: none;
-      }
 
-      /* УБИРАЕМ БОЛЬШУЮ КАРТИНКУ В ABOUT */
-      .about-image {
-        display: none;
-      }
+        position: absolute;
 
-      .about-grid {
-        grid-template-columns: 1fr;
+        top: 70px;
+
+        left: 16px;
+        right: 16px;
+
+        padding: 18px;
+
+        flex-direction: column;
+
+        align-items: stretch;
 
         gap: 0;
+
+        border: 1px solid var(--line);
+
+        border-radius: 18px;
+
+        background:
+          rgba(5,19,15,.96);
+
+        backdrop-filter: blur(14px);
+
       }
 
-      .section {
-        padding: 82px 0;
+
+      .links.open {
+
+        display: flex;
+
       }
 
-      .section-head {
-        margin-bottom: 38px;
+
+      .links a {
+
+        padding: 13px 8px;
+
       }
 
-      .app-grid {
-        grid-template-columns: 1fr;
+
+      .menu-button {
+
+        display: block;
+
       }
 
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-
-        align-items: flex-start;
-      }
-
-      .footer-contacts {
-        flex-wrap: wrap;
-      }
-
-    }
-
-
-    /* =========================================================
-       MOBILE
-    ========================================================= */
-
-    @media (max-width: 600px) {
-
-      .container {
-        width: calc(100% - 28px);
-      }
-
-      .nav {
-        padding: 14px 0;
-      }
-
-      .nav-inner {
-        align-items: center;
-      }
-
-      .brand span {
-        font-size: 13px;
-      }
-
-      .links {
-        gap: 12px;
-
-        font-size: 12px;
-      }
 
       .hero {
-        min-height: 720px;
+
+        min-height: 100svh;
+
+        align-items: flex-end;
+
       }
+
 
       .hero::before {
+
         background:
-          linear-gradient(
-            90deg,
-            rgba(3, 17, 12, 0.84),
-            rgba(3, 17, 12, 0.34)
-          ),
+
           linear-gradient(
             0deg,
-            rgba(3, 17, 12, 0.88),
-            transparent 70%
+            rgba(3,17,12,.9) 0%,
+            rgba(3,17,12,.48) 55%,
+            rgba(3,17,12,.2) 100%
           ),
-          url("assets/cover.jpg")
-          62% center / cover no-repeat;
+
+          url("cover.jpg")
+          center center /
+          cover
+          no-repeat;
+
       }
+
 
       .hero-content {
-        padding-bottom: 44px;
-      }
 
-      .eyebrow {
-        margin-bottom: 14px;
-
-        font-size: 10px;
-
-        letter-spacing: 0.20em;
-      }
-
-      .hero h1 {
-        margin-bottom: 20px;
-
-        font-size: clamp(
-          54px,
-          17vw,
-          76px
-        );
-      }
-
-      .hero h1 span {
-        margin-top: 14px;
-        margin-left: 4px;
-
-        font-size: clamp(
-          17px,
-          5vw,
-          23px
-        );
-
-        letter-spacing: 0.22em;
-      }
-
-      .hero p {
-        margin: 22px 0;
-
-        font-size: 18px;
-      }
-
-      .hero .tagline {
-        font-size: 11px;
-
-        letter-spacing: 0.18em;
-      }
-
-      .cta {
         width: 100%;
 
-        min-height: 52px;
+        max-width: none;
+
+        padding-top: 130px;
+
+        padding-bottom: 54px;
+
       }
 
-      .ghost {
-        margin:
-          10px
-          0
-          0;
+
+      .hero h1 {
+
+        font-size:
+          clamp(
+            58px,
+            16vw,
+            90px
+          );
+
       }
+
+
+      .hero h1 span {
+
+        margin-top: 14px;
+
+        font-size:
+          clamp(
+            18px,
+            5vw,
+            28px
+          );
+
+        letter-spacing: .22em;
+
+      }
+
+
+      .hero-description {
+
+        margin-top: 24px;
+
+        font-size: 18px;
+
+      }
+
+
+      .tagline {
+
+        margin: 18px 0 26px;
+
+        font-size: 12px;
+
+        letter-spacing: .16em;
+
+      }
+
+
+      .hero-buttons {
+
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+      }
+
+
+      .cta {
+
+        width: 100%;
+
+      }
+
+
+      .scroll {
+
+        display: none;
+
+      }
+
+
+      /* -----------------------------------------
+         IMPORTANT:
+         Hide the large About image below 800px
+      ------------------------------------------ */
+
+      .about-grid {
+
+        display: block;
+
+      }
+
+
+      .about-image {
+
+        display: none;
+
+      }
+
+
+      .copy {
+
+        width: 100%;
+
+      }
+
 
       .section {
-        padding: 70px 0;
+
+        padding: 76px 0;
+
       }
+
+
+      .section-head {
+
+        margin-bottom: 34px;
+
+      }
+
 
       .section-head h2 {
-        font-size: 40px;
+
+        font-size:
+          clamp(
+            36px,
+            10vw,
+            52px
+          );
+
       }
+
 
       .section-head p {
+
         font-size: 16px;
+
       }
 
-      .copy p {
-        font-size: 16px;
-      }
 
       .stats {
-        grid-template-columns: 1fr;
 
-        gap: 10px;
+        grid-template-columns:
+          repeat(3, 1fr);
+
       }
 
-      .stat {
-        padding: 16px;
+
+      .coming-soon {
+
+        padding: 28px;
+
       }
 
-      .app {
-        padding: 24px;
-
-        min-height: 220px;
-      }
 
       .manifesto-box {
-        padding: 58px 0;
+
+        padding: 55px 0;
+
       }
 
-      .manifesto h2 {
-        font-size: 48px;
-      }
 
-      .footer-contacts {
+      .footer-inner {
+
         flex-direction: column;
 
         align-items: flex-start;
 
-        gap: 10px;
+      }
+
+
+      .footer-contact {
+
+        align-items: flex-start;
+
       }
 
     }
 
 
-    /* =========================================================
-       VERY SMALL PHONES
-    ========================================================= */
+    /* =====================================================
+       SMALL PHONES
+    ====================================================== */
 
-    @media (max-width: 400px) {
+    @media (max-width: 480px) {
 
-      .links {
-        gap: 8px;
+      .container {
 
-        font-size: 11px;
+        width: calc(100% - 28px);
+
       }
 
-      .brand span {
-        display: none;
+
+      .hero-content {
+
+        padding-top: 120px;
+
+        padding-bottom: 38px;
+
       }
 
-      .hero {
-        min-height: 680px;
-      }
 
       .hero h1 {
-        font-size: 58px;
+
+        font-size: 62px;
+
       }
+
 
       .hero h1 span {
-        font-size: 17px;
+
+        font-size: 18px;
+
+        letter-spacing: .18em;
+
       }
 
-      .hero .tagline {
-        font-size: 10px;
+
+      .hero-description {
+
+        font-size: 17px;
+
       }
+
+
+      .tagline {
+
+        font-size: 11px;
+
+        letter-spacing: .12em;
+
+      }
+
+
+      .section {
+
+        padding: 68px 0;
+
+      }
+
+
+      .stats {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .stat {
+
+        padding: 16px;
+
+      }
+
+
+      .coming-soon {
+
+        padding: 24px;
+
+      }
+
+
+      .coming-soon h3 {
+
+        font-size: 24px;
+
+      }
+
+
+      .form-submit {
+
+        width: 100%;
+
+      }
+
 
       .manifesto h2 {
-        font-size: 42px;
+
+        font-size: 44px;
+
       }
 
     }
 
 
-    /* =========================================================
+    /* =====================================================
        REDUCED MOTION
-    ========================================================= */
+    ====================================================== */
 
     @media (prefers-reduced-motion: reduce) {
 
       html {
+
         scroll-behavior: auto;
+
       }
+
 
       *,
       *::before,
       *::after {
-        transition: none !important;
-        animation: none !important;
+
+        transition-duration: .01ms !important;
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
       }
 
     }
@@ -1259,17 +1675,22 @@
   </style>
 
 
-  <!-- Structured data -->
+  <!-- =====================================================
+       STRUCTURED DATA
+  ====================================================== -->
+
   <script type="application/ld+json">
+
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Sway Digital Lab",
     "url": "https://sway-nick.github.io/sway-digital-lab/",
-    "logo": "https://sway-nick.github.io/sway-digital-lab/assets/logo.png",
+    "logo": "https://sway-nick.github.io/sway-digital-lab/logo.png",
     "email": "lipniagovnikola@gmail.com",
-    "telephone": "+30955557746"
+    "description": "Independent digital studio creating simple and useful apps for everyday life."
   }
+
   </script>
 
 </head>
@@ -1277,9 +1698,10 @@
 
 <body>
 
-  <!-- =======================================================
+
+  <!-- =====================================================
        HEADER
-  ======================================================== -->
+  ====================================================== -->
 
   <header class="nav">
 
@@ -1288,32 +1710,58 @@
       <a
         class="brand"
         href="#top"
-        aria-label="Sway Digital Lab — home"
+        aria-label="Sway Digital Lab home"
       >
 
         <img
-          src="assets/logo.png"
-          width="42"
-          height="42"
+          src="logo.png"
           alt=""
+          width="44"
+          height="44"
         >
 
-        <span>Sway Digital Lab</span>
+        <span>
+          Sway Digital Lab
+        </span>
 
       </a>
 
 
       <nav
         class="links"
+        id="main-navigation"
         aria-label="Main navigation"
       >
 
-        <a href="#about">About</a>
-        <a href="#apps">Apps</a>
-        <a href="#contact">Contact</a>
-        <a href="#vision">Vision</a>
+        <a href="#about">
+          About
+        </a>
+
+        <a href="#apps">
+          Apps
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
+        <a href="#vision">
+          Vision
+        </a>
 
       </nav>
+
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-controls="main-navigation"
+        aria-expanded="false"
+        id="menu-button"
+      >
+        ☰
+      </button>
 
     </div>
 
@@ -1321,6 +1769,7 @@
 
 
   <main id="top">
+
 
     <!-- =====================================================
          HERO
@@ -1349,7 +1798,7 @@
         </h1>
 
 
-        <p>
+        <p class="hero-description">
           Simple tools for a brighter tomorrow.
         </p>
 
@@ -1359,21 +1808,25 @@
         </p>
 
 
-        <a
-          class="cta"
-          href="#apps"
-        >
-          Explore our apps
-          <span aria-hidden="true">↓</span>
-        </a>
+        <div class="hero-buttons">
+
+          <a
+            class="cta"
+            href="#apps"
+          >
+            Explore our apps
+            <span aria-hidden="true">↓</span>
+          </a>
 
 
-        <a
-          class="cta ghost"
-          href="#about"
-        >
-          About the studio
-        </a>
+          <a
+            class="cta ghost"
+            href="#about"
+          >
+            About the studio
+          </a>
+
+        </div>
 
       </div>
 
@@ -1401,18 +1854,15 @@
       <div class="container about-grid">
 
 
-        <!--
-          Этот блок автоматически скрывается
-          на экранах <= 800px.
-        -->
+        <!-- Hidden automatically below 800px -->
 
         <div class="about-image">
 
           <img
-            src="assets/logo.png"
-            width="512"
-            height="512"
-            alt="Sway Digital Lab logo"
+            src="cover.jpg"
+            alt="Green apple in a mountain landscape"
+            width="900"
+            height="900"
             loading="lazy"
           >
 
@@ -1435,19 +1885,18 @@
 
 
             <p>
-              Sway Digital Lab is an independent
-              digital studio focused on building
-              simple, thoughtful apps that solve
-              everyday problems.
+              Sway Digital Lab is an independent digital
+              studio creating simple, thoughtful apps
+              for everyday life.
             </p>
 
           </div>
 
 
           <p>
-            We combine practical technology,
-            clean interfaces and attention to detail
-            to turn ideas into useful products.
+            We combine practical technology, clean
+            interfaces and attention to detail to turn
+            ideas into useful products.
           </p>
 
 
@@ -1460,18 +1909,41 @@
           <div class="stats">
 
             <div class="stat">
-              <b>01</b>
-              <span>Simple by design</span>
+
+              <b>
+                01
+              </b>
+
+              <span>
+                Simple by design
+              </span>
+
             </div>
 
-            <div class="stat">
-              <b>02</b>
-              <span>Built for people</span>
-            </div>
 
             <div class="stat">
-              <b>03</b>
-              <span>Made to matter</span>
+
+              <b>
+                02
+              </b>
+
+              <span>
+                Built for people
+              </span>
+
+            </div>
+
+
+            <div class="stat">
+
+              <b>
+                03
+              </b>
+
+              <span>
+                Made to matter
+              </span>
+
             </div>
 
           </div>
@@ -1508,99 +1980,33 @@
 
 
           <p>
-            Focused products, clear experiences
-            and useful features — without
-            unnecessary complexity.
+            Focused products, clear experiences and
+            useful features — without unnecessary complexity.
           </p>
 
         </div>
 
 
-        <div class="app-grid">
+        <div class="coming-soon">
+
+          <h3>
+            More apps are coming.
+          </h3>
 
 
-          <article class="app">
-
-            <img
-              class="app-icon"
-              src="assets/logo.png"
-              width="58"
-              height="58"
-              alt=""
-              loading="lazy"
-            >
-
-            <h3>
-              More apps are coming
-            </h3>
-
-            <p>
-              We are working on a growing collection
-              of focused mobile tools for everyday life.
-            </p>
-
-            <div class="status">
-              In development
-            </div>
-
-          </article>
+          <p>
+            We are working on a growing collection of
+            focused mobile tools for everyday life.
+            Have an idea for an app? Tell us about it.
+          </p>
 
 
-          <article class="app">
-
-            <img
-              class="app-icon"
-              src="assets/logo.png"
-              width="58"
-              height="58"
-              alt=""
-              loading="lazy"
-            >
-
-            <h3>
-              Simple. Focused. Useful.
-            </h3>
-
-            <p>
-              Each product is designed around one
-              clear purpose, with a calm and intuitive
-              experience.
-            </p>
-
-            <div class="status">
-              Our approach
-            </div>
-
-          </article>
-
-
-          <article class="app">
-
-            <img
-              class="app-icon"
-              src="assets/logo.png"
-              width="58"
-              height="58"
-              alt=""
-              loading="lazy"
-            >
-
-            <h3>
-              Built for tomorrow
-            </h3>
-
-            <p>
-              We explore practical uses of modern
-              technology and turn promising ideas
-              into real products.
-            </p>
-
-            <div class="status">
-              Our direction
-            </div>
-
-          </article>
-
+          <a
+            class="status"
+            href="#contact"
+          >
+            Suggest an idea →
+          </a>
 
         </div>
 
@@ -1610,7 +2016,7 @@
 
 
     <!-- =====================================================
-         CONTACT
+         CONTACT / SUGGESTION
     ====================================================== -->
 
     <section
@@ -1624,90 +2030,98 @@
         <div class="section-head">
 
           <div class="kicker">
-            Contact
+            Your ideas
           </div>
 
 
           <h2 id="contact-title">
-            Let's stay in touch.
+            Have an idea?
           </h2>
 
 
           <p>
-            Have a question, an idea or want to
-            learn more about Sway Digital Lab?
-            Get in touch.
+            Tell us what you would like to see in a future
+            app or suggest an improvement.
           </p>
 
         </div>
 
 
-        <div class="contact-grid">
+        <form
+          class="suggestion-form"
+          action="mailto:lipniagovnikola@gmail.com"
+          method="post"
+          enctype="text/plain"
+        >
+
+          <div class="form-field">
+
+            <label for="name">
+              Your name
+            </label>
 
 
-          <!-- PHONE -->
+            <input
+              type="text"
+              id="name"
+              name="Name"
+              placeholder="Your name"
+              autocomplete="name"
+            >
 
-          <a
-            class="contact-card"
-            href="tel:+30955557746"
-            aria-label="Call Sway Digital Lab"
+          </div>
+
+
+          <div class="form-field">
+
+            <label for="email">
+              Your email
+            </label>
+
+
+            <input
+              type="email"
+              id="email"
+              name="Email"
+              placeholder="your@email.com"
+              autocomplete="email"
+            >
+
+          </div>
+
+
+          <div class="form-field">
+
+            <label for="suggestion">
+              Your suggestion
+            </label>
+
+
+            <textarea
+              id="suggestion"
+              name="Suggestion"
+              rows="6"
+              placeholder="Tell us your idea..."
+              required
+            ></textarea>
+
+          </div>
+
+
+          <button
+            class="form-submit"
+            type="submit"
           >
 
-            <div
-              class="contact-icon"
-              aria-hidden="true"
-            >
-              ☎
-            </div>
+            Send suggestion
 
+            <span aria-hidden="true">
+              →
+            </span>
 
-            <div>
+          </button>
 
-              <div class="contact-label">
-                Phone
-              </div>
-
-              <div class="contact-value">
-                +30 955 557 746
-              </div>
-
-            </div>
-
-          </a>
-
-
-          <!-- EMAIL -->
-
-          <a
-            class="contact-card"
-            href="mailto:lipniagovnikola@gmail.com"
-            aria-label="Email Sway Digital Lab"
-          >
-
-            <div
-              class="contact-icon"
-              aria-hidden="true"
-            >
-              ✉
-            </div>
-
-
-            <div>
-
-              <div class="contact-label">
-                Email
-              </div>
-
-              <div class="contact-value">
-                lipniagovnikola@gmail.com
-              </div>
-
-            </div>
-
-          </a>
-
-
-        </div>
+        </form>
 
       </div>
 
@@ -1732,8 +2146,15 @@
 
 
         <h2 id="vision-title">
+
           Less noise.<br>
-          More <em>useful</em> technology.
+
+          More
+          <em>
+            useful
+          </em>
+          technology.
+
         </h2>
 
       </div>
@@ -1743,9 +2164,9 @@
   </main>
 
 
-  <!-- =======================================================
+  <!-- =====================================================
        FOOTER
-  ======================================================== -->
+  ====================================================== -->
 
   <footer>
 
@@ -1755,10 +2176,10 @@
       <div class="footer-brand">
 
         <img
-          src="assets/logo.png"
+          src="logo.png"
+          alt=""
           width="34"
           height="34"
-          alt=""
         >
 
         <span>
@@ -1768,27 +2189,78 @@
       </div>
 
 
-      <div class="footer-contacts">
+      <div class="footer-contact">
 
-        <a href="tel:+30955557746">
-          +30 955 557 746
+        <a
+          href="mailto:lipniagovnikola@gmail.com"
+        >
+          lipniagovnik@gmail.com
         </a>
 
-        <a href="mailto:lipniagovnikola@gmail.com">
-          lipniagovnikola@gmail.com
-        </a>
+
+        <div class="footer-note">
+          © 2026 Sway Digital Lab · Simple Tools. Brighter Tomorrow.
+        </div>
 
       </div>
-
-
-      <div class="footer-note">
-        © 2026 Sway Digital Lab · Simple Tools. Brighter Tomorrow.
-      </div>
-
 
     </div>
 
   </footer>
+
+
+  <!-- =====================================================
+       MOBILE MENU
+  ====================================================== -->
+
+  <script>
+
+    const menuButton =
+      document.getElementById("menu-button");
+
+    const navigation =
+      document.getElementById("main-navigation");
+
+
+    menuButton.addEventListener(
+      "click",
+      function () {
+
+        const isOpen =
+          navigation.classList.toggle("open");
+
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          isOpen
+        );
+
+      }
+    );
+
+
+    navigation
+      .querySelectorAll("a")
+      .forEach(function (link) {
+
+        link.addEventListener(
+          "click",
+          function () {
+
+            navigation.classList.remove("open");
+
+            menuButton.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+          }
+        );
+
+      });
+
+  </script>
+
 
 </body>
 </html>
