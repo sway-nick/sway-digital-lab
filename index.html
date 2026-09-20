@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <meta name="theme-color" content="#071b14">
 
   <meta
@@ -10,10 +11,22 @@
     content="Sway Digital Lab — simple tools for a brighter tomorrow. Ideas → Apps → Real Impact."
   >
 
-  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/logo.png"
+  >
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -22,17 +35,32 @@
 
   <title>Sway Digital Lab</title>
 
+
   <style>
+
+    /* =========================================
+       ROOT
+       ========================================= */
+
     :root {
       --bg: #061812;
       --bg2: #0a241b;
+
       --text: #f6f8f5;
       --muted: #b8c8c0;
+
       --lime: #b7f52d;
       --lime2: #8fda19;
+
       --line: rgba(255, 255, 255, 0.12);
+
       --card: rgba(255, 255, 255, 0.055);
     }
+
+
+    /* =========================================
+       BASE
+       ========================================= */
 
     * {
       box-sizing: border-box;
@@ -44,9 +72,19 @@
 
     body {
       margin: 0;
-      font-family: Inter, system-ui, sans-serif;
+
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
       background: var(--bg);
+
       color: var(--text);
+
       line-height: 1.6;
     }
 
@@ -55,10 +93,19 @@
       text-decoration: none;
     }
 
+    img {
+      max-width: 100%;
+    }
+
     .container {
-      width: min(1160px, calc(100% - 40px));
+      width: min(
+        1160px,
+        calc(100% - 40px)
+      );
+
       margin: 0 auto;
     }
+
 
     /* =========================================
        NAVIGATION
@@ -66,32 +113,49 @@
 
     .nav {
       position: absolute;
-      z-index: 10;
+
+      z-index: 20;
+
       top: 0;
       left: 0;
       right: 0;
+
       padding: 24px 0;
     }
 
     .nav-inner {
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
     }
 
     .brand {
       display: flex;
+
       align-items: center;
+
       gap: 12px;
+
       font-weight: 700;
+
+      text-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.45);
     }
 
     .brand img {
       width: 42px;
       height: 42px;
-      border-radius: 50%;
-      border: 2px solid var(--lime);
+
       display: block;
+
+      border-radius: 50%;
+
+      border: 2px solid var(--lime);
+
+      box-shadow:
+        0 0 20px rgba(183, 245, 45, 0.25);
     }
 
     .brand span {
@@ -100,50 +164,66 @@
 
     .links {
       display: flex;
+
       gap: 28px;
+
       color: #e6eee9;
+
       font-size: 14px;
+
+      text-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.45);
     }
 
     .links a {
       opacity: 0.88;
-      transition: 0.2s ease;
+
+      transition:
+        color 0.2s ease,
+        opacity 0.2s ease;
     }
 
     .links a:hover {
       color: var(--lime);
+
       opacity: 1;
     }
+
 
     /* =========================================
        HERO
        ========================================= */
 
     .hero {
-      min-height: 820px;
       position: relative;
+
+      min-height: 820px;
+
       overflow: hidden;
 
       display: flex;
+
       align-items: flex-end;
 
       background: #071b14;
     }
 
     /*
-      ВАЖНО:
-      Cover уже содержит:
-      - SWAY
-      - DIGITAL LAB
-      - Simple Tools Brighter Tomorrow
-      - IDEAS → APPS → REAL IMPACT
+      Главный Cover уже содержит:
+      SWAY
+      DIGITAL LAB
+      Simple Tools Brighter Tomorrow
+      IDEAS → APPS → REAL IMPACT
 
-      Поэтому мы НЕ рисуем эти элементы повторно.
+      Поэтому здесь больше ничего
+      поверх него не рисуем.
     */
 
     .hero::before {
       content: "";
+
       position: absolute;
+
       inset: 0;
 
       background:
@@ -156,34 +236,38 @@
     }
 
     /*
-      Очень лёгкое затемнение снизу,
-      чтобы переход к следующему блоку
-      выглядел естественно.
+      Очень лёгкое затемнение снизу.
+      Оно помогает навигации и нижней
+      части экрана лучше читаться.
     */
 
     .hero::after {
       content: "";
+
       position: absolute;
+
       inset: 0;
 
       background:
         linear-gradient(
           to bottom,
-          rgba(3, 17, 12, 0.05) 45%,
-          rgba(3, 17, 12, 0.45) 100%
+          rgba(3, 17, 12, 0.04) 40%,
+          rgba(3, 17, 12, 0.48) 100%
         );
 
       z-index: 1;
+
       pointer-events: none;
     }
 
-    /*
-      Здесь больше нет большого текста.
-      Оставляем только кнопку.
-    */
+
+    /* =========================================
+       HERO BUTTONS
+       ========================================= */
 
     .hero-content {
       position: relative;
+
       z-index: 3;
 
       width: 100%;
@@ -191,30 +275,41 @@
       padding-bottom: 70px;
 
       display: flex;
+
       justify-content: flex-end;
     }
 
     .hero-actions {
       display: flex;
+
       align-items: center;
+
       gap: 12px;
     }
 
     .cta {
       display: inline-flex;
+
       align-items: center;
+
       justify-content: center;
+
       gap: 10px;
 
       padding: 14px 24px;
 
-      background: var(--lime);
-      color: #10200f;
-
       border-radius: 999px;
 
-      font-weight: 800;
+      background: var(--lime);
+
+      color: #10200f;
+
       font-size: 15px;
+
+      font-weight: 800;
+
+      box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.2);
 
       transition:
         transform 0.2s ease,
@@ -223,6 +318,7 @@
 
     .cta:hover {
       transform: translateY(-2px);
+
       background: #c9ff55;
     }
 
@@ -233,15 +329,21 @@
 
       color: #fff;
 
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(7px);
     }
 
     .cta.ghost:hover {
-      background: rgba(0, 0, 0, 0.35);
+      background: rgba(0, 0, 0, 0.36);
     }
+
+
+    /* =========================================
+       SCROLL INDICATOR
+       ========================================= */
 
     .scroll {
       position: absolute;
+
       z-index: 4;
 
       right: 38px;
@@ -250,6 +352,7 @@
       writing-mode: vertical-rl;
 
       letter-spacing: 0.18em;
+
       text-transform: uppercase;
 
       font-size: 10px;
@@ -258,6 +361,7 @@
 
       opacity: 0.75;
     }
+
 
     /* =========================================
        GENERAL SECTIONS
@@ -269,12 +373,15 @@
 
     .section-head {
       max-width: 700px;
+
       margin-bottom: 48px;
     }
 
     .kicker {
       font-size: 12px;
+
       letter-spacing: 0.22em;
+
       text-transform: uppercase;
 
       color: var(--lime);
@@ -283,7 +390,8 @@
     }
 
     .section-head h2 {
-      font-size: clamp(36px, 5vw, 62px);
+      font-size:
+        clamp(36px, 5vw, 62px);
 
       line-height: 1.02;
 
@@ -298,6 +406,7 @@
       font-size: 18px;
     }
 
+
     /* =========================================
        ABOUT
        ========================================= */
@@ -310,34 +419,111 @@
       display: grid;
 
       grid-template-columns:
-        1.05fr
-        0.95fr;
+        0.9fr
+        1.1fr;
 
-      gap: 70px;
+      gap: 90px;
 
       align-items: center;
     }
 
-    .about-image {
-      border-radius: 28px;
 
-      overflow: hidden;
+    /* =========================================
+       ABOUT LOGO
+       ========================================= */
 
-      border: 1px solid var(--line);
+    .about-logo {
+      position: relative;
 
-      box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.28);
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 440px;
     }
 
-    .about-image img {
-      display: block;
+    /*
+      Большой круг с логотипом.
+    */
 
-      width: 100%;
+    .about-logo::before {
+      content: "";
+
+      position: absolute;
+
+      width: min(
+        430px,
+        100%
+      );
 
       aspect-ratio: 1 / 1;
 
-      object-fit: cover;
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          rgba(183, 245, 45, 0.13),
+          rgba(183, 245, 45, 0.025) 45%,
+          transparent 70%
+        );
+
+      box-shadow:
+        0 0 100px rgba(183, 245, 45, 0.08);
     }
+
+    .about-logo-inner {
+      position: relative;
+
+      width: min(
+        380px,
+        82%
+      );
+
+      aspect-ratio: 1 / 1;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 50%;
+
+      padding: 16px;
+
+      background:
+        rgba(2, 18, 12, 0.75);
+
+      border:
+        2px solid var(--lime);
+
+      box-shadow:
+        0 0 0 10px rgba(183, 245, 45, 0.035),
+        0 0 60px rgba(183, 245, 45, 0.12),
+        0 30px 80px rgba(0, 0, 0, 0.35);
+
+      backdrop-filter: blur(5px);
+    }
+
+    .about-logo-inner img {
+      width: 100%;
+
+      height: 100%;
+
+      display: block;
+
+      object-fit: contain;
+
+      border-radius: 50%;
+    }
+
+
+    /* =========================================
+       ABOUT TEXT
+       ========================================= */
 
     .copy p {
       color: var(--muted);
@@ -359,11 +545,23 @@
     .stat {
       padding: 18px;
 
-      border: 1px solid var(--line);
+      border:
+        1px solid var(--line);
 
       border-radius: 16px;
 
       background: var(--card);
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .stat:hover {
+      transform: translateY(-3px);
+
+      border-color:
+        rgba(183, 245, 45, 0.35);
     }
 
     .stat b {
@@ -379,6 +577,7 @@
 
       font-size: 12px;
     }
+
 
     /* =========================================
        APPS
@@ -398,9 +597,16 @@
     }
 
     .app {
+      min-height: 250px;
+
       padding: 28px;
 
-      border: 1px solid var(--line);
+      display: flex;
+
+      flex-direction: column;
+
+      border:
+        1px solid var(--line);
 
       border-radius: 22px;
 
@@ -411,11 +617,16 @@
           rgba(255, 255, 255, 0.025)
         );
 
-      min-height: 250px;
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
 
-      display: flex;
+    .app:hover {
+      transform: translateY(-4px);
 
-      flex-direction: column;
+      border-color:
+        rgba(183, 245, 45, 0.3);
     }
 
     .app-icon {
@@ -459,6 +670,7 @@
       font-weight: 700;
     }
 
+
     /* =========================================
        VISION
        ========================================= */
@@ -473,22 +685,26 @@
     }
 
     .manifesto-box {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-
       padding: 70px 0;
+
+      border-top:
+        1px solid var(--line);
+
+      border-bottom:
+        1px solid var(--line);
     }
 
     .manifesto h2 {
-      font-size: clamp(42px, 6vw, 80px);
+      max-width: 1000px;
+
+      margin: 0;
+
+      font-size:
+        clamp(42px, 6vw, 80px);
 
       line-height: 1;
 
       letter-spacing: -0.055em;
-
-      margin: 0;
-
-      max-width: 1000px;
     }
 
     .manifesto h2 em {
@@ -497,6 +713,7 @@
       color: var(--lime);
     }
 
+
     /* =========================================
        FOOTER
        ========================================= */
@@ -504,7 +721,8 @@
     footer {
       padding: 42px 0;
 
-      border-top: 1px solid var(--line);
+      border-top:
+        1px solid var(--line);
 
       background: #05130f;
     }
@@ -535,7 +753,8 @@
 
       border-radius: 50%;
 
-      border: 1px solid var(--lime);
+      border:
+        1px solid var(--lime);
     }
 
     .footer-note {
@@ -544,9 +763,39 @@
       font-size: 12px;
     }
 
+
     /* =========================================
        TABLET
        ========================================= */
+
+    @media (max-width: 900px) {
+
+      .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+      }
+
+      .about-logo {
+        min-height: auto;
+
+        padding: 20px 0;
+      }
+
+      .about-logo-inner {
+        width: min(
+          360px,
+          75vw
+        );
+      }
+
+      .app-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+    }
+
 
     @media (max-width: 800px) {
 
@@ -572,12 +821,6 @@
         display: none;
       }
 
-      .about-grid {
-        grid-template-columns: 1fr;
-
-        gap: 38px;
-      }
-
       .app-grid {
         grid-template-columns: 1fr;
       }
@@ -592,7 +835,9 @@
 
         align-items: flex-start;
       }
+
     }
+
 
     /* =========================================
        MOBILE
@@ -601,10 +846,24 @@
     @media (max-width: 480px) {
 
       .container {
-        width: min(
-          100% - 28px,
-          1160px
-        );
+        width:
+          min(
+            100% - 28px,
+            1160px
+          );
+      }
+
+      .nav {
+        padding: 18px 0;
+      }
+
+      .brand img {
+        width: 38px;
+        height: 38px;
+      }
+
+      .brand span {
+        font-size: 14px;
       }
 
       .hero {
@@ -612,14 +871,13 @@
       }
 
       /*
-        На телефоне немного меняем
-        положение Cover, чтобы яблоко
-        и основной текст изображения
-        лучше помещались в экран.
+        Немного смещаем Cover на телефоне,
+        чтобы композиция выглядела лучше.
       */
 
       .hero::before {
-        background-position: 58% center;
+        background-position:
+          58% center;
       }
 
       .hero-content {
@@ -634,6 +892,16 @@
 
       .cta {
         width: 100%;
+      }
+
+      .about-logo {
+        padding: 0;
+      }
+
+      .about-logo-inner {
+        width: 78vw;
+
+        max-width: 340px;
       }
 
       .stats {
@@ -651,11 +919,15 @@
       .manifesto h2 {
         font-size: 48px;
       }
+
     }
+
   </style>
 </head>
 
+
 <body>
+
 
   <!-- =========================================
        NAVIGATION
@@ -665,24 +937,36 @@
 
     <div class="container nav-inner">
 
-      <a class="brand" href="#top">
+      <a
+        class="brand"
+        href="#top"
+      >
 
         <img
           src="assets/logo.png"
           alt="Sway Digital Lab logo"
         >
 
-        <span>Sway Digital Lab</span>
+        <span>
+          Sway Digital Lab
+        </span>
 
       </a>
 
+
       <nav class="links">
 
-        <a href="#about">About</a>
+        <a href="#about">
+          About
+        </a>
 
-        <a href="#apps">Apps</a>
+        <a href="#apps">
+          Apps
+        </a>
 
-        <a href="#vision">Vision</a>
+        <a href="#vision">
+          Vision
+        </a>
 
       </nav>
 
@@ -700,12 +984,10 @@
 
     <!-- =======================================
          HERO
-
-         Здесь используется ТВОЙ готовый Cover.
-         Никакого повторного Sway / Digital Lab.
          ======================================= -->
 
     <section class="hero">
+
 
       <div class="container hero-content">
 
@@ -719,6 +1001,7 @@
             <span>↓</span>
           </a>
 
+
           <a
             class="cta ghost"
             href="#about"
@@ -730,9 +1013,11 @@
 
       </div>
 
+
       <div class="scroll">
         Scroll to explore
       </div>
+
 
     </section>
 
@@ -749,17 +1034,26 @@
       <div class="container about-grid">
 
 
-        <div class="about-image">
+        <!-- LOGO -->
 
-          <img
-            src="assets/cover.jpg"
-            alt="Green apple in a mountain landscape"
-          >
+        <div class="about-logo">
+
+          <div class="about-logo-inner">
+
+            <img
+              src="assets/logo.png"
+              alt="Sway Digital Lab logo"
+            >
+
+          </div>
 
         </div>
 
 
+        <!-- TEXT -->
+
         <div class="copy">
+
 
           <div class="section-head">
 
@@ -767,26 +1061,29 @@
               The studio
             </div>
 
+
             <h2>
               Small ideas.<br>
               Useful products.
             </h2>
 
+
             <p>
               Sway Digital Lab is an independent
-              digital studio focused on building
-              simple, thoughtful apps that solve
-              everyday problems.
+              digital studio creating simple,
+              thoughtful apps for everyday life.
             </p>
 
           </div>
 
 
           <p>
-            We combine clean interfaces,
-            practical technology and a strong
-            attention to detail.
+            We combine practical technology,
+            clean interfaces and attention to
+            detail to turn ideas into useful
+            products.
           </p>
+
 
           <p>
             Every product starts with a simple
@@ -798,9 +1095,12 @@
 
           <div class="stats">
 
+
             <div class="stat">
 
-              <b>01</b>
+              <b>
+                01
+              </b>
 
               <span>
                 Simple by design
@@ -811,7 +1111,9 @@
 
             <div class="stat">
 
-              <b>02</b>
+              <b>
+                02
+              </b>
 
               <span>
                 Built for people
@@ -822,7 +1124,9 @@
 
             <div class="stat">
 
-              <b>03</b>
+              <b>
+                03
+              </b>
 
               <span>
                 Made to matter
@@ -830,9 +1134,12 @@
 
             </div>
 
+
           </div>
 
+
         </div>
+
 
       </div>
 
@@ -857,10 +1164,12 @@
             Our apps
           </div>
 
+
           <h2>
             Tools that stay
             out of the way.
           </h2>
+
 
           <p>
             Focused products, clear experiences
@@ -882,15 +1191,18 @@
               alt="Sway Digital Lab"
             >
 
+
             <h3>
               More apps are coming
             </h3>
+
 
             <p>
               We are working on a growing
               collection of focused mobile tools
               for everyday life.
             </p>
+
 
             <div class="status">
               In development
@@ -907,15 +1219,18 @@
               alt="Sway Digital Lab"
             >
 
+
             <h3>
               Simple. Focused. Useful.
             </h3>
+
 
             <p>
               Each product is designed around
               one clear purpose, with a calm
               and intuitive experience.
             </p>
+
 
             <div class="status">
               Our approach
@@ -932,15 +1247,18 @@
               alt="Sway Digital Lab"
             >
 
+
             <h3>
               Built for tomorrow
             </h3>
+
 
             <p>
               We explore practical uses of
               modern technology and turn
               promising ideas into real products.
             </p>
+
 
             <div class="status">
               Our direction
@@ -967,9 +1285,11 @@
 
       <div class="container manifesto-box">
 
+
         <div class="kicker">
           Our philosophy
         </div>
+
 
         <h2>
           Less noise.<br>
@@ -977,6 +1297,7 @@
           <em>useful</em>
           technology.
         </h2>
+
 
       </div>
 
@@ -1020,6 +1341,7 @@
     </div>
 
   </footer>
+
 
 </body>
 </html>
