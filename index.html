@@ -13,11 +13,11 @@
 
     <meta name="theme-color" content="#061812">
 
-    <!-- FAVICON — SAME LOGO AS THE SITE -->
+    <!-- FAVICON — TRANSPARENT APPLE -->
     <link
         rel="icon"
         type="image/png"
-        href="assets/logo.png"
+        href="assets/favicon.png"
     >
 
     <style>
@@ -64,7 +64,6 @@
                 sans-serif;
 
             background: var(--bg);
-
             color: var(--text);
 
             line-height: 1.6;
@@ -93,7 +92,6 @@
         }
 
 
-
         /* ========================================
            HEADER
         ======================================== */
@@ -113,22 +111,18 @@
             height: 86px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
         }
 
 
         .brand {
             display: flex;
-
             align-items: center;
 
             gap: 12px;
 
             font-size: 18px;
-
             font-weight: 700;
 
             letter-spacing: -0.02em;
@@ -145,7 +139,6 @@
 
         .nav-links {
             display: flex;
-
             align-items: center;
 
             gap: 32px;
@@ -181,18 +174,9 @@
         }
 
 
-
         /* ========================================
            HERO
         ======================================== */
-
-        /*
-           Вся графика и текст Hero уже находятся
-           внутри assets/cover.jpg.
-
-           Поэтому здесь специально нет
-           дополнительного HTML-текста.
-        */
 
         .hero {
             min-height: 760px;
@@ -200,7 +184,6 @@
             position: relative;
 
             display: flex;
-
             align-items: center;
 
             background:
@@ -214,10 +197,15 @@
         }
 
 
+        /*
+           В cover.jpg уже находится весь дизайн Hero,
+           поэтому дополнительный HTML-текст здесь
+           специально не используется.
+        */
+
         .hero-content {
             display: none;
         }
-
 
 
         /* ========================================
@@ -235,7 +223,6 @@
             color: var(--lime);
 
             font-size: 12px;
-
             font-weight: 700;
 
             letter-spacing: .14em;
@@ -270,7 +257,6 @@
 
             line-height: 1.75;
         }
-
 
 
         /* ========================================
@@ -327,7 +313,6 @@
         }
 
 
-
         /* ========================================
            APPS
         ======================================== */
@@ -348,7 +333,6 @@
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
             text-align: center;
@@ -375,7 +359,6 @@
 
             font-size: 17px;
         }
-
 
 
         /* ========================================
@@ -531,7 +514,6 @@
         }
 
 
-
         /* ========================================
            SUCCESS MESSAGE
         ======================================== */
@@ -590,7 +572,6 @@
         }
 
 
-
         /* ========================================
            VISION
         ======================================== */
@@ -623,7 +604,6 @@
         .vision-quote span {
             color: var(--lime);
         }
-
 
 
         /* ========================================
@@ -669,7 +649,6 @@
         }
 
 
-
         /* ========================================
            RESPONSIVE
         ======================================== */
@@ -682,7 +661,6 @@
                 position: absolute;
 
                 top: 75px;
-
                 right: 20px;
 
                 flex-direction: column;
@@ -735,18 +713,12 @@
         }
 
 
-
         @media (max-width: 800px) {
 
             .hero {
                 min-height: 680px;
             }
 
-
-            /*
-               На планшетах и телефонах
-               логотип в About скрываем.
-            */
 
             .about-image {
                 display: none;
@@ -757,7 +729,6 @@
                 padding: 90px 0;
             }
         }
-
 
 
         @media (max-width: 600px) {
@@ -882,7 +853,6 @@
     </header>
 
 
-
     <!-- ========================================
          MAIN
     ======================================== -->
@@ -890,24 +860,13 @@
     <main id="top">
 
 
-        <!-- ====================================
-             HERO
-        ==================================== -->
+        <!-- HERO -->
 
         <section class="hero">
-
-            <!--
-                cover.jpg уже содержит весь дизайн Hero.
-                Поэтому дополнительного текста здесь нет.
-            -->
-
         </section>
 
 
-
-        <!-- ====================================
-             ABOUT
-        ==================================== -->
+        <!-- ABOUT -->
 
         <section
             class="about"
@@ -954,10 +913,7 @@
         </section>
 
 
-
-        <!-- ====================================
-             APPS
-        ==================================== -->
+        <!-- APPS -->
 
         <section
             class="apps"
@@ -1009,10 +965,7 @@
         </section>
 
 
-
-        <!-- ====================================
-             CONTACT
-        ==================================== -->
+        <!-- CONTACT -->
 
         <section
             class="contact"
@@ -1042,13 +995,12 @@
 
                     <a
                         class="contact-email"
-                        href="mailto:lipniagovnik@gmail.com"
+                        href="mailto:lipniagovnikola@gmail.com"
                     >
                         lipniagovnik@gmail.com
                     </a>
 
                 </div>
-
 
 
                 <div>
@@ -1074,7 +1026,6 @@
                     </div>
 
 
-
                     <!-- ERROR MESSAGE -->
 
                     <div
@@ -1088,8 +1039,7 @@
                     </div>
 
 
-
-                    <!-- FORMSPREE FORM -->
+                    <!-- FORMSPREE -->
 
                     <form
                         class="suggestion-form"
@@ -1099,10 +1049,12 @@
                     >
 
 
+                        <!-- NAME — OPTIONAL -->
+
                         <div class="form-group">
 
                             <label for="name">
-                                Your name
+                                Your name (optional)
                             </label>
 
 
@@ -1112,17 +1064,17 @@
                                 name="name"
                                 placeholder="Your name"
                                 autocomplete="name"
-                                required
                             >
 
                         </div>
 
 
+                        <!-- EMAIL — OPTIONAL -->
 
                         <div class="form-group">
 
                             <label for="email">
-                                Your email
+                                Your email (optional)
                             </label>
 
 
@@ -1132,12 +1084,12 @@
                                 name="email"
                                 placeholder="you@example.com"
                                 autocomplete="email"
-                                required
                             >
 
                         </div>
 
 
+                        <!-- SUGGESTION — REQUIRED -->
 
                         <div class="form-group">
 
@@ -1154,7 +1106,6 @@
                             ></textarea>
 
                         </div>
-
 
 
                         <button
@@ -1175,10 +1126,7 @@
         </section>
 
 
-
-        <!-- ====================================
-             VISION
-        ==================================== -->
+        <!-- VISION -->
 
         <section class="vision">
 
@@ -1213,10 +1161,7 @@
     </main>
 
 
-
-    <!-- ========================================
-         FOOTER
-    ======================================== -->
+    <!-- FOOTER -->
 
     <footer>
 
@@ -1230,9 +1175,9 @@
 
             <a
                 class="footer-email"
-                href="mailto:lipniagovnikola@gmail.com"
+                href="mailto:lipniagovnik@gmail.com"
             >
-                lipniagovnikola@gmail.com
+                lipniagovnik@gmail.com
             </a>
 
 
@@ -1241,16 +1186,11 @@
     </footer>
 
 
-
-    <!-- ========================================
-         JAVASCRIPT
-    ======================================== -->
+    <!-- JAVASCRIPT -->
 
     <script>
 
-        /* ========================================
-           MOBILE MENU
-        ======================================== */
+        /* MOBILE MENU */
 
         const menuButton =
             document.getElementById("menuButton");
@@ -1285,10 +1225,7 @@
             });
 
 
-
-        /* ========================================
-           FORMSPREE
-        ======================================== */
+        /* FORMSPREE */
 
         const form =
             document.getElementById("suggestionForm");
@@ -1390,10 +1327,7 @@
     </script>
 
 
-
-    <!-- ========================================
-         STRUCTURED DATA
-    ======================================== -->
+    <!-- STRUCTURED DATA -->
 
     <script type="application/ld+json">
 
@@ -1411,7 +1345,7 @@
             "https://sway-nick.github.io/sway-digital-lab/assets/logo.png",
 
         "email":
-            "lipniagovnikola@gmail.com"
+            "lipniagovnik@gmail.com"
     }
 
     </script>
