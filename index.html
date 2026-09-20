@@ -13,7 +13,7 @@
 
     <meta name="theme-color" content="#061812">
 
-    <!-- FAVICON — GREEN BLOCK -->
+    <!-- GREEN BLOCK FAVICON -->
     <link
         rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23b7f52d'/%3E%3C/svg%3E"
@@ -63,6 +63,7 @@
                 sans-serif;
 
             background: var(--bg);
+
             color: var(--text);
 
             line-height: 1.6;
@@ -91,6 +92,7 @@
         }
 
 
+
         /* ========================================
            HEADER
         ======================================== */
@@ -110,18 +112,22 @@
             height: 86px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
         }
 
 
         .brand {
             display: flex;
+
             align-items: center;
 
             gap: 12px;
 
             font-size: 18px;
+
             font-weight: 700;
 
             letter-spacing: -0.02em;
@@ -138,13 +144,14 @@
 
         .nav-links {
             display: flex;
+
             align-items: center;
 
             gap: 32px;
 
             font-size: 14px;
 
-            color: rgba(255,255,255,0.82);
+            color: rgba(255,255,255,0.88);
         }
 
 
@@ -178,94 +185,34 @@
            HERO
         ======================================== */
 
+        /*
+           ВАЖНО:
+           Весь текст Hero уже находится внутри cover.jpg.
+           Поэтому здесь НЕТ дополнительного HTML-текста.
+        */
+
         .hero {
             min-height: 760px;
 
-            display: flex;
-            align-items: center;
-
             position: relative;
+
+            display: flex;
+
+            align-items: center;
 
             background:
                 linear-gradient(
                     90deg,
-                    rgba(5,19,15,0.70),
-                    rgba(5,19,15,0.20)
+                    rgba(5,19,15,0.12),
+                    rgba(5,19,15,0.04)
                 ),
                 url("assets/cover.jpg")
-                center / cover no-repeat;
+                center center / cover no-repeat;
         }
 
 
         .hero-content {
-            width: min(720px, 100%);
-
-            padding-top: 90px;
-        }
-
-
-        .eyebrow {
-            display: inline-block;
-
-            margin-bottom: 20px;
-
-            padding: 7px 12px;
-
-            border: 1px solid rgba(183,245,45,0.35);
-
-            border-radius: 999px;
-
-            color: var(--lime);
-
-            font-size: 12px;
-            font-weight: 700;
-
-            letter-spacing: .12em;
-
-            text-transform: uppercase;
-        }
-
-
-        .hero h1 {
-            font-size: clamp(52px, 8vw, 94px);
-
-            line-height: .95;
-
-            letter-spacing: -0.055em;
-
-            margin-bottom: 28px;
-        }
-
-
-        .hero h1 span {
-            display: block;
-
-            color: var(--lime);
-        }
-
-
-        .hero-description {
-            max-width: 600px;
-
-            color: var(--muted);
-
-            font-size: clamp(19px, 2.5vw, 25px);
-
-            line-height: 1.45;
-
-            margin-bottom: 26px;
-        }
-
-
-        .hero-tagline {
-            color: white;
-
-            font-size: 14px;
-            font-weight: 700;
-
-            letter-spacing: .08em;
-
-            text-transform: uppercase;
+            display: none;
         }
 
 
@@ -285,6 +232,7 @@
             color: var(--lime);
 
             font-size: 12px;
+
             font-weight: 700;
 
             letter-spacing: .14em;
@@ -296,7 +244,11 @@
         .section-title {
             max-width: 800px;
 
-            font-size: clamp(38px, 5vw, 62px);
+            font-size: clamp(
+                38px,
+                5vw,
+                62px
+            );
 
             line-height: 1.02;
 
@@ -339,20 +291,31 @@
 
 
         .about-image {
+            height: 520px;
+
             border-radius: 28px;
 
             overflow: hidden;
 
             border: 1px solid var(--line);
+
+            background: #061812;
         }
 
 
         .about-image img {
             width: 100%;
 
-            height: 520px;
+            height: 100%;
 
             object-fit: cover;
+
+            /*
+               Показываем левую часть cover.jpg.
+               Именно там находится яблоко и пейзаж,
+               а текст дизайна находится дальше справа.
+            */
+            object-position: left center;
         }
 
 
@@ -377,6 +340,7 @@
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             text-align: center;
@@ -634,7 +598,11 @@
 
 
         .vision-quote {
-            font-size: clamp(34px, 5vw, 64px);
+            font-size: clamp(
+                34px,
+                5vw,
+                64px
+            );
 
             line-height: 1.08;
 
@@ -725,7 +693,8 @@
 
                 border-radius: 16px;
 
-                box-shadow: 0 20px 50px rgba(0,0,0,.35);
+                box-shadow:
+                    0 20px 50px rgba(0,0,0,.35);
             }
 
 
@@ -758,7 +727,7 @@
 
 
             .about-image img {
-                height: 420px;
+                object-position: left center;
             }
         }
 
@@ -771,21 +740,11 @@
             }
 
 
-            .hero-content {
-                padding-top: 80px;
-            }
+            /*
+               На небольших экранах About-картинка скрывается,
+               как мы договаривались.
+            */
 
-
-            .hero h1 {
-                font-size: clamp(
-                    48px,
-                    13vw,
-                    76px
-                );
-            }
-
-
-            /* Убираем большую картинку About */
             .about-image {
                 display: none;
             }
@@ -820,22 +779,13 @@
 
             .brand img {
                 width: 34px;
+
                 height: 34px;
             }
 
 
             .hero {
                 min-height: 620px;
-            }
-
-
-            .hero-description {
-                font-size: 18px;
-            }
-
-
-            .hero-tagline {
-                font-size: 11px;
             }
 
 
@@ -878,7 +828,11 @@
 
         <div class="container nav">
 
-            <a href="#top" class="brand">
+
+            <a
+                href="#top"
+                class="brand"
+            >
 
                 <img
                     src="assets/logo.png"
@@ -940,36 +894,11 @@
 
         <section class="hero">
 
-            <div class="container">
+            <!--
+                ТЕКСТ ЗДЕСЬ НЕ НУЖЕН.
 
-                <div class="hero-content">
-
-                    <div class="eyebrow">
-                        Independent digital studio
-                    </div>
-
-
-                    <h1>
-                        Sway
-
-                        <span>
-                            DIGITAL LAB
-                        </span>
-                    </h1>
-
-
-                    <p class="hero-description">
-                        Simple tools for a brighter tomorrow.
-                    </p>
-
-
-                    <div class="hero-tagline">
-                        Ideas → Apps → Real Impact
-                    </div>
-
-                </div>
-
-            </div>
+                Он уже нарисован внутри cover.jpg.
+            -->
 
         </section>
 
@@ -1114,7 +1043,7 @@
                         class="contact-email"
                         href="mailto:lipniagovnikola@gmail.com"
                     >
-                        lipniagovnik@gmail.com
+                        lipniagovnikola@gmail.com
                     </a>
 
                 </div>
@@ -1124,7 +1053,7 @@
                 <div>
 
 
-                    <!-- SUCCESS -->
+                    <!-- SUCCESS MESSAGE -->
 
                     <div
                         class="form-success"
@@ -1145,19 +1074,21 @@
 
 
 
-                    <!-- ERROR -->
+                    <!-- ERROR MESSAGE -->
 
                     <div
                         class="form-error"
                         id="formError"
                     >
+
                         Something went wrong.
                         Please try again.
+
                     </div>
 
 
 
-                    <!-- FORM -->
+                    <!-- FORMSPREE FORM -->
 
                     <form
                         class="suggestion-form"
@@ -1316,9 +1247,9 @@
 
     <script>
 
-        /* ================================
+        /* ========================================
            MOBILE MENU
-        ================================= */
+        ======================================== */
 
         const menuButton =
             document.getElementById("menuButton");
@@ -1354,9 +1285,9 @@
 
 
 
-        /* ================================
+        /* ========================================
            FORMSPREE
-        ================================= */
+        ======================================== */
 
         const form =
             document.getElementById("suggestionForm");
@@ -1420,7 +1351,9 @@
                             "show"
                         );
 
-                    } else {
+                    }
+
+                    else {
 
                         formError.classList.add(
                             "show"
@@ -1431,6 +1364,7 @@
 
                         submitButton.textContent =
                             "Send suggestion →";
+
                     }
 
                 }
