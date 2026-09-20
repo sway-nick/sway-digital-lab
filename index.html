@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Sway Digital Lab — Independent Digital Studio</title>
 
@@ -11,48 +15,85 @@
         content="Sway Digital Lab — independent digital studio creating simple tools for a brighter tomorrow."
     >
 
-    <meta name="theme-color" content="#061812">
+    <meta
+        name="theme-color"
+        content="#061812"
+    >
 
-    <!-- FAVICON -->
+    <!-- =========================================
+         FAVICON
+    ========================================== -->
+
     <link
         rel="icon"
         type="image/png"
         href="assets/favicon.png"
     >
 
+
     <style>
 
+        /* =========================================
+           ROOT
+        ========================================== */
+
         :root {
+
             --bg: #061812;
+
             --bg-soft: #081e17;
+
             --bg-dark: #05130f;
-            --bg-card: rgba(255,255,255,0.045);
+
+            --bg-card: rgba(255, 255, 255, 0.045);
 
             --text: #f6f8f5;
+
             --muted: #b8c8c0;
 
             --lime: #b7f52d;
+
             --lime-hover: #c9ff55;
 
-            --line: rgba(255,255,255,0.10);
+            --line: rgba(255, 255, 255, 0.10);
 
             --max-width: 1160px;
         }
 
 
-        * {
+
+        /* =========================================
+           RESET
+        ========================================== */
+
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
+
             margin: 0;
+
             padding: 0;
         }
 
 
         html {
             scroll-behavior: smooth;
+
+            background: var(--bg);
         }
 
 
         body {
+
+            margin: 0;
+
+            min-width: 320px;
+
+            background: var(--bg);
+
+            color: var(--text);
+
             font-family:
                 Inter,
                 -apple-system,
@@ -63,67 +104,94 @@
                 Arial,
                 sans-serif;
 
-            background: var(--bg);
-            color: var(--text);
-
             line-height: 1.6;
+
+            overflow-x: hidden;
         }
 
 
         a {
             color: inherit;
+
             text-decoration: none;
         }
 
 
         img {
-            max-width: 100%;
             display: block;
+
+            max-width: 100%;
         }
 
 
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+
+
+        /* =========================================
+           CONTAINER
+        ========================================== */
+
         .container {
+
             width: min(
                 calc(100% - 40px),
                 var(--max-width)
             );
 
-            margin: 0 auto;
+            margin-left: auto;
+
+            margin-right: auto;
         }
 
 
 
-        /* ========================================
+        /* =========================================
            HEADER
-        ======================================== */
+        ========================================== */
 
         header {
+
             position: absolute;
 
             top: 0;
+
             left: 0;
+
             right: 0;
 
-            z-index: 20;
+            z-index: 100;
         }
 
 
         .nav {
-            height: 86px;
+
+            min-height: 86px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
         }
 
 
         .brand {
+
             display: flex;
+
             align-items: center;
 
             gap: 12px;
 
+            color: #ffffff;
+
             font-size: 18px;
+
             font-weight: 700;
 
             letter-spacing: -0.02em;
@@ -131,103 +199,149 @@
 
 
         .brand img {
+
             width: 38px;
+
             height: 38px;
 
             object-fit: contain;
+
+            flex: 0 0 38px;
         }
 
 
         .nav-links {
+
             display: flex;
+
             align-items: center;
 
             gap: 32px;
 
-            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
 
-            color: rgba(255,255,255,0.88);
+            font-size: 14px;
         }
 
 
         .nav-links a {
-            transition: color .2s ease;
+
+            transition:
+                color 0.2s ease,
+                opacity 0.2s ease;
         }
 
 
         .nav-links a:hover {
+
             color: var(--lime);
         }
 
 
         .menu-button {
+
             display: none;
+
+            width: 42px;
+
+            height: 42px;
+
+            padding: 0;
 
             border: 0;
 
             background: transparent;
 
-            color: white;
+            color: #ffffff;
 
-            font-size: 28px;
+            font-size: 30px;
+
+            line-height: 1;
 
             cursor: pointer;
         }
 
 
 
-        /* ========================================
+        /* =========================================
            HERO
-        ======================================== */
-
-        /*
-           На компьютере cover занимает весь Hero.
-           cover.jpg содержит готовый дизайн,
-           поэтому дополнительного текста здесь нет.
-        */
+           
+           ВАЖНО:
+           cover.jpg теперь НЕ background-image.
+           Это обычная картинка.
+           
+           Поэтому она никогда не будет обрезаться
+           из-за размера экрана.
+        ========================================== */
 
         .hero {
-            min-height: 760px;
 
-            position: relative;
+            width: 100%;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(5,19,15,0.12),
-                    rgba(5,19,15,0.04)
-                ),
-                url("assets/cover.jpg")
-                center center / cover no-repeat;
+            margin: 0;
+
+            padding: 0;
+
+            background: var(--bg-dark);
+
+            overflow: hidden;
+        }
+
+
+        .hero-image {
+
+            display: block;
+
+            width: 100%;
+
+            height: auto;
+
+            max-width: none;
+
+            margin: 0;
+
+            padding: 0;
         }
 
 
 
-        /* ========================================
-           SECTIONS
-        ======================================== */
+        /* =========================================
+           GENERAL SECTIONS
+        ========================================== */
 
         section {
-            padding: 120px 0;
+
+            padding-top: 120px;
+
+            padding-bottom: 120px;
         }
 
 
         .section-label {
-            margin-bottom: 14px;
+
+            margin-bottom: 16px;
 
             color: var(--lime);
 
             font-size: 12px;
+
             font-weight: 700;
 
-            letter-spacing: .14em;
+            line-height: 1.2;
+
+            letter-spacing: 0.14em;
 
             text-transform: uppercase;
         }
 
 
         .section-title {
+
             max-width: 800px;
+
+            margin-bottom: 28px;
+
+            color: var(--text);
 
             font-size: clamp(
                 38px,
@@ -235,15 +349,16 @@
                 62px
             );
 
+            font-weight: 700;
+
             line-height: 1.02;
 
             letter-spacing: -0.045em;
-
-            margin-bottom: 28px;
         }
 
 
         .section-text {
+
             max-width: 720px;
 
             color: var(--muted);
@@ -255,19 +370,23 @@
 
 
 
-        /* ========================================
+        /* =========================================
            ABOUT
-        ======================================== */
+        ========================================== */
 
         .about {
+
             background: var(--bg-soft);
         }
 
 
         .about-grid {
+
             display: grid;
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns:
+                minmax(0, 1fr)
+                minmax(0, 1fr);
 
             gap: 80px;
 
@@ -275,29 +394,41 @@
         }
 
 
+        .about-copy {
+
+            min-width: 0;
+        }
+
+
         .about-image {
-            width: 420px;
-            height: 420px;
+
+            width: min(
+                420px,
+                100%
+            );
+
+            aspect-ratio: 1 / 1;
 
             margin-left: auto;
 
             display: flex;
 
             align-items: center;
-            justify-content: center;
 
-            border-radius: 50%;
+            justify-content: center;
 
             overflow: hidden;
 
             background: transparent;
 
-            border: none;
+            border: 0;
         }
 
 
         .about-image img {
+
             width: 100%;
+
             height: 100%;
 
             object-fit: contain;
@@ -305,31 +436,35 @@
 
 
 
-        /* ========================================
+        /* =========================================
            APPS
-        ======================================== */
+        ========================================== */
 
         .apps {
+
             background: var(--bg);
         }
 
 
         .apps-header {
+
             margin-bottom: 50px;
         }
 
 
         .apps-card {
+
             min-height: 300px;
 
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
-            text-align: center;
-
             padding: 50px;
+
+            text-align: center;
 
             border: 1px solid var(--line);
 
@@ -340,13 +475,17 @@
 
 
         .apps-card h3 {
-            font-size: 32px;
 
             margin-bottom: 12px;
+
+            font-size: 32px;
+
+            line-height: 1.15;
         }
 
 
         .apps-card p {
+
             color: var(--muted);
 
             font-size: 17px;
@@ -354,19 +493,23 @@
 
 
 
-        /* ========================================
+        /* =========================================
            CONTACT
-        ======================================== */
+        ========================================== */
 
         .contact {
+
             background: var(--bg-soft);
         }
 
 
         .contact-grid {
+
             display: grid;
 
-            grid-template-columns: .85fr 1.15fr;
+            grid-template-columns:
+                minmax(0, 0.85fr)
+                minmax(0, 1.15fr);
 
             gap: 80px;
 
@@ -374,18 +517,26 @@
         }
 
 
+        .contact-copy {
+
+            min-width: 0;
+        }
+
+
         .contact-description {
+
+            max-width: 480px;
+
             color: var(--muted);
 
             font-size: 18px;
 
             line-height: 1.7;
-
-            max-width: 480px;
         }
 
 
         .contact-email {
+
             display: inline-block;
 
             margin-top: 25px;
@@ -393,10 +544,36 @@
             color: var(--lime);
 
             font-weight: 600;
+
+            word-break: break-word;
+
+            transition: color 0.2s ease;
+        }
+
+
+        .contact-email:hover {
+
+            color: var(--lime-hover);
+        }
+
+
+
+        /* =========================================
+           FORM
+        ========================================== */
+
+        .form-wrapper {
+
+            width: 100%;
+
+            min-width: 0;
         }
 
 
         .suggestion-form {
+
+            width: 100%;
+
             display: flex;
 
             flex-direction: column;
@@ -406,6 +583,9 @@
 
 
         .form-group {
+
+            width: 100%;
+
             display: flex;
 
             flex-direction: column;
@@ -415,49 +595,66 @@
 
 
         .form-group label {
+
+            color: rgba(255, 255, 255, 0.82);
+
             font-size: 13px;
 
             font-weight: 600;
-
-            color: rgba(255,255,255,0.8);
         }
 
 
         .form-group input,
         .form-group textarea {
+
             width: 100%;
+
+            min-width: 0;
 
             border: 1px solid var(--line);
 
             border-radius: 14px;
 
-            background: rgba(255,255,255,0.045);
+            outline: none;
 
-            color: white;
+            background:
+                rgba(255, 255, 255, 0.045);
 
-            padding: 15px 16px;
+            color: #ffffff;
 
-            font-family: inherit;
+            padding:
+                15px
+                16px;
 
             font-size: 16px;
 
-            outline: none;
+            line-height: 1.4;
 
             transition:
-                border-color .2s ease,
-                background .2s ease;
+                border-color 0.2s ease,
+                background 0.2s ease;
+        }
+
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+
+            color: #7d9289;
         }
 
 
         .form-group input:focus,
         .form-group textarea:focus {
+
             border-color: var(--lime);
 
-            background: rgba(255,255,255,0.07);
+            background:
+                rgba(255, 255, 255, 0.07);
         }
 
 
         .form-group textarea {
+
             min-height: 150px;
 
             resize: vertical;
@@ -465,7 +662,14 @@
 
 
         .submit-button {
+
             align-self: flex-start;
+
+            min-height: 52px;
+
+            padding:
+                14px
+                26px;
 
             border: 0;
 
@@ -475,10 +679,6 @@
 
             color: #071208;
 
-            padding: 14px 25px;
-
-            font-family: inherit;
-
             font-size: 15px;
 
             font-weight: 800;
@@ -486,12 +686,14 @@
             cursor: pointer;
 
             transition:
-                transform .2s ease,
-                background .2s ease;
+                transform 0.2s ease,
+                background 0.2s ease,
+                opacity 0.2s ease;
         }
 
 
         .submit-button:hover {
+
             background: var(--lime-hover);
 
             transform: translateY(-2px);
@@ -499,7 +701,8 @@
 
 
         .submit-button:disabled {
-            opacity: .6;
+
+            opacity: 0.6;
 
             cursor: wait;
 
@@ -508,80 +711,101 @@
 
 
 
-        /* ========================================
-           SUCCESS / ERROR
-        ======================================== */
+        /* =========================================
+           FORM SUCCESS
+        ========================================== */
 
         .form-success {
+
             display: none;
 
             padding: 28px;
 
-            border: 1px solid rgba(183,245,45,0.30);
+            border:
+                1px solid
+                rgba(183, 245, 45, 0.30);
 
             border-radius: 20px;
 
-            background: rgba(183,245,45,0.07);
+            background:
+                rgba(183, 245, 45, 0.07);
         }
 
 
         .form-success.show {
+
             display: block;
         }
 
 
         .form-success h3 {
+
+            margin-bottom: 8px;
+
             color: var(--lime);
 
             font-size: 28px;
 
-            margin-bottom: 8px;
+            line-height: 1.2;
         }
 
 
         .form-success p {
+
             color: var(--muted);
         }
 
 
         .form-error {
-            display: none;
 
-            padding: 16px 18px;
+            display: none;
 
             margin-bottom: 18px;
 
+            padding:
+                16px
+                18px;
+
+            border:
+                1px solid
+                rgba(255, 80, 80, 0.25);
+
             border-radius: 14px;
 
-            background: rgba(255,80,80,0.10);
-
-            border: 1px solid rgba(255,80,80,0.25);
+            background:
+                rgba(255, 80, 80, 0.10);
 
             color: #ffb4b4;
         }
 
 
         .form-error.show {
+
             display: block;
         }
 
 
 
-        /* ========================================
+        /* =========================================
            VISION
-        ======================================== */
+        ========================================== */
 
         .vision {
+
             background: var(--bg-dark);
         }
 
 
         .vision-inner {
+
             max-width: 900px;
         }
 
 
         .vision-quote {
+
+            margin-top: 35px;
+
             font-size: clamp(
                 34px,
                 5vw,
@@ -591,31 +815,36 @@
             line-height: 1.08;
 
             letter-spacing: -0.045em;
-
-            margin-top: 35px;
         }
 
 
         .vision-quote span {
+
             color: var(--lime);
         }
 
 
 
-        /* ========================================
+        /* =========================================
            FOOTER
-        ======================================== */
+        ========================================== */
 
         footer {
-            padding: 40px 0;
+
+            padding:
+                40px
+                0;
 
             background: #030d09;
 
-            border-top: 1px solid var(--line);
+            border-top:
+                1px solid
+                var(--line);
         }
 
 
         .footer-inner {
+
             display: flex;
 
             align-items: center;
@@ -627,38 +856,86 @@
 
 
         .footer-brand {
+
             font-weight: 700;
         }
 
 
         .footer-email {
+
             color: var(--muted);
 
             font-size: 14px;
 
-            transition: color .2s ease;
+            transition:
+                color 0.2s ease;
         }
 
 
         .footer-email:hover {
+
             color: var(--lime);
         }
 
 
 
-        /* ========================================
+        /* =========================================
            TABLET
-        ======================================== */
+           901px → 1100px
+        ========================================== */
+
+        @media (max-width: 1100px) {
+
+            .container {
+
+                width: min(
+                    calc(100% - 36px),
+                    var(--max-width)
+                );
+            }
+
+
+            .about-grid {
+
+                gap: 50px;
+            }
+
+
+            .contact-grid {
+
+                gap: 50px;
+            }
+
+        }
+
+
+
+        /* =========================================
+           TABLET
+           ≤ 900px
+        ========================================== */
 
         @media (max-width: 900px) {
 
+            .nav {
+
+                min-height: 74px;
+            }
+
+
             .nav-links {
+
                 display: none;
 
                 position: absolute;
 
-                top: 75px;
+                top: 68px;
+
                 right: 20px;
+
+                min-width: 190px;
+
+                padding: 10px;
 
                 flex-direction: column;
 
@@ -666,38 +943,42 @@
 
                 gap: 0;
 
-                min-width: 190px;
-
-                padding: 10px;
-
-                background: #071b14;
-
-                border: 1px solid var(--line);
+                border:
+                    1px solid
+                    var(--line);
 
                 border-radius: 16px;
 
+                background: #071b14;
+
                 box-shadow:
-                    0 20px 50px rgba(0,0,0,.35);
+                    0 20px 50px
+                    rgba(0, 0, 0, 0.35);
             }
 
 
             .nav-links.open {
+
                 display: flex;
             }
 
 
             .nav-links a {
-                padding: 12px 14px;
+
+                padding:
+                    12px
+                    14px;
             }
 
 
             .menu-button {
+
                 display: block;
             }
 
 
-            .about-grid,
-            .contact-grid {
+            .about-grid {
+
                 grid-template-columns: 1fr;
 
                 gap: 50px;
@@ -705,125 +986,282 @@
 
 
             .about-image {
-                margin: 0 auto;
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .contact-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 50px;
             }
 
         }
 
 
 
-        /* ========================================
-           MOBILE HERO
-        ======================================== */
+        /* =========================================
+           MOBILE
+           ≤ 700px
+        ========================================== */
 
-        @media (max-width: 800px) {
+        @media (max-width: 700px) {
 
-            /*
-               ВАЖНО:
-               cover.jpg — готовая картинка с дизайном.
-               На телефоне не используем cover,
-               иначе изображение сильно обрезается.
+            .container {
 
-               Вместо этого сохраняем пропорции изображения
-               и показываем его полностью по ширине.
-            */
-
-            .hero {
-                min-height: 0;
-
-                height: auto;
-
-                aspect-ratio: 16 / 9;
-
-                background-size: 100% auto;
-
-                background-position: top center;
-
-                background-repeat: no-repeat;
-
-                background-color: var(--bg-dark);
-            }
-
-
-            /*
-               Логотип в About скрываем
-               на планшетах и телефонах.
-            */
-
-            .about-image {
-                display: none;
+                width:
+                    calc(100% - 28px);
             }
 
 
             section {
-                padding: 90px 0;
-            }
 
-        }
+                padding-top: 80px;
 
-
-
-        /* ========================================
-           SMALL MOBILE
-        ======================================== */
-
-        @media (max-width: 600px) {
-
-            .container {
-                width: calc(100% - 28px);
-            }
-
-
-            .nav {
-                height: 74px;
-            }
-
-
-            .brand {
-                font-size: 16px;
-            }
-
-
-            .brand img {
-                width: 34px;
-                height: 34px;
+                padding-bottom: 80px;
             }
 
 
             /*
-               На маленьких телефонах
-               Hero полностью соответствует
-               ширине экрана.
+               Самое важное:
+               Hero больше НЕ имеет фиксированной
+               высоты вообще.
+
+               Высота автоматически определяется
+               реальной высотой cover.jpg.
             */
 
             .hero {
-                aspect-ratio: 16 / 9;
 
-                background-size: 100% auto;
+                min-height: 0;
+
+                height: auto;
+
+                aspect-ratio: auto;
+            }
+
+
+            .hero-image {
+
+                width: 100%;
+
+                height: auto;
+
+                object-fit: contain;
+            }
+
+
+            /*
+               На маленьком экране круглый логотип
+               в About скрываем, как договаривались.
+            */
+
+            .about-image {
+
+                display: none;
+            }
+
+
+            .section-title {
+
+                font-size: clamp(
+                    38px,
+                    10vw,
+                    52px
+                );
+            }
+
+
+            .section-text {
+
+                font-size: 17px;
             }
 
 
             .apps-card {
+
                 min-height: 240px;
 
-                padding: 30px 20px;
+                padding:
+                    30px
+                    20px;
             }
 
 
             .apps-card h3 {
+
                 font-size: 26px;
             }
 
 
             .submit-button {
+
                 width: 100%;
+            }
+
+        }
+
+
+
+        /* =========================================
+           SMALL PHONES
+           ≤ 480px
+        ========================================== */
+
+        @media (max-width: 480px) {
+
+            .container {
+
+                width:
+                    calc(100% - 24px);
+            }
+
+
+            .brand {
+
+                gap: 9px;
+
+                font-size: 15px;
+            }
+
+
+            .brand img {
+
+                width: 34px;
+
+                height: 34px;
+
+                flex-basis: 34px;
+            }
+
+
+            .menu-button {
+
+                width: 40px;
+
+                height: 40px;
+
+                font-size: 27px;
+            }
+
+
+            .nav-links {
+
+                top: 64px;
+
+                right: 12px;
+            }
+
+
+            section {
+
+                padding-top: 70px;
+
+                padding-bottom: 70px;
+            }
+
+
+            .section-label {
+
+                margin-bottom: 13px;
+
+                font-size: 11px;
+            }
+
+
+            .section-title {
+
+                margin-bottom: 22px;
+
+                font-size: clamp(
+                    36px,
+                    11vw,
+                    46px
+                );
+            }
+
+
+            .section-text {
+
+                font-size: 16px;
+
+                line-height: 1.7;
+            }
+
+
+            .contact-description {
+
+                font-size: 16px;
+            }
+
+
+            .form-group input,
+            .form-group textarea {
+
+                font-size: 16px;
+            }
+
+
+            .form-group textarea {
+
+                min-height: 140px;
             }
 
 
             .footer-inner {
+
                 flex-direction: column;
 
                 align-items: flex-start;
+            }
+
+        }
+
+
+
+        /* =========================================
+           VERY SMALL PHONES
+           ≤ 360px
+        ========================================== */
+
+        @media (max-width: 360px) {
+
+            .container {
+
+                width:
+                    calc(100% - 20px);
+            }
+
+
+            .brand {
+
+                font-size: 14px;
+            }
+
+
+            .brand img {
+
+                width: 32px;
+
+                height: 32px;
+
+                flex-basis: 32px;
+            }
+
+
+            .section-title {
+
+                font-size: 34px;
+            }
+
+
+            .section-text {
+
+                font-size: 15px;
             }
 
         }
@@ -832,12 +1270,13 @@
 </head>
 
 
+
 <body>
 
 
-    <!-- ========================================
+    <!-- =========================================
          HEADER
-    ======================================== -->
+    ========================================== -->
 
     <header>
 
@@ -870,9 +1309,11 @@
                     About
                 </a>
 
+
                 <a href="#apps">
                     Apps
                 </a>
+
 
                 <a href="#contact">
                     Contact
@@ -885,6 +1326,7 @@
                 class="menu-button"
                 id="menuButton"
                 aria-label="Open menu"
+                aria-expanded="false"
                 type="button"
             >
                 ☰
@@ -896,25 +1338,35 @@
 
 
 
-    <!-- ========================================
+    <!-- =========================================
          MAIN
-    ======================================== -->
+    ========================================== -->
 
     <main id="top">
 
 
-        <!-- ====================================
+        <!-- =====================================
              HERO
-        ==================================== -->
+
+             cover.jpg выводится как обычный img.
+             Никаких cover / aspect-ratio / fixed height.
+        ====================================== -->
 
         <section class="hero">
+
+            <img
+                class="hero-image"
+                src="assets/cover.jpg"
+                alt="Sway Digital Lab"
+            >
+
         </section>
 
 
 
-        <!-- ====================================
+        <!-- =====================================
              ABOUT
-        ==================================== -->
+        ====================================== -->
 
         <section
             class="about"
@@ -924,7 +1376,7 @@
             <div class="container about-grid">
 
 
-                <div>
+                <div class="about-copy">
 
                     <div class="section-label">
                         About
@@ -962,9 +1414,9 @@
 
 
 
-        <!-- ====================================
+        <!-- =====================================
              APPS
-        ==================================== -->
+        ====================================== -->
 
         <section
             class="apps"
@@ -1017,9 +1469,9 @@
 
 
 
-        <!-- ====================================
+        <!-- =====================================
              CONTACT
-        ==================================== -->
+        ====================================== -->
 
         <section
             class="contact"
@@ -1029,7 +1481,7 @@
             <div class="container contact-grid">
 
 
-                <div>
+                <div class="contact-copy">
 
                     <div class="section-label">
                         Contact
@@ -1058,10 +1510,10 @@
 
 
 
-                <div>
+                <div class="form-wrapper">
 
 
-                    <!-- SUCCESS MESSAGE -->
+                    <!-- SUCCESS -->
 
                     <div
                         class="form-success"
@@ -1082,7 +1534,7 @@
 
 
 
-                    <!-- ERROR MESSAGE -->
+                    <!-- ERROR -->
 
                     <div
                         class="form-error"
@@ -1096,7 +1548,7 @@
 
 
 
-                    <!-- FORMSPREE FORM -->
+                    <!-- FORMSPREE -->
 
                     <form
                         class="suggestion-form"
@@ -1106,7 +1558,7 @@
                     >
 
 
-                        <!-- NAME — OPTIONAL -->
+                        <!-- NAME -->
 
                         <div class="form-group">
 
@@ -1127,7 +1579,7 @@
 
 
 
-                        <!-- EMAIL — OPTIONAL -->
+                        <!-- EMAIL -->
 
                         <div class="form-group">
 
@@ -1148,7 +1600,7 @@
 
 
 
-                        <!-- SUGGESTION — REQUIRED -->
+                        <!-- SUGGESTION -->
 
                         <div class="form-group">
 
@@ -1187,9 +1639,9 @@
 
 
 
-        <!-- ====================================
+        <!-- =====================================
              VISION
-        ==================================== -->
+        ====================================== -->
 
         <section class="vision">
 
@@ -1225,9 +1677,9 @@
 
 
 
-    <!-- ========================================
+    <!-- =========================================
          FOOTER
-    ======================================== -->
+    ========================================== -->
 
     <footer>
 
@@ -1253,28 +1705,42 @@
 
 
 
-    <!-- ========================================
+    <!-- =========================================
          JAVASCRIPT
-    ======================================== -->
+    ========================================== -->
 
     <script>
 
-        /* ========================================
+        /* =======================================
            MOBILE MENU
-        ======================================== */
+        ======================================= */
 
         const menuButton =
-            document.getElementById("menuButton");
+            document.getElementById(
+                "menuButton"
+            );
+
 
         const navLinks =
-            document.getElementById("navLinks");
+            document.getElementById(
+                "navLinks"
+            );
 
 
         menuButton.addEventListener(
             "click",
             function () {
 
-                navLinks.classList.toggle("open");
+                const isOpen =
+                    navLinks.classList.toggle(
+                        "open"
+                    );
+
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    isOpen
+                );
 
             }
         );
@@ -1282,46 +1748,69 @@
 
         navLinks
             .querySelectorAll("a")
-            .forEach(function(link) {
+            .forEach(
+                function (link) {
 
-                link.addEventListener(
-                    "click",
-                    function() {
+                    link.addEventListener(
+                        "click",
+                        function () {
 
-                        navLinks.classList.remove("open");
-
-                    }
-                );
-
-            });
+                            navLinks.classList.remove(
+                                "open"
+                            );
 
 
+                            menuButton.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
 
-        /* ========================================
+                        }
+                    );
+
+                }
+            );
+
+
+
+        /* =======================================
            FORMSPREE
-        ======================================== */
+        ======================================= */
 
         const form =
-            document.getElementById("suggestionForm");
+            document.getElementById(
+                "suggestionForm"
+            );
+
 
         const formSuccess =
-            document.getElementById("formSuccess");
+            document.getElementById(
+                "formSuccess"
+            );
+
 
         const formError =
-            document.getElementById("formError");
+            document.getElementById(
+                "formError"
+            );
+
 
         const submitButton =
-            document.getElementById("submitButton");
+            document.getElementById(
+                "submitButton"
+            );
 
 
         form.addEventListener(
             "submit",
-            async function(event) {
+            async function (event) {
 
                 event.preventDefault();
 
 
-                formError.classList.remove("show");
+                formError.classList.remove(
+                    "show"
+                );
 
 
                 submitButton.disabled = true;
@@ -1363,32 +1852,24 @@
                             "show"
                         );
 
-                    }
+                    } else {
 
-                    else {
-
-                        formError.classList.add(
-                            "show"
+                        throw new Error(
+                            "Form submission failed"
                         );
 
-                        submitButton.disabled =
-                            false;
-
-                        submitButton.textContent =
-                            "Send suggestion →";
-
                     }
 
-                }
-
-                catch (error) {
+                } catch (error) {
 
                     formError.classList.add(
                         "show"
                     );
 
+
                     submitButton.disabled =
                         false;
+
 
                     submitButton.textContent =
                         "Send suggestion →";
@@ -1402,9 +1883,9 @@
 
 
 
-    <!-- ========================================
+    <!-- =========================================
          STRUCTURED DATA
-    ======================================== -->
+    ========================================== -->
 
     <script type="application/ld+json">
 
