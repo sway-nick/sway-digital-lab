@@ -13,7 +13,7 @@
 
     <meta name="theme-color" content="#061812">
 
-    <!-- FAVICON — TRANSPARENT APPLE -->
+    <!-- FAVICON -->
     <link
         rel="icon"
         type="image/png"
@@ -90,6 +90,7 @@
 
             margin: 0 auto;
         }
+
 
 
         /* ========================================
@@ -174,17 +175,21 @@
         }
 
 
+
         /* ========================================
            HERO
         ======================================== */
+
+        /*
+           На компьютере cover занимает весь Hero.
+           cover.jpg содержит готовый дизайн,
+           поэтому дополнительного текста здесь нет.
+        */
 
         .hero {
             min-height: 760px;
 
             position: relative;
-
-            display: flex;
-            align-items: center;
 
             background:
                 linear-gradient(
@@ -196,16 +201,6 @@
                 center center / cover no-repeat;
         }
 
-
-        /*
-           В cover.jpg уже находится весь дизайн Hero,
-           поэтому дополнительный HTML-текст здесь
-           специально не используется.
-        */
-
-        .hero-content {
-            display: none;
-        }
 
 
         /* ========================================
@@ -259,6 +254,7 @@
         }
 
 
+
         /* ========================================
            ABOUT
         ======================================== */
@@ -278,11 +274,6 @@
             align-items: center;
         }
 
-
-        /*
-           Здесь используется именно logo.png,
-           а не cover.jpg.
-        */
 
         .about-image {
             width: 420px;
@@ -311,6 +302,7 @@
 
             object-fit: contain;
         }
+
 
 
         /* ========================================
@@ -359,6 +351,7 @@
 
             font-size: 17px;
         }
+
 
 
         /* ========================================
@@ -514,8 +507,9 @@
         }
 
 
+
         /* ========================================
-           SUCCESS MESSAGE
+           SUCCESS / ERROR
         ======================================== */
 
         .form-success {
@@ -572,6 +566,7 @@
         }
 
 
+
         /* ========================================
            VISION
         ======================================== */
@@ -604,6 +599,7 @@
         .vision-quote span {
             color: var(--lime);
         }
+
 
 
         /* ========================================
@@ -649,8 +645,9 @@
         }
 
 
+
         /* ========================================
-           RESPONSIVE
+           TABLET
         ======================================== */
 
         @media (max-width: 900px) {
@@ -710,15 +707,48 @@
             .about-image {
                 margin: 0 auto;
             }
+
         }
 
 
+
+        /* ========================================
+           MOBILE HERO
+        ======================================== */
+
         @media (max-width: 800px) {
 
+            /*
+               ВАЖНО:
+               cover.jpg — готовая картинка с дизайном.
+               На телефоне не используем cover,
+               иначе изображение сильно обрезается.
+
+               Вместо этого сохраняем пропорции изображения
+               и показываем его полностью по ширине.
+            */
+
             .hero {
-                min-height: 680px;
+                min-height: 0;
+
+                height: auto;
+
+                aspect-ratio: 16 / 9;
+
+                background-size: 100% auto;
+
+                background-position: top center;
+
+                background-repeat: no-repeat;
+
+                background-color: var(--bg-dark);
             }
 
+
+            /*
+               Логотип в About скрываем
+               на планшетах и телефонах.
+            */
 
             .about-image {
                 display: none;
@@ -728,16 +758,19 @@
             section {
                 padding: 90px 0;
             }
+
         }
 
+
+
+        /* ========================================
+           SMALL MOBILE
+        ======================================== */
 
         @media (max-width: 600px) {
 
             .container {
-                width: min(
-                    calc(100% - 28px),
-                    var(--max-width)
-                );
+                width: calc(100% - 28px);
             }
 
 
@@ -757,8 +790,16 @@
             }
 
 
+            /*
+               На маленьких телефонах
+               Hero полностью соответствует
+               ширине экрана.
+            */
+
             .hero {
-                min-height: 620px;
+                aspect-ratio: 16 / 9;
+
+                background-size: 100% auto;
             }
 
 
@@ -784,6 +825,7 @@
 
                 align-items: flex-start;
             }
+
         }
 
     </style>
@@ -853,6 +895,7 @@
     </header>
 
 
+
     <!-- ========================================
          MAIN
     ======================================== -->
@@ -860,13 +903,18 @@
     <main id="top">
 
 
-        <!-- HERO -->
+        <!-- ====================================
+             HERO
+        ==================================== -->
 
         <section class="hero">
         </section>
 
 
-        <!-- ABOUT -->
+
+        <!-- ====================================
+             ABOUT
+        ==================================== -->
 
         <section
             class="about"
@@ -913,7 +961,10 @@
         </section>
 
 
-        <!-- APPS -->
+
+        <!-- ====================================
+             APPS
+        ==================================== -->
 
         <section
             class="apps"
@@ -965,7 +1016,10 @@
         </section>
 
 
-        <!-- CONTACT -->
+
+        <!-- ====================================
+             CONTACT
+        ==================================== -->
 
         <section
             class="contact"
@@ -995,12 +1049,13 @@
 
                     <a
                         class="contact-email"
-                        href="mailto:lipniagovnikola@gmail.com"
+                        href="mailto:lipniagovnik@gmail.com"
                     >
                         lipniagovnik@gmail.com
                     </a>
 
                 </div>
+
 
 
                 <div>
@@ -1026,6 +1081,7 @@
                     </div>
 
 
+
                     <!-- ERROR MESSAGE -->
 
                     <div
@@ -1039,7 +1095,8 @@
                     </div>
 
 
-                    <!-- FORMSPREE -->
+
+                    <!-- FORMSPREE FORM -->
 
                     <form
                         class="suggestion-form"
@@ -1069,6 +1126,7 @@
                         </div>
 
 
+
                         <!-- EMAIL — OPTIONAL -->
 
                         <div class="form-group">
@@ -1087,6 +1145,7 @@
                             >
 
                         </div>
+
 
 
                         <!-- SUGGESTION — REQUIRED -->
@@ -1108,6 +1167,7 @@
                         </div>
 
 
+
                         <button
                             class="submit-button"
                             id="submitButton"
@@ -1126,7 +1186,10 @@
         </section>
 
 
-        <!-- VISION -->
+
+        <!-- ====================================
+             VISION
+        ==================================== -->
 
         <section class="vision">
 
@@ -1161,7 +1224,10 @@
     </main>
 
 
-    <!-- FOOTER -->
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
 
     <footer>
 
@@ -1186,11 +1252,16 @@
     </footer>
 
 
-    <!-- JAVASCRIPT -->
+
+    <!-- ========================================
+         JAVASCRIPT
+    ======================================== -->
 
     <script>
 
-        /* MOBILE MENU */
+        /* ========================================
+           MOBILE MENU
+        ======================================== */
 
         const menuButton =
             document.getElementById("menuButton");
@@ -1225,7 +1296,10 @@
             });
 
 
-        /* FORMSPREE */
+
+        /* ========================================
+           FORMSPREE
+        ======================================== */
 
         const form =
             document.getElementById("suggestionForm");
@@ -1327,7 +1401,10 @@
     </script>
 
 
-    <!-- STRUCTURED DATA -->
+
+    <!-- ========================================
+         STRUCTURED DATA
+    ======================================== -->
 
     <script type="application/ld+json">
 
