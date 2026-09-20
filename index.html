@@ -1,8 +1,14 @@
 <!doctype html>
 <html lang="en">
+
 <head>
+
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
 
   <meta
     name="theme-color"
@@ -38,41 +44,50 @@
 
   <title>Sway Digital Lab</title>
 
+
   <style>
 
-    /* =========================================
+    /* =====================================================
        ROOT
-       ========================================= */
+       ===================================================== */
 
     :root {
+
       --bg: #061812;
+
       --bg2: #0a241b;
 
       --text: #f6f8f5;
+
       --muted: #b8c8c0;
 
       --lime: #b7f52d;
+
       --lime2: #8fda19;
 
-      --line: rgba(255, 255, 255, 0.12);
+      --line: rgba(255,255,255,.12);
 
-      --card: rgba(255, 255, 255, 0.055);
+      --card: rgba(255,255,255,.055);
+
     }
 
 
-    /* =========================================
+    /* =====================================================
        BASE
-       ========================================= */
+       ===================================================== */
 
     * {
       box-sizing: border-box;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
 
+
     body {
+
       margin: 0;
 
       font-family:
@@ -90,32 +105,40 @@
       line-height: 1.6;
 
       overflow-x: hidden;
+
     }
+
 
     a {
       color: inherit;
       text-decoration: none;
     }
 
+
     img {
       max-width: 100%;
     }
 
+
     .container {
-      width: min(
-        1160px,
-        calc(100% - 40px)
-      );
+
+      width:
+        min(
+          1160px,
+          calc(100% - 40px)
+        );
 
       margin: 0 auto;
+
     }
 
 
-    /* =========================================
+    /* =====================================================
        NAVIGATION
-       ========================================= */
+       ===================================================== */
 
     .nav {
+
       position: absolute;
 
       z-index: 20;
@@ -125,17 +148,23 @@
       right: 0;
 
       padding: 24px 0;
+
     }
 
+
     .nav-inner {
+
       display: flex;
 
       align-items: center;
 
       justify-content: space-between;
+
     }
 
+
     .brand {
+
       display: flex;
 
       align-items: center;
@@ -145,10 +174,13 @@
       font-weight: 700;
 
       text-shadow:
-        0 2px 12px rgba(0, 0, 0, 0.45);
+        0 2px 12px rgba(0,0,0,.45);
+
     }
 
+
     .brand img {
+
       width: 42px;
       height: 42px;
 
@@ -156,17 +188,22 @@
 
       border-radius: 50%;
 
-      border: 2px solid var(--lime);
+      border:
+        2px solid var(--lime);
 
       box-shadow:
-        0 0 20px rgba(183, 245, 45, 0.25);
+        0 0 20px rgba(183,245,45,.25);
+
     }
+
 
     .brand span {
-      letter-spacing: 0.02em;
+      letter-spacing: .02em;
     }
 
+
     .links {
+
       display: flex;
 
       gap: 28px;
@@ -176,29 +213,37 @@
       font-size: 14px;
 
       text-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.45);
+        0 2px 10px rgba(0,0,0,.45);
+
     }
+
 
     .links a {
-      opacity: 0.88;
+
+      opacity: .88;
 
       transition:
-        color 0.2s ease,
-        opacity 0.2s ease;
+        color .2s ease,
+        opacity .2s ease;
+
     }
 
+
     .links a:hover {
+
       color: var(--lime);
 
       opacity: 1;
+
     }
 
 
-    /* =========================================
-       HERO
-       ========================================= */
+    /* =====================================================
+       HERO — DESKTOP
+       ===================================================== */
 
     .hero {
+
       position: relative;
 
       min-height: 820px;
@@ -210,13 +255,12 @@
       align-items: flex-end;
 
       background: #071b14;
+
     }
 
-    /*
-      На компьютере Cover заполняет весь Hero.
-    */
 
     .hero::before {
+
       content: "";
 
       position: absolute;
@@ -230,13 +274,12 @@
         no-repeat;
 
       z-index: 0;
+
     }
 
-    /*
-      Лёгкое затемнение снизу.
-    */
 
     .hero::after {
+
       content: "";
 
       position: absolute;
@@ -246,21 +289,23 @@
       background:
         linear-gradient(
           to bottom,
-          rgba(3, 17, 12, 0.04) 40%,
-          rgba(3, 17, 12, 0.48) 100%
+          rgba(3,17,12,.03) 35%,
+          rgba(3,17,12,.50) 100%
         );
 
       z-index: 1;
 
       pointer-events: none;
+
     }
 
 
-    /* =========================================
-       HERO BUTTONS
-       ========================================= */
+    /* =====================================================
+       HERO CONTENT
+       ===================================================== */
 
     .hero-content {
+
       position: relative;
 
       z-index: 3;
@@ -272,17 +317,23 @@
       display: flex;
 
       justify-content: flex-end;
+
     }
 
+
     .hero-actions {
+
       display: flex;
 
       align-items: center;
 
       gap: 12px;
+
     }
 
+
     .cta {
+
       display: inline-flex;
 
       align-items: center;
@@ -304,52 +355,64 @@
       font-weight: 800;
 
       box-shadow:
-        0 12px 35px rgba(0, 0, 0, 0.2);
+        0 12px 35px rgba(0,0,0,.20);
 
       transition:
-        transform 0.2s ease,
-        background 0.2s ease;
+        transform .2s ease,
+        background .2s ease;
+
     }
 
+
     .cta:hover {
+
       transform: translateY(-2px);
 
       background: #c9ff55;
+
     }
 
+
     .cta.ghost {
+
       border:
-        1px solid rgba(255, 255, 255, 0.35);
+        1px solid rgba(255,255,255,.35);
 
       background:
-        rgba(0, 0, 0, 0.18);
+        rgba(0,0,0,.18);
 
       color: #fff;
 
       backdrop-filter: blur(7px);
+
     }
+
 
     .cta.ghost:hover {
+
       background:
-        rgba(0, 0, 0, 0.36);
+        rgba(0,0,0,.36);
+
     }
 
 
-    /* =========================================
-       SCROLL INDICATOR
-       ========================================= */
+    /* =====================================================
+       SCROLL
+       ===================================================== */
 
     .scroll {
+
       position: absolute;
 
       z-index: 4;
 
       right: 38px;
+
       bottom: 36px;
 
       writing-mode: vertical-rl;
 
-      letter-spacing: 0.18em;
+      letter-spacing: .18em;
 
       text-transform: uppercase;
 
@@ -357,80 +420,99 @@
 
       color: #e5eee9;
 
-      opacity: 0.75;
+      opacity: .75;
+
     }
 
 
-    /* =========================================
+    /* =====================================================
        GENERAL SECTIONS
-       ========================================= */
+       ===================================================== */
 
     section {
       padding: 110px 0;
     }
 
+
     .section-head {
+
       max-width: 700px;
 
       margin-bottom: 48px;
+
     }
 
+
     .kicker {
+
       font-size: 12px;
 
-      letter-spacing: 0.22em;
+      letter-spacing: .22em;
 
       text-transform: uppercase;
 
       color: var(--lime);
 
       font-weight: 700;
+
     }
 
+
     .section-head h2 {
+
       font-size:
-        clamp(36px, 5vw, 62px);
+        clamp(36px,5vw,62px);
 
       line-height: 1.02;
 
-      letter-spacing: -0.045em;
+      letter-spacing: -.045em;
 
       margin: 14px 0;
+
     }
 
+
     .section-head p {
+
       color: var(--muted);
 
       font-size: 18px;
+
     }
 
 
-    /* =========================================
+    /* =====================================================
        ABOUT
-       ========================================= */
+       ===================================================== */
 
     .about {
+
       background: #081e17;
+
     }
 
+
     .about-grid {
+
       display: grid;
 
       grid-template-columns:
-        0.9fr
+        .9fr
         1.1fr;
 
       gap: 90px;
 
       align-items: center;
+
     }
 
 
-    /* =========================================
+    /* =====================================================
        ABOUT LOGO
-       ========================================= */
+       ===================================================== */
 
     .about-logo {
+
       position: relative;
 
       display: flex;
@@ -440,17 +522,17 @@
       justify-content: center;
 
       min-height: 440px;
+
     }
 
+
     .about-logo::before {
+
       content: "";
 
       position: absolute;
 
-      width: min(
-        430px,
-        100%
-      );
+      width: min(430px,100%);
 
       aspect-ratio: 1 / 1;
 
@@ -459,22 +541,22 @@
       background:
         radial-gradient(
           circle at 35% 30%,
-          rgba(183, 245, 45, 0.13),
-          rgba(183, 245, 45, 0.025) 45%,
+          rgba(183,245,45,.13),
+          rgba(183,245,45,.025) 45%,
           transparent 70%
         );
 
       box-shadow:
-        0 0 100px rgba(183, 245, 45, 0.08);
+        0 0 100px rgba(183,245,45,.08);
+
     }
 
+
     .about-logo-inner {
+
       position: relative;
 
-      width: min(
-        380px,
-        82%
-      );
+      width: min(380px,82%);
 
       aspect-ratio: 1 / 1;
 
@@ -489,20 +571,29 @@
       padding: 16px;
 
       background:
-        rgba(2, 18, 12, 0.75);
+        rgba(2,18,12,.75);
 
       border:
         2px solid var(--lime);
 
       box-shadow:
-        0 0 0 10px rgba(183, 245, 45, 0.035),
-        0 0 60px rgba(183, 245, 45, 0.12),
-        0 30px 80px rgba(0, 0, 0, 0.35);
+
+        0 0 0 10px
+        rgba(183,245,45,.035),
+
+        0 0 60px
+        rgba(183,245,45,.12),
+
+        0 30px 80px
+        rgba(0,0,0,.35);
 
       backdrop-filter: blur(5px);
+
     }
 
+
     .about-logo-inner img {
+
       width: 100%;
 
       height: 100%;
@@ -512,31 +603,39 @@
       object-fit: contain;
 
       border-radius: 50%;
+
     }
 
 
-    /* =========================================
+    /* =====================================================
        ABOUT TEXT
-       ========================================= */
+       ===================================================== */
 
     .copy p {
+
       color: var(--muted);
 
       font-size: 17px;
+
     }
 
+
     .stats {
+
       display: grid;
 
       grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3,1fr);
 
       gap: 12px;
 
       margin-top: 34px;
+
     }
 
+
     .stat {
+
       padding: 18px;
 
       border:
@@ -547,50 +646,65 @@
       background: var(--card);
 
       transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
+        transform .2s ease,
+        border-color .2s ease;
+
     }
 
+
     .stat:hover {
+
       transform: translateY(-3px);
 
       border-color:
-        rgba(183, 245, 45, 0.35);
+        rgba(183,245,45,.35);
+
     }
 
+
     .stat b {
+
       display: block;
 
       color: var(--lime);
 
       font-size: 25px;
+
     }
 
+
     .stat span {
+
       color: #a9b9b1;
 
       font-size: 12px;
+
     }
 
 
-    /* =========================================
+    /* =====================================================
        APPS
-       ========================================= */
+       ===================================================== */
 
     .apps {
       background: var(--bg);
     }
 
+
     .app-grid {
+
       display: grid;
 
       grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3,1fr);
 
       gap: 18px;
+
     }
 
+
     .app {
+
       min-height: 250px;
 
       padding: 28px;
@@ -607,23 +721,29 @@
       background:
         linear-gradient(
           145deg,
-          rgba(255, 255, 255, 0.07),
-          rgba(255, 255, 255, 0.025)
+          rgba(255,255,255,.07),
+          rgba(255,255,255,.025)
         );
 
       transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
+        transform .2s ease,
+        border-color .2s ease;
+
     }
 
+
     .app:hover {
+
       transform: translateY(-4px);
 
       border-color:
-        rgba(183, 245, 45, 0.3);
+        rgba(183,245,45,.30);
+
     }
 
+
     .app-icon {
+
       width: 58px;
       height: 58px;
 
@@ -632,23 +752,32 @@
       object-fit: cover;
 
       margin-bottom: 22px;
+
     }
 
+
     .app h3 {
+
       margin: 0 0 8px;
 
       font-size: 22px;
+
     }
 
+
     .app p {
+
       margin: 0;
 
       color: var(--muted);
 
       font-size: 14px;
+
     }
 
+
     .app .status {
+
       margin-top: auto;
 
       padding-top: 24px;
@@ -657,28 +786,33 @@
 
       font-size: 12px;
 
-      letter-spacing: 0.16em;
+      letter-spacing: .16em;
 
       text-transform: uppercase;
 
       font-weight: 700;
+
     }
 
 
-    /* =========================================
+    /* =====================================================
        VISION
-       ========================================= */
+       ===================================================== */
 
     .manifesto {
+
       background:
         linear-gradient(
           135deg,
           #0c291e,
           #071811
         );
+
     }
 
+
     .manifesto-box {
+
       padding: 70px 0;
 
       border-top:
@@ -686,42 +820,53 @@
 
       border-bottom:
         1px solid var(--line);
+
     }
 
+
     .manifesto h2 {
+
       max-width: 1000px;
 
       margin: 0;
 
       font-size:
-        clamp(42px, 6vw, 80px);
+        clamp(42px,6vw,80px);
 
       line-height: 1;
 
-      letter-spacing: -0.055em;
+      letter-spacing: -.055em;
+
     }
 
+
     .manifesto h2 em {
+
       font-style: normal;
 
       color: var(--lime);
+
     }
 
 
-    /* =========================================
+    /* =====================================================
        FOOTER
-       ========================================= */
+       ===================================================== */
 
     footer {
+
       padding: 42px 0;
 
       border-top:
         1px solid var(--line);
 
       background: #05130f;
+
     }
 
+
     .footer-inner {
+
       display: flex;
 
       justify-content: space-between;
@@ -729,9 +874,12 @@
       align-items: center;
 
       gap: 20px;
+
     }
 
+
     .footer-brand {
+
       display: flex;
 
       align-items: center;
@@ -739,9 +887,12 @@
       gap: 12px;
 
       font-weight: 700;
+
     }
 
+
     .footer-brand img {
+
       width: 34px;
       height: 34px;
 
@@ -749,159 +900,144 @@
 
       border:
         1px solid var(--lime);
+
     }
 
+
     .footer-note {
+
       color: #81928a;
 
       font-size: 12px;
+
     }
 
 
-    /* =========================================
+    /* =====================================================
        TABLET
-       ========================================= */
+       801–1000 PX
+       ===================================================== */
 
-    @media (max-width: 900px) {
-
-      .about-grid {
-        grid-template-columns: 1fr;
-
-        gap: 60px;
-      }
-
-      .about-logo {
-        min-height: auto;
-
-        padding: 20px 0;
-      }
-
-      .about-logo-inner {
-        width: min(
-          360px,
-          75vw
-        );
-      }
-
-      .app-grid {
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
-    }
-
-
-    /* =========================================
-       TABLET / SMALL LAPTOP
-       ========================================= */
-
-    @media (max-width: 800px) {
-
-      .links {
-        display: none;
-      }
-
-      /*
-        На планшете тоже немного уменьшаем
-        Hero, но оставляем desktop-композицию.
-      */
-
-      .hero {
-        min-height: 700px;
-      }
-
-      .hero-content {
-        padding-bottom: 45px;
-      }
-
-      .hero-actions {
-        justify-content: center;
-
-        width: 100%;
-      }
-
-      .scroll {
-        display: none;
-      }
-
-      .app-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .stats {
-        grid-template-columns:
-          repeat(3, 1fr);
-      }
-
-      .footer-inner {
-        flex-direction: column;
-
-        align-items: flex-start;
-      }
-    }
-
-
-    /* =========================================
-       MOBILE
-       ========================================= */
-
-    @media (max-width: 480px) {
-
-      body {
-        overflow-x: hidden;
-      }
+    @media (max-width: 1000px) {
 
       .container {
+
         width:
-          calc(100% - 28px);
+          min(
+            920px,
+            calc(100% - 40px)
+          );
+
       }
 
 
-      /* -------------------------------
-         MOBILE NAV
-         ------------------------------- */
+      .hero {
+
+        min-height: 700px;
+
+      }
+
+
+      .about-grid {
+
+        grid-template-columns:
+          .8fr
+          1.2fr;
+
+        gap: 55px;
+
+      }
+
+
+      .about-logo {
+
+        min-height: 380px;
+
+      }
+
+
+      .about-logo-inner {
+
+        width: min(330px,100%);
+
+      }
+
+
+      .app-grid {
+
+        grid-template-columns:
+          repeat(2,1fr);
+
+      }
+
+    }
+
+
+    /* =====================================================
+       TABLET
+       481–800 PX
+       ===================================================== */
+
+    @media (min-width: 481px) and (max-width: 800px) {
+
+      .container {
+
+        width:
+          calc(100% - 36px);
+
+      }
+
+
+      /* -------------------------
+         NAV
+         ------------------------- */
 
       .nav {
-        padding: 16px 0;
 
-        /*
-          Навигация находится поверх Cover.
-        */
-        z-index: 20;
+        padding: 18px 0;
+
       }
 
-      .brand {
-        gap: 9px;
-      }
 
       .brand img {
-        width: 36px;
-        height: 36px;
+
+        width: 38px;
+        height: 38px;
+
       }
+
 
       .brand span {
+
         font-size: 14px;
+
       }
+
 
       .links {
-        display: none;
+
+        gap: 18px;
+
+        font-size: 13px;
+
       }
 
 
-      /* -------------------------------
-         MOBILE HERO
-         ------------------------------- */
+      /* -------------------------
+         HERO
+         ------------------------- */
 
       /*
-        Главное исправление.
+        На планшете используем
+        отдельный горизонтальный
+        Cover.
 
-        На мобильном Hero больше НЕ является
-        высоким блоком с background-size: cover.
-
-        Сначала показываем картинку,
-        затем отдельно показываем кнопки.
+        Это особенно важно для
+        560 × 754.
       */
 
       .hero {
+
         min-height: 0;
 
         height: auto;
@@ -911,17 +1047,12 @@
         overflow: hidden;
 
         background: #061812;
+
       }
 
 
-      /*
-        Cover превращается в отдельный
-        горизонтальный блок.
-
-        Он больше не обрезается по бокам.
-      */
-
       .hero::before {
+
         position: relative;
 
         inset: auto;
@@ -932,12 +1063,358 @@
 
         height: auto;
 
-        /*
-          Формат Cover.
+        aspect-ratio: 16 / 9;
 
-          Если исходная картинка 16:9,
-          она будет показана полностью.
-        */
+        background-image:
+          url("assets/cover.jpg");
+
+        background-size:
+          100% 100%;
+
+        background-position:
+          center;
+
+        background-repeat:
+          no-repeat;
+
+        z-index: 0;
+
+      }
+
+
+      .hero::after {
+
+        display: none;
+
+      }
+
+
+      .hero-content {
+
+        position: relative;
+
+        width: 100%;
+
+        padding:
+          22px 0
+          26px;
+
+        display: block;
+
+        background:
+          linear-gradient(
+            180deg,
+            #071b14,
+            #061812
+          );
+
+      }
+
+
+      .hero-actions {
+
+        display: flex;
+
+        width: 100%;
+
+        align-items: stretch;
+
+        justify-content: center;
+
+        gap: 10px;
+
+      }
+
+
+      .cta {
+
+        flex: 1;
+
+        min-width: 0;
+
+        padding:
+          13px 14px;
+
+        font-size: 14px;
+
+        white-space: nowrap;
+
+      }
+
+
+      .scroll {
+
+        display: none;
+
+      }
+
+
+      /* -------------------------
+         ABOUT
+         ------------------------- */
+
+      section {
+
+        padding: 80px 0;
+
+      }
+
+
+      .about-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+      }
+
+
+      .about-logo {
+
+        min-height: auto;
+
+        padding: 10px 0;
+
+      }
+
+
+      .about-logo-inner {
+
+        width: min(
+          320px,
+          55vw
+        );
+
+      }
+
+
+      .section-head {
+
+        margin-bottom: 34px;
+
+      }
+
+
+      .section-head h2 {
+
+        font-size:
+          clamp(40px,7vw,54px);
+
+      }
+
+
+      .section-head p {
+
+        font-size: 17px;
+
+      }
+
+
+      .copy p {
+
+        font-size: 16px;
+
+      }
+
+
+      /* -------------------------
+         STATS
+         ------------------------- */
+
+      .stats {
+
+        grid-template-columns:
+          repeat(3,1fr);
+
+        gap: 10px;
+
+      }
+
+
+      .stat {
+
+        padding: 15px;
+
+      }
+
+
+      .stat b {
+
+        font-size: 22px;
+
+      }
+
+
+      .stat span {
+
+        font-size: 11px;
+
+      }
+
+
+      /* -------------------------
+         APPS
+         ------------------------- */
+
+      .app-grid {
+
+        grid-template-columns:
+          repeat(2,1fr);
+
+        gap: 14px;
+
+      }
+
+
+      .app {
+
+        min-height: 245px;
+
+        padding: 23px;
+
+      }
+
+
+      .app h3 {
+
+        font-size: 19px;
+
+      }
+
+
+      .app p {
+
+        font-size: 13px;
+
+      }
+
+
+      /* -------------------------
+         VISION
+         ------------------------- */
+
+      .manifesto-box {
+
+        padding: 60px 0;
+
+      }
+
+
+      .manifesto h2 {
+
+        font-size:
+          clamp(48px,8vw,68px);
+
+      }
+
+
+      /* -------------------------
+         FOOTER
+         ------------------------- */
+
+      .footer-inner {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 16px;
+
+      }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+       360–480 PX
+       ===================================================== */
+
+    @media (max-width: 480px) {
+
+      .container {
+
+        width:
+          calc(100% - 28px);
+
+      }
+
+
+      /* -------------------------
+         NAV
+         ------------------------- */
+
+      .nav {
+
+        padding: 16px 0;
+
+      }
+
+
+      .brand {
+
+        gap: 9px;
+
+      }
+
+
+      .brand img {
+
+        width: 36px;
+        height: 36px;
+
+      }
+
+
+      .brand span {
+
+        font-size: 14px;
+
+      }
+
+
+      .links {
+
+        display: none;
+
+      }
+
+
+      /* -------------------------
+         HERO
+         ------------------------- */
+
+      .hero {
+
+        min-height: 0;
+
+        height: auto;
+
+        display: block;
+
+        overflow: hidden;
+
+        background: #061812;
+
+      }
+
+
+      /*
+        Весь Cover показывается
+        целиком.
+      */
+
+      .hero::before {
+
+        position: relative;
+
+        inset: auto;
+
+        display: block;
+
+        width: 100%;
+
+        height: auto;
 
         aspect-ratio: 16 / 9;
 
@@ -948,54 +1425,53 @@
           100% 100%;
 
         background-position:
-          center center;
+          center;
 
         background-repeat:
           no-repeat;
 
         z-index: 0;
+
       }
 
-
-      /*
-        Убираем затемняющий слой
-        на мобильном.
-
-        Сам Cover уже достаточно
-        хорошо читается.
-      */
 
       .hero::after {
+
         display: none;
+
       }
 
 
-      /* -------------------------------
-         MOBILE HERO CONTENT
-         ------------------------------- */
+      /* -------------------------
+         MOBILE BUTTONS
+         ------------------------- */
 
       .hero-content {
+
         position: relative;
 
         width: 100%;
 
         padding:
-          22px 0
-          28px;
+          20px 0
+          26px;
 
         display: block;
 
         background:
           linear-gradient(
             180deg,
-            #071b14 0%,
-            #061812 100%
+            #071b14,
+            #061812
           );
 
         z-index: 3;
+
       }
 
+
       .hero-actions {
+
         width: 100%;
 
         display: flex;
@@ -1005,9 +1481,12 @@
         align-items: stretch;
 
         gap: 10px;
+
       }
 
+
       .cta {
+
         width: 100%;
 
         min-height: 52px;
@@ -1016,185 +1495,268 @@
           14px 20px;
 
         font-size: 15px;
+
       }
+
 
       .cta.ghost {
+
         margin: 0;
+
       }
+
 
       .scroll {
+
         display: none;
+
       }
 
 
-      /* -------------------------------
-         ABOUT
-         ------------------------------- */
+      /* -------------------------
+         SECTIONS
+         ------------------------- */
 
       section {
+
         padding: 72px 0;
+
       }
 
+
+      /* -------------------------
+         ABOUT
+         ------------------------- */
+
       .about-grid {
+
         grid-template-columns: 1fr;
 
         gap: 42px;
+
       }
 
+
       .about-logo {
+
         min-height: auto;
 
         padding: 0;
+
       }
+
 
       .about-logo-inner {
-        width: min(
-          78vw,
-          300px
-        );
+
+        width:
+          min(
+            78vw,
+            300px
+          );
 
         padding: 12px;
+
       }
+
 
       .section-head {
+
         margin-bottom: 30px;
+
       }
 
+
       .section-head h2 {
+
         font-size: 42px;
 
         line-height: 1.02;
+
       }
+
 
       .section-head p {
+
         font-size: 16px;
+
       }
+
 
       .copy p {
+
         font-size: 16px;
+
       }
 
 
-      /* -------------------------------
+      /* -------------------------
          STATS
-         ------------------------------- */
+         ------------------------- */
 
       .stats {
+
         grid-template-columns: 1fr;
 
         gap: 10px;
 
         margin-top: 28px;
+
       }
+
 
       .stat {
+
         padding: 16px;
+
       }
 
 
-      /* -------------------------------
+      /* -------------------------
          APPS
-         ------------------------------- */
+         ------------------------- */
 
       .apps {
+
         padding-top: 72px;
+
       }
 
+
       .app-grid {
+
         grid-template-columns: 1fr;
 
         gap: 14px;
+
       }
 
+
       .app {
+
         min-height: 230px;
 
         padding: 24px;
+
       }
+
 
       .app h3 {
+
         font-size: 20px;
+
       }
 
 
-      /* -------------------------------
+      /* -------------------------
          VISION
-         ------------------------------- */
+         ------------------------- */
 
       .manifesto-box {
+
         padding: 50px 0;
+
       }
 
+
       .manifesto h2 {
+
         font-size: 48px;
 
         line-height: 1.02;
+
       }
 
 
-      /* -------------------------------
+      /* -------------------------
          FOOTER
-         ------------------------------- */
+         ------------------------- */
 
       .footer-inner {
+
         flex-direction: column;
 
         align-items: flex-start;
 
         gap: 18px;
+
       }
 
+
       .footer-note {
+
         line-height: 1.5;
+
       }
+
     }
 
 
-    /* =========================================
+    /* =====================================================
        VERY SMALL PHONES
-       ========================================= */
+       <= 360 PX
+       ===================================================== */
 
     @media (max-width: 360px) {
 
       .container {
-        width: calc(100% - 24px);
+
+        width:
+          calc(100% - 24px);
+
       }
+
 
       .brand span {
+
         font-size: 13px;
+
       }
 
+
       .hero-content {
+
         padding-top: 18px;
 
         padding-bottom: 24px;
+
       }
 
+
       .cta {
+
         min-height: 50px;
 
         font-size: 14px;
+
       }
+
 
       .section-head h2 {
+
         font-size: 38px;
+
       }
 
+
       .manifesto h2 {
+
         font-size: 42px;
+
       }
+
     }
 
   </style>
+
 </head>
 
 
 <body>
 
 
-  <!-- =========================================
+  <!-- =================================================
        NAVIGATION
-       ========================================= -->
+       ================================================= -->
 
   <header class="nav">
 
@@ -1238,16 +1800,17 @@
   </header>
 
 
-  <!-- =========================================
+
+  <!-- =================================================
        MAIN
-       ========================================= -->
+       ================================================= -->
 
   <main id="top">
 
 
-    <!-- =======================================
+    <!-- =================================================
          HERO
-         ======================================= -->
+         ================================================= -->
 
     <section class="hero">
 
@@ -1260,8 +1823,13 @@
             class="cta"
             href="#apps"
           >
+
             Explore our apps
-            <span>↓</span>
+
+            <span>
+              ↓
+            </span>
+
           </a>
 
 
@@ -1269,7 +1837,9 @@
             class="cta ghost"
             href="#about"
           >
+
             About the studio
+
           </a>
 
         </div>
@@ -1278,16 +1848,19 @@
 
 
       <div class="scroll">
+
         Scroll to explore
+
       </div>
 
 
     </section>
 
 
-    <!-- =======================================
+
+    <!-- =================================================
          ABOUT
-         ======================================= -->
+         ================================================= -->
 
     <section
       class="about"
@@ -1326,33 +1899,42 @@
 
 
             <h2>
+
               Small ideas.<br>
+
               Useful products.
+
             </h2>
 
 
             <p>
+
               Sway Digital Lab is an independent
               digital studio creating simple,
               thoughtful apps for everyday life.
+
             </p>
 
           </div>
 
 
           <p>
+
             We combine practical technology,
             clean interfaces and attention to
             detail to turn ideas into useful
             products.
+
           </p>
 
 
           <p>
+
             Every product starts with a simple
             question:
             can this be made easier, clearer
             or more useful?
+
           </p>
 
 
@@ -1403,15 +1985,15 @@
 
         </div>
 
-
       </div>
 
     </section>
 
 
-    <!-- =======================================
+
+    <!-- =================================================
          APPS
-         ======================================= -->
+         ================================================= -->
 
     <section
       class="apps"
@@ -1429,18 +2011,23 @@
 
 
           <h2>
+
             Tools that stay
             out of the way.
+
           </h2>
 
 
           <p>
+
             Focused products, clear experiences
             and useful features — without
             unnecessary complexity.
+
           </p>
 
         </div>
+
 
 
         <div class="app-grid">
@@ -1448,6 +2035,7 @@
 
           <article class="app">
 
+
             <img
               class="app-icon"
               src="assets/logo.png"
@@ -1456,25 +2044,34 @@
 
 
             <h3>
+
               More apps are coming
+
             </h3>
 
 
             <p>
+
               We are working on a growing
               collection of focused mobile tools
               for everyday life.
+
             </p>
 
 
             <div class="status">
+
               In development
+
             </div>
+
 
           </article>
 
 
+
           <article class="app">
+
 
             <img
               class="app-icon"
@@ -1484,25 +2081,34 @@
 
 
             <h3>
+
               Simple. Focused. Useful.
+
             </h3>
 
 
             <p>
+
               Each product is designed around
               one clear purpose, with a calm
               and intuitive experience.
+
             </p>
 
 
             <div class="status">
+
               Our approach
+
             </div>
+
 
           </article>
 
 
+
           <article class="app">
+
 
             <img
               class="app-icon"
@@ -1512,20 +2118,27 @@
 
 
             <h3>
+
               Built for tomorrow
+
             </h3>
 
 
             <p>
+
               We explore practical uses of
               modern technology and turn
               promising ideas into real products.
+
             </p>
 
 
             <div class="status">
+
               Our direction
+
             </div>
+
 
           </article>
 
@@ -1537,9 +2150,10 @@
     </section>
 
 
-    <!-- =======================================
+
+    <!-- =================================================
          VISION
-         ======================================= -->
+         ================================================= -->
 
     <section
       class="manifesto"
@@ -1550,15 +2164,20 @@
 
 
         <div class="kicker">
+
           Our philosophy
+
         </div>
 
 
         <h2>
+
           Less noise.<br>
+
           More
           <em>useful</em>
           technology.
+
         </h2>
 
 
@@ -1570,9 +2189,10 @@
   </main>
 
 
-  <!-- =========================================
+
+  <!-- =================================================
        FOOTER
-       ========================================= -->
+       ================================================= -->
 
   <footer>
 
@@ -1581,14 +2201,19 @@
 
       <div class="footer-brand">
 
+
         <img
           src="assets/logo.png"
           alt="Sway Digital Lab"
         >
 
+
         <span>
+
           Sway Digital Lab
+
         </span>
+
 
       </div>
 
@@ -1607,4 +2232,5 @@
 
 
 </body>
+
 </html>
