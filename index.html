@@ -10,11 +10,12 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Sway Digital Lab — Independent Digital Studio</title>
+    <title data-i18n="page_title">Sway Digital Lab — Simple, useful and thoughtful digital products</title>
 
     <meta
         name="description"
-        content="Sway Digital Lab — independent digital studio creating simple tools for a brighter tomorrow."
+        data-i18n="page_meta_desc"
+        content="Sway Digital Lab is an independent digital studio creating focused, useful and simple tools like English Breakfast."
     >
 
     <meta
@@ -167,7 +168,7 @@
             height: var(--header-height);
 
             background:
-                rgba(3,18,13,0.58);
+                rgba(3,18,13,0.72);
 
             border-bottom:
                 1px solid
@@ -257,6 +258,210 @@
 
 
         /* =========================================
+           HEADER CONTROLS & LANGUAGE SWITCHER
+        ========================================== */
+
+        .nav-controls {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 22px;
+
+            pointer-events: auto;
+        }
+
+
+        .lang-selector {
+
+            position: relative;
+        }
+
+
+        .lang-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 7px 13px;
+
+            border: 1px solid var(--line);
+
+            border-radius: 999px;
+
+            background: rgba(255,255,255,0.05);
+
+            color: #ffffff;
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+            cursor: pointer;
+
+            transition: border-color 0.2s ease, background 0.2s ease;
+
+            user-select: none;
+        }
+
+
+        .lang-btn:hover {
+
+            border-color: rgba(255,255,255,0.28);
+
+            background: rgba(255,255,255,0.09);
+        }
+
+
+        .lang-flag {
+
+            font-size: 15px;
+
+            line-height: 1;
+        }
+
+
+        .lang-code {
+
+            font-size: 12.5px;
+
+            font-weight: 600;
+
+            letter-spacing: 0.04em;
+        }
+
+
+        .lang-chevron {
+
+            color: var(--muted);
+
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+
+        .lang-selector.open .lang-chevron {
+
+            transform: rotate(180deg);
+
+            color: var(--lime);
+        }
+
+
+        .lang-menu {
+
+            display: none;
+
+            position: absolute;
+
+            top: calc(100% + 8px);
+
+            right: 0;
+
+            min-width: 175px;
+
+            padding: 6px;
+
+            background: rgba(5,19,14,0.96);
+
+            border: 1px solid var(--line);
+
+            border-radius: 16px;
+
+            box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+
+            backdrop-filter: blur(20px);
+
+            -webkit-backdrop-filter: blur(20px);
+
+            z-index: 1100;
+        }
+
+
+        .lang-selector.open .lang-menu {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 2px;
+
+            animation: langFadeIn 0.2s ease;
+        }
+
+
+        @keyframes langFadeIn {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(-4px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+
+        }
+
+
+        .lang-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            width: 100%;
+
+            padding: 8px 12px;
+
+            border: 0;
+
+            border-radius: 10px;
+
+            background: transparent;
+
+            color: rgba(255,255,255,0.85);
+
+            font-size: 13.5px;
+
+            text-align: left;
+
+            cursor: pointer;
+
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+
+
+        .lang-item:hover,
+        .lang-item.active {
+
+            background: rgba(183,245,45,0.12);
+
+            color: var(--lime);
+
+            font-weight: 500;
+        }
+
+
+        .lang-item .flag {
+
+            font-size: 16px;
+
+            line-height: 1;
+        }
+
+
+        /* =========================================
            NAVIGATION
         ========================================== */
 
@@ -266,7 +471,7 @@
 
             align-items: center;
 
-            gap: 32px;
+            gap: 28px;
 
             color:
                 rgba(255,255,255,0.92);
@@ -351,30 +556,44 @@
 
 
         /* =========================================
-           SECTIONS
+           ABOUT
         ========================================== */
 
-        section {
+        .about {
 
-            padding-top: 120px;
+            padding-top: 60px;
 
-            padding-bottom: 120px;
+            padding-bottom: 90px;
+        }
+
+
+        .about-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0,1.2fr)
+                minmax(0,0.8fr);
+
+            gap: 80px;
+
+            align-items: center;
         }
 
 
         .section-label {
 
+            display: inline-block;
+
             margin-bottom: 16px;
 
             color: var(--lime);
 
-            font-size: 12px;
+            font-size: 13px;
 
             font-weight: 700;
 
-            line-height: 1.2;
-
-            letter-spacing: 0.14em;
+            letter-spacing: 0.12em;
 
             text-transform: uppercase;
         }
@@ -384,22 +603,13 @@
 
             max-width: 800px;
 
-            margin-bottom: 28px;
+            margin-bottom: 24px;
 
-            color: var(--text);
+            font-size: 40px;
 
-            font-size:
-                clamp(
-                    38px,
-                    5vw,
-                    62px
-                );
+            line-height: 1.14;
 
-            font-weight: 700;
-
-            line-height: 1.02;
-
-            letter-spacing: -0.045em;
+            letter-spacing: -0.03em;
         }
 
 
@@ -409,74 +619,35 @@
 
             color: var(--muted);
 
-            font-size: 18px;
+            font-size: 16.5px;
 
             line-height: 1.75;
         }
 
 
-        /* =========================================
-           ABOUT
-        ========================================== */
-
-        .about {
-
-            background: var(--bg-soft);
-        }
-
-
-        .about-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                minmax(0,1fr)
-                minmax(0,1fr);
-
-            gap: 80px;
-
-            align-items: center;
-        }
-
-
-        .about-copy {
-
-            min-width: 0;
-        }
-
-
         .about-image {
-
-            width: min(
-                420px,
-                100%
-            );
-
-            aspect-ratio: 1 / 1;
-
-            margin-left: auto;
 
             display: flex;
 
             align-items: center;
 
             justify-content: center;
-
-            overflow: hidden;
-
-            background: transparent;
-
-            border: 0;
         }
 
 
         .about-image img {
 
-            width: 100%;
+            width: 250px;
 
-            height: 100%;
+            max-width: 100%;
 
-            object-fit: contain;
+            height: auto;
+
+            filter:
+                drop-shadow(
+                    0 20px 40px
+                    rgba(0,0,0,0.25)
+                );
         }
 
 
@@ -486,23 +657,32 @@
 
         .apps {
 
-            background: var(--bg);
+            padding-top: 90px;
+
+            padding-bottom: 90px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.06);
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(255,255,255,0.015) 0%,
+                    rgba(255,255,255,0) 100%
+                );
         }
 
 
         .apps-header {
 
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
 
-        /* =========================================
-           FEATURED APP
-        ========================================== */
-
         .featured-app {
 
-            padding: 44px;
+            padding: 42px;
 
             border:
                 1px solid
@@ -511,38 +691,29 @@
             border-radius: 28px;
 
             background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,0.065),
-                    rgba(255,255,255,0.025)
-                );
+                var(--bg-card);
 
-            overflow: hidden;
+            box-shadow:
+                0 20px 60px
+                rgba(0,0,0,0.25);
         }
 
 
         .app-intro {
 
             max-width: 760px;
-
-            margin-bottom: 34px;
         }
 
 
         .app-name {
 
-            margin-bottom: 8px;
+            margin-bottom: 12px;
 
-            font-size:
-                clamp(
-                    30px,
-                    4vw,
-                    44px
-                );
+            font-size: 30px;
 
-            line-height: 1.05;
+            line-height: 1.2;
 
-            letter-spacing: -0.035em;
+            letter-spacing: -0.02em;
         }
 
 
@@ -550,7 +721,7 @@
 
             color: var(--muted);
 
-            font-size: 18px;
+            font-size: 17px;
 
             line-height: 1.65;
         }
@@ -610,36 +781,38 @@
 
 
         /* =========================================
-           APP DETAILS
+           APP DETAILS & BENEFITS (INTERACTIVE)
         ========================================== */
 
         .app-details {
 
-            display: grid;
-
-            grid-template-columns:
-                minmax(0,1fr)
-                minmax(0,1.25fr);
-
-            gap: 40px;
-
-            align-items: start;
-
-            margin-top: 42px;
+            margin-top: 48px;
         }
 
 
-        .app-details h3 {
+        .app-details-header {
 
-            margin-bottom: 18px;
+            max-width: 780px;
 
-            font-size: 25px;
-
-            line-height: 1.2;
+            margin-bottom: 28px;
         }
 
 
-        .app-details p {
+        .app-details-header h3 {
+
+            margin-bottom: 12px;
+
+            font-size: 26px;
+
+            line-height: 1.25;
+
+            letter-spacing: -0.01em;
+
+            color: #ffffff;
+        }
+
+
+        .app-details-header p {
 
             color: var(--muted);
 
@@ -648,10 +821,6 @@
             line-height: 1.7;
         }
 
-
-        /* =========================================
-           BENEFITS
-        ========================================== */
 
         .benefits {
 
@@ -663,54 +832,261 @@
                     minmax(0,1fr)
                 );
 
-            gap: 12px;
+            gap: 16px;
         }
 
 
         .benefit {
 
-            padding: 18px;
+            position: relative;
+
+            padding: 20px 22px;
 
             border:
                 1px solid
                 var(--line);
 
-            border-radius: 16px;
+            border-radius: 20px;
 
             background:
                 rgba(255,255,255,0.035);
+
+            cursor: pointer;
+
+            outline: none;
+
+            transition:
+                border-color 0.25s ease,
+                background 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+
+            user-select: none;
+        }
+
+
+        .benefit:hover {
+
+            border-color: rgba(183,245,45,0.35);
+
+            background: rgba(255,255,255,0.055);
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+
+
+        .benefit:focus-visible {
+
+            border-color: var(--lime);
+
+            box-shadow: 0 0 0 3px rgba(183,245,45,0.25);
+        }
+
+
+        .benefit.open {
+
+            border-color: var(--lime);
+
+            background: rgba(183,245,45,0.05);
+
+            box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+        }
+
+
+        .benefit-main {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 16px;
         }
 
 
         .benefit-icon {
 
-            display: block;
+            font-size: 26px;
 
-            margin-bottom: 8px;
+            line-height: 1;
 
-            font-size: 21px;
+            flex: 0 0 32px;
+
+            margin-top: 2px;
+        }
+
+
+        .benefit-text-wrap {
+
+            flex: 1;
+
+            min-width: 0;
+        }
+
+
+        .benefit-title-row {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 12px;
+
+            margin-bottom: 6px;
         }
 
 
         .benefit strong {
 
-            display: block;
+            font-size: 15.5px;
 
-            margin-bottom: 5px;
+            font-weight: 600;
 
-            font-size: 14px;
+            color: #ffffff;
+
+            line-height: 1.35;
         }
 
 
-        .benefit span {
+        .benefit-toggle {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 26px;
+
+            height: 26px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.06);
+
+            color: var(--lime);
+
+            font-size: 16px;
+
+            line-height: 1;
+
+            font-weight: bold;
+
+            transition:
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                background 0.2s ease,
+                color 0.2s ease;
+
+            flex: 0 0 26px;
+        }
+
+
+        .benefit:hover .benefit-toggle {
+
+            background: rgba(183,245,45,0.2);
+        }
+
+
+        .benefit.open .benefit-toggle {
+
+            transform: rotate(45deg);
+
+            background: var(--lime);
+
+            color: #04120a;
+        }
+
+
+        .benefit-short {
 
             display: block;
 
             color: var(--muted);
 
+            font-size: 13.5px;
+
+            line-height: 1.55;
+        }
+
+
+        .benefit-drawer {
+
+            max-height: 0;
+
+            opacity: 0;
+
+            overflow: hidden;
+
+            transition:
+                max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.25s ease,
+                margin-top 0.25s ease,
+                padding-top 0.25s ease;
+        }
+
+
+        .benefit.open .benefit-drawer {
+
+            max-height: 340px;
+
+            opacity: 1;
+
+            margin-top: 16px;
+
+            padding-top: 14px;
+
+            border-top: 1px dashed rgba(255,255,255,0.12);
+        }
+
+
+        .benefit-points {
+
+            list-style: none;
+
+            padding: 0;
+
+            margin: 0;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 9px;
+        }
+
+
+        .benefit-points li {
+
+            position: relative;
+
+            padding-left: 20px;
+
             font-size: 13px;
 
+            color: rgba(255,255,255,0.88);
+
             line-height: 1.5;
+        }
+
+
+        .benefit-points li::before {
+
+            content: "✓";
+
+            position: absolute;
+
+            left: 0;
+
+            top: 0;
+
+            color: var(--lime);
+
+            font-weight: bold;
+
+            font-size: 12px;
         }
 
 
@@ -724,11 +1100,9 @@
 
             align-items: center;
 
-            gap: 14px;
+            gap: 20px;
 
-            flex-wrap: wrap;
-
-            margin-top: 34px;
+            margin-top: 36px;
         }
 
 
@@ -740,25 +1114,25 @@
 
             justify-content: center;
 
-            min-height: 50px;
-
             padding:
-                13px
-                23px;
+                15px
+                26px;
 
             border-radius: 999px;
 
             background: var(--lime);
 
-            color: #071208;
+            color: #04120a;
 
-            font-size: 15px;
+            font-size: 14px;
 
-            font-weight: 800;
+            font-weight: 700;
+
+            letter-spacing: -0.01em;
 
             transition:
-                transform 0.2s ease,
-                background 0.2s ease;
+                background 0.2s ease,
+                transform 0.2s ease;
         }
 
 
@@ -766,7 +1140,7 @@
 
             background: var(--lime-hover);
 
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
 
@@ -784,7 +1158,13 @@
 
         .contact {
 
-            background: var(--bg-soft);
+            padding-top: 90px;
+
+            padding-bottom: 90px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.06);
         }
 
 
@@ -793,7 +1173,7 @@
             display: grid;
 
             grid-template-columns:
-                minmax(0,0.85fr)
+                minmax(0,1fr)
                 minmax(0,1.15fr);
 
             gap: 80px;
@@ -802,19 +1182,15 @@
         }
 
 
-        .contact-copy {
-
-            min-width: 0;
-        }
-
-
         .contact-description {
 
             max-width: 480px;
 
+            margin-bottom: 30px;
+
             color: var(--muted);
 
-            font-size: 18px;
+            font-size: 16.5px;
 
             line-height: 1.7;
         }
@@ -824,16 +1200,15 @@
 
             display: inline-block;
 
-            margin-top: 25px;
-
             color: var(--lime);
+
+            font-size: 16px;
 
             font-weight: 600;
 
-            word-break: break-word;
+            text-decoration: underline;
 
-            transition:
-                color 0.2s ease;
+            text-underline-offset: 4px;
         }
 
 
@@ -849,27 +1224,102 @@
 
         .form-wrapper {
 
-            width: 100%;
+            padding: 38px;
 
-            min-width: 0;
+            border:
+                1px solid
+                var(--line);
+
+            border-radius: 26px;
+
+            background:
+                var(--bg-card);
+
+            box-shadow:
+                0 20px 60px
+                rgba(0,0,0,0.22);
+        }
+
+
+        .form-success,
+        .form-error {
+
+            display: none;
+
+            margin-bottom: 22px;
+
+            padding: 18px 20px;
+
+            border-radius: 16px;
+        }
+
+
+        .form-success {
+
+            border:
+                1px solid
+                rgba(183,245,45,0.30);
+
+            background:
+                rgba(183,245,45,0.08);
+
+            color: #ffffff;
+        }
+
+
+        .form-success.show,
+        .form-error.show {
+
+            display: block;
+        }
+
+
+        .form-success h3 {
+
+            margin-bottom: 6px;
+
+            color: var(--lime);
+
+            font-size: 17px;
+        }
+
+
+        .form-success p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+
+        .form-error {
+
+            border:
+                1px solid
+                rgba(255,100,100,0.35);
+
+            background:
+                rgba(255,100,100,0.10);
+
+            color: #ff9d9d;
+
+            font-size: 14px;
         }
 
 
         .suggestion-form {
 
-            width: 100%;
-
             display: flex;
 
             flex-direction: column;
 
-            gap: 18px;
+            gap: 20px;
         }
 
 
         .form-group {
-
-            width: 100%;
 
             display: flex;
 
@@ -881,12 +1331,11 @@
 
         .form-group label {
 
-            color:
-                rgba(255,255,255,0.82);
+            color: #ffffff;
 
-            font-size: 13px;
+            font-size: 13.5px;
 
-            font-weight: 600;
+            font-weight: 500;
         }
 
 
@@ -895,10 +1344,8 @@
 
             width: 100%;
 
-            min-width: 0;
-
             padding:
-                15px
+                14px
                 16px;
 
             border:
@@ -907,27 +1354,19 @@
 
             border-radius: 14px;
 
-            outline: none;
-
             background:
-                rgba(255,255,255,0.045);
+                rgba(255,255,255,0.03);
 
             color: #ffffff;
 
-            font-size: 16px;
+            font-size: 14.5px;
 
-            line-height: 1.4;
+            outline: none;
 
             transition:
                 border-color 0.2s ease,
-                background 0.2s ease;
-        }
-
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-
-            color: #7d9289;
+                background 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
 
@@ -937,13 +1376,17 @@
             border-color: var(--lime);
 
             background:
-                rgba(255,255,255,0.07);
+                rgba(255,255,255,0.05);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(183,245,45,0.14);
         }
 
 
         .form-group textarea {
 
-            min-height: 150px;
+            min-height: 130px;
 
             resize: vertical;
         }
@@ -952,8 +1395,6 @@
         .submit-button {
 
             align-self: flex-start;
-
-            min-height: 52px;
 
             padding:
                 14px
@@ -965,17 +1406,17 @@
 
             background: var(--lime);
 
-            color: #071208;
+            color: #04120a;
 
-            font-size: 15px;
+            font-size: 14px;
 
-            font-weight: 800;
+            font-weight: 700;
 
             cursor: pointer;
 
             transition:
-                transform 0.2s ease,
                 background 0.2s ease,
+                transform 0.2s ease,
                 opacity 0.2s ease;
         }
 
@@ -984,7 +1425,7 @@
 
             background: var(--lime-hover);
 
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
 
@@ -992,83 +1433,9 @@
 
             opacity: 0.6;
 
-            cursor: wait;
+            cursor: not-allowed;
 
             transform: none;
-        }
-
-
-        /* =========================================
-           FORM SUCCESS
-        ========================================== */
-
-        .form-success {
-
-            display: none;
-
-            padding: 28px;
-
-            border:
-                1px solid
-                rgba(183,245,45,0.30);
-
-            border-radius: 20px;
-
-            background:
-                rgba(183,245,45,0.07);
-        }
-
-
-        .form-success.show {
-
-            display: block;
-        }
-
-
-        .form-success h3 {
-
-            margin-bottom: 8px;
-
-            color: var(--lime);
-
-            font-size: 28px;
-
-            line-height: 1.2;
-        }
-
-
-        .form-success p {
-
-            color: var(--muted);
-        }
-
-
-        .form-error {
-
-            display: none;
-
-            margin-bottom: 18px;
-
-            padding:
-                16px
-                18px;
-
-            border:
-                1px solid
-                rgba(255,80,80,0.25);
-
-            border-radius: 14px;
-
-            background:
-                rgba(255,80,80,0.10);
-
-            color: #ffb4b4;
-        }
-
-
-        .form-error.show {
-
-            display: block;
         }
 
 
@@ -1078,34 +1445,48 @@
 
         .vision {
 
-            background: var(--bg-dark);
+            padding-top: 100px;
+
+            padding-bottom: 110px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.06);
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(255,255,255,0) 0%,
+                    rgba(255,255,255,0.02) 100%
+                );
         }
 
 
         .vision-inner {
 
-            max-width: 900px;
+            text-align: center;
         }
 
 
         .vision-quote {
 
-            margin-top: 35px;
+            max-width: 900px;
 
-            font-size:
-                clamp(
-                    34px,
-                    5vw,
-                    64px
-                );
+            margin-left: auto;
 
-            line-height: 1.08;
+            margin-right: auto;
 
-            letter-spacing: -0.045em;
+            font-size: 40px;
+
+            line-height: 1.25;
+
+            letter-spacing: -0.03em;
         }
 
 
         .vision-quote span {
+
+            display: block;
 
             color: var(--lime);
         }
@@ -1117,14 +1498,15 @@
 
         footer {
 
-            padding:
-                40px 0;
+            padding-top: 40px;
 
-            background: #030d09;
+            padding-bottom: 40px;
 
             border-top:
                 1px solid
-                var(--line);
+                rgba(255,255,255,0.08);
+
+            background: var(--bg-dark);
         }
 
 
@@ -1136,24 +1518,17 @@
 
             justify-content: space-between;
 
-            gap: 20px;
+            color: var(--muted);
+
+            font-size: 13.5px;
         }
 
 
         .footer-brand {
 
-            font-weight: 700;
-        }
+            color: #ffffff;
 
-
-        .footer-email {
-
-            color: var(--muted);
-
-            font-size: 14px;
-
-            transition:
-                color 0.2s ease;
+            font-weight: 600;
         }
 
 
@@ -1164,7 +1539,7 @@
 
 
         /* =========================================
-           ≤ 1100px
+           RESPONSIVE
         ========================================== */
 
         @media (max-width: 1100px) {
@@ -1178,54 +1553,16 @@
                 );
             }
 
+            .section-title,
+            .vision-quote {
 
-            .about-grid {
-
-                gap: 50px;
-            }
-
-
-            .contact-grid {
-
-                gap: 50px;
+                font-size: 36px;
             }
 
         }
 
 
-        /* =========================================
-           ≤ 900px
-        ========================================== */
-
         @media (max-width: 900px) {
-
-            :root {
-
-                --header-height: 58px;
-            }
-
-
-            .nav {
-
-                min-height: 58px;
-            }
-
-
-            .brand {
-
-                font-size: 16px;
-            }
-
-
-            .brand img {
-
-                width: 34px;
-
-                height: 34px;
-
-                flex-basis: 34px;
-            }
-
 
             .nav-links {
 
@@ -1298,22 +1635,6 @@
             }
 
 
-            .about-image {
-
-                margin-left: auto;
-
-                margin-right: auto;
-            }
-
-
-            .contact-grid {
-
-                grid-template-columns: 1fr;
-
-                gap: 50px;
-            }
-
-
             .app-screenshots {
 
                 grid-template-columns:
@@ -1326,153 +1647,46 @@
             }
 
 
-            .app-details {
+            .benefits {
 
                 grid-template-columns: 1fr;
 
-                gap: 28px;
+                gap: 14px;
+            }
+
+
+            .contact-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 50px;
             }
 
         }
 
-
-        /* =========================================
-           ≤ 700px
-        ========================================== */
 
         @media (max-width: 700px) {
 
             .container,
             .nav {
 
-                width:
-                    calc(100% - 28px);
+                width: min(
+                    calc(100% - 32px),
+                    var(--max-width)
+                );
             }
 
 
-            :root {
+            .section-title,
+            .vision-quote {
 
-                --header-height: 54px;
+                font-size: 30px;
             }
 
-
-            header {
-
-                height: 54px;
-
-                background:
-                    rgba(3,18,13,0.64);
-
-                backdrop-filter:
-                    blur(16px);
-
-                -webkit-backdrop-filter:
-                    blur(16px);
-            }
-
-
-            .nav {
-
-                min-height: 54px;
-            }
-
-
-            .brand {
-
-                gap: 8px;
-
-                font-size: 15px;
-            }
-
-
-            .brand img {
-
-                width: 34px;
-
-                height: 34px;
-
-                flex-basis: 34px;
-            }
-
-
-            .menu-button {
-
-                width: 40px;
-
-                height: 40px;
-
-                font-size: 27px;
-            }
-
-
-            .nav-links {
-
-                top: 61px;
-
-                right: 14px;
-            }
-
-
-            .hero {
-
-                min-height: 0;
-
-                height: auto;
-
-                aspect-ratio: auto;
-            }
-
-
-            .hero-image {
-
-                width: 100%;
-
-                height: auto;
-
-                object-fit: contain;
-            }
-
-
-            .about-image {
-
-                display: none;
-            }
-
-
-            section {
-
-                padding-top: 80px;
-
-                padding-bottom: 80px;
-            }
-
-
-            .section-title {
-
-                font-size:
-                    clamp(
-                        38px,
-                        10vw,
-                        52px
-                    );
-            }
-
-
-            .section-text {
-
-                font-size: 17px;
-            }
-
-
-            /* =====================================
-               ENGLISH BREAKFAST MOBILE
-            ====================================== */
 
             .featured-app {
 
-                padding:
-                    24px
-                    18px;
+                padding: 24px;
 
                 border-radius: 22px;
             }
@@ -1498,161 +1712,27 @@
             }
 
 
-            .app-details {
-
-                margin-top: 30px;
-            }
-
-
-            .benefits {
-
-                grid-template-columns: 1fr;
-            }
-
-
             .app-button {
 
                 width: 100%;
             }
 
 
-            .app-url {
+            .app-actions {
 
-                width: 100%;
+                flex-direction: column;
 
-                text-align: center;
+                align-items: flex-start;
+
+                gap: 12px;
             }
 
 
-            .submit-button {
+            .form-wrapper {
 
-                width: 100%;
-            }
+                padding: 24px;
 
-        }
-
-
-        /* =========================================
-           ≤ 480px
-        ========================================== */
-
-        @media (max-width: 480px) {
-
-            .container,
-            .nav {
-
-                width:
-                    calc(100% - 24px);
-            }
-
-
-            :root {
-
-                --header-height: 52px;
-            }
-
-
-            header {
-
-                height: 52px;
-            }
-
-
-            .nav {
-
-                min-height: 52px;
-            }
-
-
-            .brand {
-
-                gap: 7px;
-
-                font-size: 14px;
-            }
-
-
-            .brand img {
-
-                width: 32px;
-
-                height: 32px;
-
-                flex-basis: 32px;
-            }
-
-
-            .menu-button {
-
-                width: 38px;
-
-                height: 38px;
-
-                font-size: 26px;
-            }
-
-
-            .nav-links {
-
-                top: 59px;
-
-                right: 12px;
-            }
-
-
-            section {
-
-                padding-top: 70px;
-
-                padding-bottom: 70px;
-            }
-
-
-            .section-label {
-
-                margin-bottom: 13px;
-
-                font-size: 11px;
-            }
-
-
-            .section-title {
-
-                margin-bottom: 22px;
-
-                font-size:
-                    clamp(
-                        36px,
-                        11vw,
-                        46px
-                    );
-            }
-
-
-            .section-text {
-
-                font-size: 16px;
-
-                line-height: 1.7;
-            }
-
-
-            .contact-description {
-
-                font-size: 16px;
-            }
-
-
-            .form-group input,
-            .form-group textarea {
-
-                font-size: 16px;
-            }
-
-
-            .form-group textarea {
-
-                min-height: 140px;
+                border-radius: 22px;
             }
 
 
@@ -1660,51 +1740,62 @@
 
                 flex-direction: column;
 
-                align-items: flex-start;
+                gap: 14px;
+
+                text-align: center;
             }
 
         }
 
 
-        /* =========================================
-           ≤ 360px
-        ========================================== */
-
-        @media (max-width: 360px) {
+        @media (max-width: 480px) {
 
             .container,
             .nav {
 
-                width:
-                    calc(100% - 20px);
+                width: min(
+                    calc(100% - 24px),
+                    var(--max-width)
+                );
             }
 
 
             .brand span {
 
-                display: none;
-            }
-
-
-            .brand img {
-
-                width: 36px;
-
-                height: 36px;
-
-                flex-basis: 36px;
-            }
-
-
-            .section-title {
-
-                font-size: 34px;
-            }
-
-
-            .section-text {
-
                 font-size: 15px;
+            }
+
+
+            .nav-controls {
+
+                gap: 12px;
+            }
+
+
+            .lang-btn {
+
+                padding: 6px 10px;
+
+                font-size: 12px;
+            }
+
+
+            .section-title,
+            .vision-quote {
+
+                font-size: 26px;
+            }
+
+
+            .featured-app {
+
+                padding: 18px;
+            }
+
+
+            .benefit {
+
+                padding: 16px;
             }
 
         }
@@ -1746,39 +1837,112 @@
             </a>
 
 
-            <!-- NAVIGATION -->
+            <!-- CONTROLS: LANGUAGE & NAVIGATION -->
 
-            <nav
-                class="nav-links"
-                id="navLinks"
-            >
-
-                <a href="#about">
-                    About
-                </a>
-
-                <a href="#apps">
-                    Apps
-                </a>
-
-                <a href="#contact">
-                    Contact
-                </a>
-
-            </nav>
+            <div class="nav-controls">
 
 
-            <!-- MOBILE MENU -->
+                <!-- LANGUAGE SELECTOR -->
 
-            <button
-                class="menu-button"
-                id="menuButton"
-                aria-label="Open menu"
-                aria-expanded="false"
-                type="button"
-            >
-                ☰
-            </button>
+                <div class="lang-selector" id="langSelector">
+
+                    <button
+                        class="lang-btn"
+                        id="langBtn"
+                        type="button"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-label="Select language"
+                    >
+
+                        <span class="lang-flag" id="langCurrentFlag">🇬🇧</span>
+
+                        <span class="lang-code" id="langCurrentCode">EN</span>
+
+                        <svg class="lang-chevron" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+
+                    </button>
+
+
+                    <div class="lang-menu" id="langMenu" role="listbox" aria-label="Languages">
+
+                        <button type="button" role="option" class="lang-item" data-lang="en" aria-selected="true">
+                            <span class="flag">🇬🇧</span>
+                            <span>English</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="de" aria-selected="false">
+                            <span class="flag">🇩🇪</span>
+                            <span>Deutsch</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="fr" aria-selected="false">
+                            <span class="flag">🇫🇷</span>
+                            <span>Français</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="pl" aria-selected="false">
+                            <span class="flag">🇵🇱</span>
+                            <span>Polski</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="it" aria-selected="false">
+                            <span class="flag">🇮🇹</span>
+                            <span>Italiano</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="ru" aria-selected="false">
+                            <span class="flag">🇷🇺</span>
+                            <span>Русский</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="uk" aria-selected="false">
+                            <span class="flag">🇺🇦</span>
+                            <span>Українська</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NAVIGATION -->
+
+                <nav
+                    class="nav-links"
+                    id="navLinks"
+                >
+
+                    <a href="#about" data-i18n="nav_about">
+                        About
+                    </a>
+
+                    <a href="#apps" data-i18n="nav_apps">
+                        Apps
+                    </a>
+
+                    <a href="#contact" data-i18n="nav_contact">
+                        Contact
+                    </a>
+
+                </nav>
+
+
+                <!-- MOBILE MENU -->
+
+                <button
+                    class="menu-button"
+                    id="menuButton"
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                    type="button"
+                >
+                    ☰
+                </button>
+
+            </div>
 
         </div>
 
@@ -1821,22 +1985,18 @@
 
                 <div class="about-copy">
 
-                    <div class="section-label">
+                    <div class="section-label" data-i18n="about_label">
                         About
                     </div>
 
 
-                    <h2 class="section-title">
+                    <h2 class="section-title" data-i18n="about_title">
                         Small ideas can create meaningful change.
                     </h2>
 
 
-                    <p class="section-text">
-                        Sway Digital Lab is an independent digital studio
-                        focused on creating simple, useful and thoughtful
-                        digital products. We explore ideas, build applications
-                        and turn concepts into tools that can make everyday
-                        life a little easier.
+                    <p class="section-text" data-i18n="about_text">
+                        Sway Digital Lab is an independent digital studio focused on creating simple, useful and thoughtful digital products. We explore ideas, build applications and turn concepts into tools that can make everyday life a little easier.
                     </p>
 
                 </div>
@@ -1870,19 +2030,18 @@
 
                 <div class="apps-header">
 
-                    <div class="section-label">
+                    <div class="section-label" data-i18n="apps_label">
                         Apps
                     </div>
 
 
-                    <h2 class="section-title">
+                    <h2 class="section-title" data-i18n="apps_title">
                         Ideas becoming products.
                     </h2>
 
 
-                    <p class="section-text">
-                        Explore digital products created by
-                        Sway Digital Lab.
+                    <p class="section-text" data-i18n="apps_text">
+                        Explore digital products created by Sway Digital Lab.
                     </p>
 
                 </div>
@@ -1897,7 +2056,7 @@
 
                     <div class="app-intro">
 
-                        <div class="section-label">
+                        <div class="section-label" data-i18n="featured_label">
                             Featured app
                         </div>
 
@@ -1907,10 +2066,8 @@
                         </h3>
 
 
-                        <p class="app-tagline">
-                            A focused vocabulary app for practical English —
-                            with levels, categories, favorites and personalized
-                            settings.
+                        <p class="app-tagline" data-i18n="featured_tagline">
+                            A focused vocabulary app for practical English — with levels, categories, favorites and personalized settings.
                         </p>
 
                     </div>
@@ -1926,6 +2083,7 @@
                             <img
                                 src="assets/english-breakfast-screenshot-1.webp"
                                 alt="English Breakfast Word of the Day"
+                                data-i18n-alt="screenshot_1_alt"
                                 loading="lazy"
                             >
 
@@ -1937,6 +2095,7 @@
                             <img
                                 src="assets/english-breakfast-screenshot-2.webp"
                                 alt="English Breakfast 3D Flashcards & Spaced Repetition"
+                                data-i18n-alt="screenshot_2_alt"
                                 loading="lazy"
                             >
 
@@ -1948,6 +2107,7 @@
                             <img
                                 src="assets/english-breakfast-screenshot-3.webp"
                                 alt="English Breakfast 6,600+ Words & Categories"
+                                data-i18n-alt="screenshot_3_alt"
                                 loading="lazy"
                             >
 
@@ -1959,6 +2119,7 @@
                             <img
                                 src="assets/english-breakfast-screenshot-4.webp"
                                 alt="English Breakfast Global Leagues & Streaks"
+                                data-i18n-alt="screenshot_4_alt"
                                 loading="lazy"
                             >
 
@@ -1967,98 +2128,466 @@
                     </div>
 
 
-                    <!-- DETAILS -->
+                    <!-- DETAILS & INTERACTIVE BENEFITS -->
 
                     <div class="app-details">
 
 
-                        <div>
+                        <div class="app-details-header">
 
-                            <h3>
+                            <h3 data-i18n="why_title">
                                 Why English Breakfast
                             </h3>
 
 
-                            <p>
-                                Explore vocabulary from Elementary to Advanced,
-                                practice different word categories and keep
-                                useful words in your favorites.
+                            <p data-i18n="why_desc">
+                                English Breakfast turns English vocabulary into an effortless daily habit. Combining spaced repetition, hands-free audio, and an AI text scanner into one intuitive app.
                             </p>
 
                         </div>
 
 
-                        <!-- BENEFITS -->
+                        <!-- 8 SYSTEMATIZED INTERACTIVE BENEFITS -->
 
                         <div class="benefits">
 
 
-                            <div class="benefit">
+                            <!-- 1: HANDS-FREE AUDIO -->
 
-                                <span class="benefit-icon">
-                                    📚
-                                </span>
+                            <div class="benefit" role="button" tabindex="0" aria-expanded="false">
 
-                                <strong>
-                                    Multiple levels
-                                </strong>
+                                <div class="benefit-main">
 
-                                <span>
-                                    From Elementary to Advanced vocabulary.
-                                </span>
+                                    <span class="benefit-icon">🎧</span>
+
+                                    <div class="benefit-text-wrap">
+
+                                        <div class="benefit-title-row">
+
+                                            <strong data-i18n="benefit_audio_title">
+                                                Hands-Free Audio in Headphones
+                                            </strong>
+
+                                            <span class="benefit-toggle" aria-hidden="true">+</span>
+
+                                        </div>
+
+                                        <span class="benefit-short" data-i18n="benefit_audio_short">
+                                            Learn on walks, runs, or during commutes without touching the screen.
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="benefit-drawer">
+
+                                    <ul class="benefit-points">
+
+                                        <li data-i18n="benefit_audio_p1">
+                                            Hands-free auto-playback of words with intelligent pauses
+                                        </li>
+
+                                        <li data-i18n="benefit_audio_p2">
+                                            Native translation first, recall pause, then crystal-clear English pronunciation
+                                        </li>
+
+                                        <li data-i18n="benefit_audio_p3">
+                                            Plays in the background and works seamlessly with phone locked
+                                        </li>
+
+                                        <li data-i18n="benefit_audio_p4">
+                                            Studio British & American accents for natural listening
+                                        </li>
+
+                                    </ul>
+
+                                </div>
 
                             </div>
 
 
-                            <div class="benefit">
+                            <!-- 2: 3D FLASHCARDS & PRACTICE -->
 
-                                <span class="benefit-icon">
-                                    🔄
-                                </span>
+                            <div class="benefit" role="button" tabindex="0" aria-expanded="false">
 
-                                <strong>
-                                    Different categories
-                                </strong>
+                                <div class="benefit-main">
 
-                                <span>
-                                    Vocabulary, irregular verbs and
-                                    phrasal patterns.
-                                </span>
+                                    <span class="benefit-icon">🃏</span>
+
+                                    <div class="benefit-text-wrap">
+
+                                        <div class="benefit-title-row">
+
+                                            <strong data-i18n="benefit_cards_title">
+                                                3D Flashcards & 4 Practice Modes
+                                            </strong>
+
+                                            <span class="benefit-toggle" aria-hidden="true">+</span>
+
+                                        </div>
+
+                                        <span class="benefit-short" data-i18n="benefit_cards_short">
+                                            Proven spaced repetition algorithm paired with engaging practice formats.
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="benefit-drawer">
+
+                                    <ul class="benefit-points">
+
+                                        <li data-i18n="benefit_cards_p1">
+                                            Interactive 3D flip cards with swipe mechanics and phonetic transcription
+                                        </li>
+
+                                        <li data-i18n="benefit_cards_p2">
+                                            Fast-paced timed Quiz to challenge recall speed
+                                        </li>
+
+                                        <li data-i18n="benefit_cards_p3">
+                                            Pair Matching game to cement associations between words and meanings
+                                        </li>
+
+                                        <li data-i18n="benefit_cards_p4">
+                                            Spelling Sprint to master correct writing letter by letter
+                                        </li>
+
+                                    </ul>
+
+                                </div>
 
                             </div>
 
 
-                            <div class="benefit">
+                            <!-- 3: 6,600+ WORDS & CEFR -->
 
-                                <span class="benefit-icon">
-                                    ❤️
-                                </span>
+                            <div class="benefit" role="button" tabindex="0" aria-expanded="false">
 
-                                <strong>
-                                    Favorite words
-                                </strong>
+                                <div class="benefit-main">
 
-                                <span>
-                                    Save words you want to practice again.
-                                </span>
+                                    <span class="benefit-icon">📚</span>
+
+                                    <div class="benefit-text-wrap">
+
+                                        <div class="benefit-title-row">
+
+                                            <strong data-i18n="benefit_vocab_title">
+                                                6,600+ Words & CEFR Levels
+                                            </strong>
+
+                                            <span class="benefit-toggle" aria-hidden="true">+</span>
+
+                                        </div>
+
+                                        <span class="benefit-short" data-i18n="benefit_vocab_short">
+                                            Curated by international standards from Elementary to Advanced.
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="benefit-drawer">
+
+                                    <ul class="benefit-points">
+
+                                        <li data-i18n="benefit_vocab_p1">
+                                            Full CEFR coverage: A1, A2, B1, B2, C1, and C2 levels
+                                        </li>
+
+                                        <li data-i18n="benefit_vocab_p2">
+                                            Real-world modules: IT & Tech, Business, Travel, Slang & Idioms
+                                        </li>
+
+                                        <li data-i18n="benefit_vocab_p3">
+                                            Complete irregular verbs dictionary with all 3 forms
+                                        </li>
+
+                                        <li data-i18n="benefit_vocab_p4">
+                                            Conversational phrasal patterns for natural spoken fluency
+                                        </li>
+
+                                    </ul>
+
+                                </div>
 
                             </div>
 
 
-                            <div class="benefit">
+                            <!-- 4: AI TEXT & BOOK SCANNER -->
 
-                                <span class="benefit-icon">
-                                    🎧
-                                </span>
+                            <div class="benefit" role="button" tabindex="0" aria-expanded="false">
 
-                                <strong>
-                                    Personal settings
-                                </strong>
+                                <div class="benefit-main">
 
-                                <span>
-                                    Choose theme, sound effects and
-                                    voice accent.
-                                </span>
+                                    <span class="benefit-icon">📷</span>
+
+                                    <div class="benefit-text-wrap">
+
+                                        <div class="benefit-title-row">
+
+                                            <strong data-i18n="benefit_scanner_title">
+                                                Smart AI Book & Text Scanner
+                                            </strong>
+
+                                            <span class="benefit-toggle" aria-hidden="true">+</span>
+
+                                        </div>
+
+                                        <span class="benefit-short" data-i18n="benefit_scanner_short">
+                                            Snap a photo of any book page or paste text to extract new words.
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="benefit-drawer">
+
+                                    <ul class="benefit-points">
+
+                                        <li data-i18n="benefit_scanner_p1">
+                                            Instant optical text recognition (OCR) from camera or screenshot
+                                        </li>
+
+                                        <li data-i18n="benefit_scanner_p2">
+                                            AI highlights unfamiliar words not yet in your vocabulary
+                                        </li>
+
+                                        <li data-i18n="benefit_scanner_p3">
+                                            1-tap addition of new words directly to your study deck
+                                        </li>
+
+                                        <li data-i18n="benefit_scanner_p4">
+                                            Ideal for reading physical English books and web articles
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- 5: PRONUNCIATION COACH -->
+
+                            <div class="benefit" role="button" tabindex="0" aria-expanded="false">
+
+                                <div class="benefit-main">
+
+                                    <span class="benefit-icon">🎙️</span>
+
+                                    <div class="benefit-text-wrap">
+
+                                        <div class="benefit-title-row">
+
+                                            <strong data-i18n="benefit_pron_title">
+                                                Pronunciation Coach & Offline Sound
+                                            </strong>
+
+                                            <span class="benefit-toggle" aria-hidden="true">+</span>
+
+                                        </div>
+
+                                        <span class="benefit-short" data-i18n="benefit_pron_short">
+                                            Speak into your microphone and receive instant accent feedback.
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="benefit-drawer">
+
+                                    <ul class="benefit-points">
+
+                                        <li data-i18n="benefit_pron_p1">
+                                            Real-time speech analysis with instant clarity scoring
+                                        </li>
+
+                                        <li data-i18n="benefit_pron_p2">
+                                            Toggle between British (UK) and American (US) pronunciation
+                                        </li>
+
+                                        <li data-i18n="benefit_pron_p3">
+                                            Core vocabulary audio works 100% offline without internet
+                                        </li>
+
+                                        <li data-i18n="benefit_pron_p4">
+                                            Accurate IPA phonetic transcription for every word
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- 6: WEEKLY LEAGUES & STREAKS -->
+
+                            <div class="benefit" role="button" tabindex="0" aria-expanded="false">
+
+                                <div class="benefit-main">
+
+                                    <span class="benefit-icon">🏆</span>
+
+                                    <div class="benefit-text-wrap">
+
+                                        <div class="benefit-title-row">
+
+                                            <strong data-i18n="benefit_leagues_title">
+                                                Weekly Leagues & Habit Streaks
+                                            </strong>
+
+                                            <span class="benefit-toggle" aria-hidden="true">+</span>
+
+                                        </div>
+
+                                        <span class="benefit-short" data-i18n="benefit_leagues_short">
+                                            Earn XP, keep your daily streak alive, and climb the leaderboard.
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="benefit-drawer">
+
+                                    <ul class="benefit-points">
+
+                                        <li data-i18n="benefit_leagues_p1">
+                                            Weekly competitive leagues with learners from across the globe
+                                        </li>
+
+                                        <li data-i18n="benefit_leagues_p2">
+                                            Daily streak tracker to build an unstoppable study routine
+                                        </li>
+
+                                        <li data-i18n="benefit_leagues_p3">
+                                            Detailed stats: mastered words, cards reviewed, and time spent
+                                        </li>
+
+                                        <li data-i18n="benefit_leagues_p4">
+                                            Milestone achievements and podium trophies
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- 7: CUSTOM DICTIONARY & NOTES -->
+
+                            <div class="benefit" role="button" tabindex="0" aria-expanded="false">
+
+                                <div class="benefit-main">
+
+                                    <span class="benefit-icon">📝</span>
+
+                                    <div class="benefit-text-wrap">
+
+                                        <div class="benefit-title-row">
+
+                                            <strong data-i18n="benefit_notes_title">
+                                                Personal Dictionary & Mnemonic Notes
+                                            </strong>
+
+                                            <span class="benefit-toggle" aria-hidden="true">+</span>
+
+                                        </div>
+
+                                        <span class="benefit-short" data-i18n="benefit_notes_short">
+                                            Add custom words, idioms, and your own mnemonic associations.
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="benefit-drawer">
+
+                                    <ul class="benefit-points">
+
+                                        <li data-i18n="benefit_notes_p1">
+                                            Add any custom word, phrase, or idiom in seconds
+                                        </li>
+
+                                        <li data-i18n="benefit_notes_p2">
+                                            Attach personal memory hints, mnemonic hooks, and example sentences
+                                        </li>
+
+                                        <li data-i18n="benefit_notes_p3">
+                                            Favorites folder for dedicated focus on tough words
+                                        </li>
+
+                                        <li data-i18n="benefit_notes_p4">
+                                            Instant lightning-fast search across your entire dictionary
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- 8: CLOUD SYNC & 26 LANGUAGES -->
+
+                            <div class="benefit" role="button" tabindex="0" aria-expanded="false">
+
+                                <div class="benefit-main">
+
+                                    <span class="benefit-icon">☁️</span>
+
+                                    <div class="benefit-text-wrap">
+
+                                        <div class="benefit-title-row">
+
+                                            <strong data-i18n="benefit_cloud_title">
+                                                Cloud Sync & 26 Interface Languages
+                                            </strong>
+
+                                            <span class="benefit-toggle" aria-hidden="true">+</span>
+
+                                        </div>
+
+                                        <span class="benefit-short" data-i18n="benefit_cloud_short">
+                                            1-click Google login, multi-device sync, and full localization.
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="benefit-drawer">
+
+                                    <ul class="benefit-points">
+
+                                        <li data-i18n="benefit_cloud_p1">
+                                            One-click sign-in with Google — no tedious forms
+                                        </li>
+
+                                        <li data-i18n="benefit_cloud_p2">
+                                            Automatic cloud backup via Firebase Firestore across all devices
+                                        </li>
+
+                                        <li data-i18n="benefit_cloud_p3">
+                                            Interface and translations available in 26 world languages
+                                        </li>
+
+                                        <li data-i18n="benefit_cloud_p4">
+                                            Installable Progressive Web App (PWA) for desktop and Android
+                                        </li>
+
+                                    </ul>
+
+                                </div>
 
                             </div>
 
@@ -2078,13 +2607,14 @@
                             href="https://english-breakfast.pages.dev/"
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-i18n="app_btn"
                         >
                             Open English Breakfast →
                         </a>
 
 
-                        <span class="app-url">
-                            english-breakfast.pages.dev
+                        <span class="app-url" data-i18n="app_url">
+                            english-breakfast.pages.dev · Web & Android
                         </span>
 
                     </div>
@@ -2112,19 +2642,18 @@
 
                 <div class="contact-copy">
 
-                    <div class="section-label">
+                    <div class="section-label" data-i18n="contact_label">
                         Contact
                     </div>
 
 
-                    <h2 class="section-title">
+                    <h2 class="section-title" data-i18n="contact_title">
                         Have an idea?
                     </h2>
 
 
-                    <p class="contact-description">
-                        Have a suggestion for an app, a feature or a
-                        completely new idea? Tell us about it.
+                    <p class="contact-description" data-i18n="contact_desc">
+                        Have a suggestion for an app, a feature, or a completely new idea? Tell us about it.
                     </p>
 
 
@@ -2148,14 +2677,13 @@
                         id="formSuccess"
                     >
 
-                        <h3>
+                        <h3 data-i18n="form_success_h3">
                             Thank you!
                         </h3>
 
 
-                        <p>
-                            Your suggestion has been sent successfully.
-                            We really appreciate your idea.
+                        <p data-i18n="form_success_p">
+                            Your suggestion has been sent successfully. We really appreciate your idea.
                         </p>
 
                     </div>
@@ -2166,15 +2694,13 @@
                     <div
                         class="form-error"
                         id="formError"
+                        data-i18n="form_error_p"
                     >
-
-                        Something went wrong.
-                        Please try again.
-
+                        Something went wrong. Please try again or email us directly.
                     </div>
 
 
-                    <!-- FORMSPREE -->
+                    <!-- FORM -->
 
                     <form
                         class="suggestion-form"
@@ -2188,7 +2714,7 @@
 
                         <div class="form-group">
 
-                            <label for="name">
+                            <label for="name" data-i18n="form_name_lbl">
                                 Your name (optional)
                             </label>
 
@@ -2197,6 +2723,7 @@
                                 type="text"
                                 id="name"
                                 name="name"
+                                data-i18n-ph="form_name_ph"
                                 placeholder="Your name"
                                 autocomplete="name"
                             >
@@ -2208,7 +2735,7 @@
 
                         <div class="form-group">
 
-                            <label for="email">
+                            <label for="email" data-i18n="form_email_lbl">
                                 Your email (optional)
                             </label>
 
@@ -2217,6 +2744,7 @@
                                 type="email"
                                 id="email"
                                 name="email"
+                                data-i18n-ph="form_email_ph"
                                 placeholder="you@example.com"
                                 autocomplete="email"
                             >
@@ -2228,7 +2756,7 @@
 
                         <div class="form-group">
 
-                            <label for="suggestion">
+                            <label for="suggestion" data-i18n="form_sugg_lbl">
                                 Your suggestion
                             </label>
 
@@ -2236,6 +2764,7 @@
                             <textarea
                                 id="suggestion"
                                 name="suggestion"
+                                data-i18n-ph="form_sugg_ph"
                                 placeholder="Tell us about your idea..."
                                 required
                             ></textarea>
@@ -2247,6 +2776,7 @@
                             class="submit-button"
                             id="submitButton"
                             type="submit"
+                            data-i18n="form_btn_send"
                         >
                             Send suggestion →
                         </button>
@@ -2270,20 +2800,20 @@
 
                 <div class="vision-inner">
 
-                    <div class="section-label">
+                    <div class="section-label" data-i18n="vision_label">
                         Our vision
                     </div>
 
 
                     <div class="vision-quote">
 
-                        Build simple things.
+                        <span style="display:inline; color:inherit;" data-i18n="vision_q1">Build simple things.</span>
 
-                        <span>
+                        <span data-i18n="vision_q2">
                             Make them useful.
                         </span>
 
-                        Leave a positive impact.
+                        <span style="display:inline; color:inherit;" data-i18n="vision_q3">Leave a positive impact.</span>
 
                     </div>
 
@@ -2311,6 +2841,11 @@
             </div>
 
 
+            <div data-i18n="footer_rights">
+                © 2026 Sway Digital Lab. All rights reserved.
+            </div>
+
+
             <a
                 class="footer-email"
                 href="mailto:lipniagovnik@gmail.com"
@@ -2322,6 +2857,13 @@
         </div>
 
     </footer>
+
+
+    <!-- =========================================
+         TRANSLATIONS SCRIPT
+    ========================================== -->
+
+    <script src="assets/translations.js"></script>
 
 
     <!-- =========================================
@@ -2392,6 +2934,247 @@
 
 
         /* =======================================
+           INTERACTIVE BENEFIT CARDS
+        ======================================= */
+
+        document.querySelectorAll('.benefit').forEach(function(card) {
+
+            function toggleCard() {
+
+                const isOpen = card.classList.toggle('open');
+
+                card.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+            }
+
+            card.addEventListener('click', toggleCard);
+
+            card.addEventListener('keydown', function(e) {
+
+                if (e.key === 'Enter' || e.key === ' ') {
+
+                    e.preventDefault();
+
+                    toggleCard();
+
+                }
+
+            });
+
+        });
+
+
+        /* =======================================
+           LANGUAGE SWITCHER & AUTO-DETECTION
+        ======================================= */
+
+        (function () {
+
+            const supportedLangs = ['en', 'de', 'fr', 'pl', 'it', 'ru', 'uk'];
+
+            const flags = {
+                en: '🇬🇧',
+                de: '🇩🇪',
+                fr: '🇫🇷',
+                pl: '🇵🇱',
+                it: '🇮🇹',
+                ru: '🇷🇺',
+                uk: '🇺🇦'
+            };
+
+            const codes = {
+                en: 'EN',
+                de: 'DE',
+                fr: 'FR',
+                pl: 'PL',
+                it: 'IT',
+                ru: 'RU',
+                uk: 'UK'
+            };
+
+            function detectUserLanguage() {
+
+                const saved = localStorage.getItem('sway_lang');
+
+                if (saved && supportedLangs.includes(saved)) {
+                    return saved;
+                }
+
+                const userLocales = navigator.languages || [navigator.language || ''];
+
+                for (let i = 0; i < userLocales.length; i++) {
+
+                    const loc = userLocales[i];
+
+                    if (!loc) continue;
+
+                    const code = loc.toLowerCase().slice(0, 2);
+
+                    if (supportedLangs.includes(code)) {
+                        return code;
+                    }
+
+                }
+
+                return 'en';
+
+            }
+
+            let currentLang = detectUserLanguage();
+
+            function setLanguage(lang) {
+
+                if (!supportedLangs.includes(lang)) lang = 'en';
+
+                currentLang = lang;
+
+                try {
+                    localStorage.setItem('sway_lang', lang);
+                } catch (e) {}
+
+                document.documentElement.lang = lang;
+
+                const dict = (window.TRANSLATIONS && window.TRANSLATIONS[lang]) ?
+                    window.TRANSLATIONS[lang] :
+                    ((window.TRANSLATIONS && window.TRANSLATIONS['en']) || {});
+
+                // Document Title & Meta Description
+                if (dict.page_title) {
+                    document.title = dict.page_title;
+                }
+
+                const metaDesc = document.querySelector('meta[name="description"]');
+                if (metaDesc && dict.page_meta_desc) {
+                    metaDesc.setAttribute('content', dict.page_meta_desc);
+                }
+
+                // Elements with data-i18n
+                document.querySelectorAll('[data-i18n]').forEach(function(el) {
+
+                    const key = el.getAttribute('data-i18n');
+
+                    if (dict[key] !== undefined) {
+                        el.textContent = dict[key];
+                    }
+
+                });
+
+                // Input placeholders
+                document.querySelectorAll('[data-i18n-ph]').forEach(function(el) {
+
+                    const key = el.getAttribute('data-i18n-ph');
+
+                    if (dict[key] !== undefined) {
+                        el.placeholder = dict[key];
+                    }
+
+                });
+
+                // Image alt attributes
+                document.querySelectorAll('[data-i18n-alt]').forEach(function(el) {
+
+                    const key = el.getAttribute('data-i18n-alt');
+
+                    if (dict[key] !== undefined) {
+                        el.alt = dict[key];
+                    }
+
+                });
+
+                // Submit button if idle
+                const submitBtn = document.getElementById('submitButton');
+                if (submitBtn && !submitBtn.disabled && dict.form_btn_send) {
+                    submitBtn.textContent = dict.form_btn_send;
+                }
+
+                // Update Header Selector Button
+                const flagEl = document.getElementById('langCurrentFlag');
+                const codeEl = document.getElementById('langCurrentCode');
+
+                if (flagEl) flagEl.textContent = flags[lang];
+                if (codeEl) codeEl.textContent = codes[lang];
+
+                // Update Active State in Menu
+                document.querySelectorAll('.lang-item').forEach(function(item) {
+
+                    const isMatch = item.getAttribute('data-lang') === lang;
+
+                    item.classList.toggle('active', isMatch);
+
+                    item.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+
+                });
+
+            }
+
+            // Language Selector Interaction
+            const langSelector = document.getElementById('langSelector');
+            const langBtn = document.getElementById('langBtn');
+
+            if (langBtn && langSelector) {
+
+                langBtn.addEventListener('click', function(e) {
+
+                    e.stopPropagation();
+
+                    const isOpen = langSelector.classList.toggle('open');
+
+                    langBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+                });
+
+                document.querySelectorAll('.lang-item').forEach(function(item) {
+
+                    item.addEventListener('click', function() {
+
+                        const targetLang = this.getAttribute('data-lang');
+
+                        setLanguage(targetLang);
+
+                        langSelector.classList.remove('open');
+
+                        langBtn.setAttribute('aria-expanded', 'false');
+
+                    });
+
+                });
+
+                document.addEventListener('click', function(e) {
+
+                    if (!langSelector.contains(e.target)) {
+
+                        langSelector.classList.remove('open');
+
+                        langBtn.setAttribute('aria-expanded', 'false');
+
+                    }
+
+                });
+
+                document.addEventListener('keydown', function(e) {
+
+                    if (e.key === 'Escape') {
+
+                        langSelector.classList.remove('open');
+
+                        langBtn.setAttribute('aria-expanded', 'false');
+
+                    }
+
+                });
+
+            }
+
+            // Expose globally for form handling & set initial lang
+            window.getCurrentLanguage = function() { return currentLang; };
+            window.setSiteLanguage = setLanguage;
+
+            setLanguage(currentLang);
+
+        })();
+
+
+        /* =======================================
            FORMSPREE
         ======================================= */
 
@@ -2434,8 +3217,11 @@
                 submitButton.disabled = true;
 
 
+                const lang = (window.getCurrentLanguage && window.getCurrentLanguage()) || 'en';
+                const dict = (window.TRANSLATIONS && window.TRANSLATIONS[lang]) || {};
+
                 submitButton.textContent =
-                    "Sending...";
+                    dict.form_btn_sending || "Sending...";
 
 
                 const formData =
@@ -2500,7 +3286,7 @@
 
 
                     submitButton.textContent =
-                        "Send suggestion →";
+                        dict.form_btn_send || "Send suggestion →";
 
                 }
 
