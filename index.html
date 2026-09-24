@@ -1114,9 +1114,11 @@
 
             justify-content: center;
 
+            gap: 10px;
+
             padding:
                 15px
-                26px;
+                28px;
 
             border-radius: 999px;
 
@@ -1124,7 +1126,7 @@
 
             color: #04120a;
 
-            font-size: 14px;
+            font-size: 14.5px;
 
             font-weight: 700;
 
@@ -1132,7 +1134,8 @@
 
             transition:
                 background 0.2s ease,
-                transform 0.2s ease;
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
 
@@ -1140,7 +1143,19 @@
 
             background: var(--lime-hover);
 
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+
+            box-shadow: 0 10px 25px rgba(183,245,45,0.25);
+        }
+
+
+        .google-play-icon {
+
+            width: 19px;
+
+            height: 19px;
+
+            flex-shrink: 0;
         }
 
 
@@ -2604,18 +2619,21 @@
 
                         <a
                             class="app-button"
-                            href="https://english-breakfast.pages.dev/"
+                            href="https://play.google.com/store/apps/details?id=com.englishbreakfast.app"
                             target="_blank"
                             rel="noopener noreferrer"
-                            data-i18n="app_btn"
+                            aria-label="Google Play"
                         >
-                            Open English Breakfast →
+
+                            <svg class="google-play-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                                <path d="M3.609 1.814L13.793 12 3.61 22.186a2.22 2.22 0 0 1-.61-.906V2.72c0-.336.082-.65.225-.921l.384.015zm1.503-.997l10.155 5.863-2.617 2.617-7.538-8.48zm0 22.366l7.538-8.48 2.617 2.617-10.155 5.863zm11.393-7.098l3.435-1.984a1.867 1.867 0 0 0 0-3.232l-3.435-1.984-2.85 2.85 2.85 2.85z"/>
+                            </svg>
+
+                            <span data-i18n="app_btn">
+                                Get it on Google Play →
+                            </span>
+
                         </a>
-
-
-                        <span class="app-url" data-i18n="app_url">
-                            english-breakfast.pages.dev · Web & Android
-                        </span>
 
                     </div>
 
