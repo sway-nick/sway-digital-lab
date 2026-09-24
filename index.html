@@ -317,11 +317,11 @@
         }
 
 
-        .lang-flag {
+        .lang-globe {
 
-            font-size: 15px;
+            color: var(--lime);
 
-            line-height: 1;
+            flex-shrink: 0;
         }
 
 
@@ -332,6 +332,41 @@
             font-weight: 600;
 
             letter-spacing: 0.04em;
+        }
+
+
+        .lang-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-width: 28px;
+
+            padding: 2px 6px;
+
+            border-radius: 6px;
+
+            background: rgba(255,255,255,0.06);
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.04em;
+        }
+
+
+        .lang-item:hover .lang-badge,
+        .lang-item.active .lang-badge {
+
+            background: rgba(183,245,45,0.22);
+
+            color: var(--lime);
         }
 
 
@@ -1870,7 +1905,11 @@
                         aria-label="Select language"
                     >
 
-                        <span class="lang-flag" id="langCurrentFlag">🇬🇧</span>
+                        <svg class="lang-globe" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
 
                         <span class="lang-code" id="langCurrentCode">EN</span>
 
@@ -1884,37 +1923,37 @@
                     <div class="lang-menu" id="langMenu" role="listbox" aria-label="Languages">
 
                         <button type="button" role="option" class="lang-item" data-lang="en" aria-selected="true">
-                            <span class="flag">🇬🇧</span>
+                            <span class="lang-badge">EN</span>
                             <span>English</span>
                         </button>
 
                         <button type="button" role="option" class="lang-item" data-lang="de" aria-selected="false">
-                            <span class="flag">🇩🇪</span>
+                            <span class="lang-badge">DE</span>
                             <span>Deutsch</span>
                         </button>
 
                         <button type="button" role="option" class="lang-item" data-lang="fr" aria-selected="false">
-                            <span class="flag">🇫🇷</span>
+                            <span class="lang-badge">FR</span>
                             <span>Français</span>
                         </button>
 
                         <button type="button" role="option" class="lang-item" data-lang="pl" aria-selected="false">
-                            <span class="flag">🇵🇱</span>
+                            <span class="lang-badge">PL</span>
                             <span>Polski</span>
                         </button>
 
                         <button type="button" role="option" class="lang-item" data-lang="it" aria-selected="false">
-                            <span class="flag">🇮🇹</span>
+                            <span class="lang-badge">IT</span>
                             <span>Italiano</span>
                         </button>
 
                         <button type="button" role="option" class="lang-item" data-lang="ru" aria-selected="false">
-                            <span class="flag">🇷🇺</span>
+                            <span class="lang-badge">RU</span>
                             <span>Русский</span>
                         </button>
 
                         <button type="button" role="option" class="lang-item" data-lang="uk" aria-selected="false">
-                            <span class="flag">🇺🇦</span>
+                            <span class="lang-badge">UA</span>
                             <span>Українська</span>
                         </button>
 
@@ -2990,16 +3029,6 @@
 
             const supportedLangs = ['en', 'de', 'fr', 'pl', 'it', 'ru', 'uk'];
 
-            const flags = {
-                en: '🇬🇧',
-                de: '🇩🇪',
-                fr: '🇫🇷',
-                pl: '🇵🇱',
-                it: '🇮🇹',
-                ru: '🇷🇺',
-                uk: '🇺🇦'
-            };
-
             const codes = {
                 en: 'EN',
                 de: 'DE',
@@ -3007,7 +3036,7 @@
                 pl: 'PL',
                 it: 'IT',
                 ru: 'RU',
-                uk: 'UK'
+                uk: 'UA'
             };
 
             function detectUserLanguage() {
@@ -3106,11 +3135,8 @@
                 }
 
                 // Update Header Selector Button
-                const flagEl = document.getElementById('langCurrentFlag');
                 const codeEl = document.getElementById('langCurrentCode');
-
-                if (flagEl) flagEl.textContent = flags[lang];
-                if (codeEl) codeEl.textContent = codes[lang];
+                if (codeEl) codeEl.textContent = codes[lang] || 'EN';
 
                 // Update Active State in Menu
                 document.querySelectorAll('.lang-item').forEach(function(item) {
