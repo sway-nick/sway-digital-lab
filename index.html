@@ -23,11 +23,37 @@
         content="#061812"
     >
 
-    <!-- FAVICON -->
+    <link rel="canonical" href="https://sway-nick.github.io/sway-digital-lab/">
+
+    <!-- OPEN GRAPH / SOCIAL PREVIEWS -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sway-nick.github.io/sway-digital-lab/">
+    <meta property="og:title" content="Sway Digital Lab — Simple, useful and thoughtful digital products">
+    <meta property="og:description" content="Sway Digital Lab is an independent digital studio creating focused, useful and simple tools like English Breakfast.">
+    <meta property="og:image" content="https://sway-nick.github.io/sway-digital-lab/assets/cover.jpg">
+
+    <!-- TWITTER CARDS -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sway Digital Lab — Simple, useful and thoughtful digital products">
+    <meta name="twitter:description" content="Sway Digital Lab is an independent digital studio creating focused, useful and simple tools like English Breakfast.">
+    <meta name="twitter:image" content="https://sway-nick.github.io/sway-digital-lab/assets/cover.jpg">
+
+    <!-- FAVICONS & APPLE TOUCH ICONS -->
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="96x96"
+        href="assets/favicon-96x96.png"
+    >
     <link
         rel="icon"
         type="image/png"
         href="assets/favicon.png"
+    >
+    <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="assets/apple-touch-icon.png"
     >
 
 
@@ -582,6 +608,8 @@
 
             height: auto;
 
+            aspect-ratio: 4096 / 2304;
+
             max-width: none;
 
             margin: 0;
@@ -877,9 +905,13 @@
 
         .app-screenshot img {
 
+            display: block;
+
             width: 100%;
 
             height: auto;
+
+            aspect-ratio: 9 / 16;
 
             border-radius: 15px;
         }
@@ -1977,10 +2009,15 @@
                 aria-label="Sway Digital Lab"
             >
 
-                <img
-                    src="assets/logo.png"
-                    alt="Sway Digital Lab logo"
-                >
+                <picture>
+                    <source srcset="assets/logo.webp" type="image/webp">
+                    <img
+                        src="assets/logo.png"
+                        alt="Sway Digital Lab logo"
+                        width="38"
+                        height="38"
+                    >
+                </picture>
 
                 <span>
                     Sway Digital Lab
@@ -2118,11 +2155,26 @@
 
         <section class="hero">
 
-            <img
-                class="hero-image"
-                src="assets/cover.jpg?v=2"
-                alt="Sway Digital Lab"
-            >
+            <picture>
+                <source
+                    srcset="assets/cover-mobile.webp"
+                    media="(max-width: 768px)"
+                    type="image/webp"
+                >
+                <source
+                    srcset="assets/cover.webp"
+                    type="image/webp"
+                >
+                <img
+                    class="hero-image"
+                    src="assets/cover.jpg?v=2"
+                    alt="Sway Digital Lab — Simple Tools for a Brighter Tomorrow"
+                    width="4096"
+                    height="2304"
+                    fetchpriority="high"
+                    decoding="async"
+                >
+            </picture>
 
         </section>
 
@@ -2160,10 +2212,16 @@
 
                 <div class="about-image">
 
-                    <img
-                        src="assets/logo.png"
-                        alt="Sway Digital Lab logo"
-                    >
+                    <picture>
+                        <source srcset="assets/logo.webp" type="image/webp">
+                        <img
+                            src="assets/logo.png"
+                            alt="Sway Digital Lab logo"
+                            width="512"
+                            height="512"
+                            loading="lazy"
+                        >
+                    </picture>
 
                 </div>
 
@@ -2240,6 +2298,8 @@
                                     src="assets/cat_promo_banner_highres_en.jpg"
                                     alt="English Breakfast — Master English Words on Google Play"
                                     data-i18n-alt="promo_banner_alt"
+                                    width="1376"
+                                    height="768"
                                     loading="lazy"
                                 >
                             </picture>
@@ -2259,6 +2319,8 @@
                                 src="assets/english-breakfast-screenshot-1.webp"
                                 alt="English Breakfast Word of the Day"
                                 data-i18n-alt="screenshot_1_alt"
+                                width="1080"
+                                height="1920"
                                 loading="lazy"
                             >
 
@@ -2271,6 +2333,8 @@
                                 src="assets/english-breakfast-screenshot-2.webp"
                                 alt="English Breakfast 3D Flashcards & Spaced Repetition"
                                 data-i18n-alt="screenshot_2_alt"
+                                width="1080"
+                                height="1920"
                                 loading="lazy"
                             >
 
@@ -2283,6 +2347,8 @@
                                 src="assets/english-breakfast-screenshot-3.webp"
                                 alt="English Breakfast 6,600+ Words & Categories"
                                 data-i18n-alt="screenshot_3_alt"
+                                width="1080"
+                                height="1920"
                                 loading="lazy"
                             >
 
@@ -2295,6 +2361,8 @@
                                 src="assets/english-breakfast-screenshot-4.webp"
                                 alt="English Breakfast Global Leagues & Streaks"
                                 data-i18n-alt="screenshot_4_alt"
+                                width="1080"
+                                height="1920"
                                 loading="lazy"
                             >
 
