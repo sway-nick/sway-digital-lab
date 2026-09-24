@@ -734,9 +734,23 @@
         }
 
 
-        .app-intro {
+        .featured-app-top {
 
-            max-width: 760px;
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 36px;
+        }
+
+
+        .featured-app-top .app-intro {
+
+            flex: 1 1 auto;
+
+            max-width: 640px;
         }
 
 
@@ -759,6 +773,62 @@
             font-size: 17px;
 
             line-height: 1.65;
+        }
+
+
+        .app-promo-banner {
+
+            flex: 0 0 320px;
+
+            max-width: 340px;
+
+            display: block;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            box-shadow:
+                0 12px 35px
+                rgba(0,0,0,0.35);
+
+            transition:
+                transform 0.28s cubic-bezier(0.16,1,0.3,1),
+                box-shadow 0.28s ease,
+                border-color 0.28s ease;
+
+            text-decoration: none;
+        }
+
+
+        .app-promo-banner:hover {
+
+            transform: translateY(-3px) scale(1.02);
+
+            border-color: rgba(183,245,45,0.55);
+
+            box-shadow:
+                0 18px 48px rgba(0,0,0,0.45),
+                0 0 24px rgba(183,245,45,0.18);
+        }
+
+
+        .app-promo-banner picture,
+        .app-promo-banner img {
+
+            display: block;
+
+            width: 100%;
+
+            height: auto;
+
+            aspect-ratio: 1376 / 768;
+
+            object-fit: cover;
         }
 
 
@@ -1685,6 +1755,32 @@
             }
 
 
+            .featured-app-top {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 22px;
+            }
+
+
+            .featured-app-top .app-intro {
+
+                max-width: 100%;
+            }
+
+
+            .app-promo-banner {
+
+                flex: none;
+
+                width: 100%;
+
+                max-width: 360px;
+            }
+
+
             .app-screenshots {
 
                 grid-template-columns:
@@ -1840,6 +1936,12 @@
             .featured-app {
 
                 padding: 18px;
+            }
+
+
+            .app-promo-banner {
+
+                max-width: 100%;
             }
 
 
@@ -2107,22 +2209,41 @@
 
                 <div class="featured-app">
 
+                    <div class="featured-app-top">
 
-                    <div class="app-intro">
+                        <div class="app-intro">
 
-                        <div class="section-label" data-i18n="featured_label">
-                            Featured app
+                            <div class="section-label" data-i18n="featured_label">
+                                Featured app
+                            </div>
+
+                            <h3 class="app-name">
+                                English Breakfast
+                            </h3>
+
+                            <p class="app-tagline" data-i18n="featured_tagline">
+                                A focused vocabulary app for practical English — with levels, categories, favorites and personalized settings.
+                            </p>
+
                         </div>
 
-
-                        <h3 class="app-name">
-                            English Breakfast
-                        </h3>
-
-
-                        <p class="app-tagline" data-i18n="featured_tagline">
-                            A focused vocabulary app for practical English — with levels, categories, favorites and personalized settings.
-                        </p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.englishbreakfast.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="app-promo-banner"
+                            title="English Breakfast on Google Play"
+                        >
+                            <picture>
+                                <source srcset="assets/english-breakfast-promo.webp" type="image/webp">
+                                <img
+                                    src="assets/cat_promo_banner_highres_en.jpg"
+                                    alt="English Breakfast — Master English Words on Google Play"
+                                    data-i18n-alt="promo_banner_alt"
+                                    loading="lazy"
+                                >
+                            </picture>
+                        </a>
 
                     </div>
 
