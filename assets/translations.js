@@ -90,7 +90,8 @@ window.TRANSLATIONS = {
     "vision_q3": "Leave a positive impact.",
     "footer_rights": "© 2026 Sway Digital Lab. All rights reserved.",
     "card_toggle_hint": "Click to expand details",
-    "promo_banner_alt": "English Breakfast — Master English Words on Google Play"
+    "promo_banner_alt": "English Breakfast — Master English Words on Google Play",
+    "featured_name": "English Breakfast: Vocabulary"
   },
   "de": {
     "page_title": "Sway Digital Lab — Einfache, nützliche und durchdachte digitale Produkte",
@@ -182,7 +183,8 @@ window.TRANSLATIONS = {
     "vision_q3": "Positiven Einfluss hinterlassen.",
     "footer_rights": "© 2026 Sway Digital Lab. Alle Rechte vorbehalten.",
     "card_toggle_hint": "Klicken für Details",
-    "promo_banner_alt": "English Breakfast — Englische Wörter meistern auf Google Play"
+    "promo_banner_alt": "English Breakfast — Englische Wörter meistern auf Google Play",
+    "featured_name": "English Breakfast: Vocabulary"
   },
   "fr": {
     "page_title": "Sway Digital Lab — Produits numériques simples, utiles et réfléchis",
@@ -274,7 +276,8 @@ window.TRANSLATIONS = {
     "vision_q3": "Avoir un impact positif.",
     "footer_rights": "© 2026 Sway Digital Lab. Tous droits réservés.",
     "card_toggle_hint": "Cliquer pour voir les détails",
-    "promo_banner_alt": "English Breakfast — Maîtrisez le vocabulaire anglais sur Google Play"
+    "promo_banner_alt": "English Breakfast — Maîtrisez le vocabulaire anglais sur Google Play",
+    "featured_name": "English Breakfast: Vocabulary"
   },
   "pl": {
     "page_title": "Sway Digital Lab — Proste, przydatne i przemyślane produkty cyfrowe",
@@ -366,7 +369,8 @@ window.TRANSLATIONS = {
     "vision_q3": "Wywierać pozytywny wpływ.",
     "footer_rights": "© 2026 Sway Digital Lab. Wszelkie prawa zastrzeżone.",
     "card_toggle_hint": "Kliknij, aby rozwinąć szczegóły",
-    "promo_banner_alt": "English Breakfast — Opanuj angielskie słówka w Google Play"
+    "promo_banner_alt": "English Breakfast — Opanuj angielskie słówka w Google Play",
+    "featured_name": "English Breakfast: Vocabulary"
   },
   "it": {
     "page_title": "Sway Digital Lab — Prodotti digitali semplici, utili e curati",
@@ -458,7 +462,8 @@ window.TRANSLATIONS = {
     "vision_q3": "Lasciare un impatto positivo.",
     "footer_rights": "© 2026 Sway Digital Lab. Tutti i diritti riservati.",
     "card_toggle_hint": "Clicca per scoprire i dettagli",
-    "promo_banner_alt": "English Breakfast — Padroneggia i vocaboli inglesi su Google Play"
+    "promo_banner_alt": "English Breakfast — Padroneggia i vocaboli inglesi su Google Play",
+    "featured_name": "English Breakfast: Vocabulary"
   },
   "ru": {
     "page_title": "Sway Digital Lab — Простые, полезные и продуманные цифровые продукты",
@@ -550,7 +555,8 @@ window.TRANSLATIONS = {
     "vision_q3": "Приносить реальную пользу.",
     "footer_rights": "© 2026 Sway Digital Lab. Все права защищены.",
     "card_toggle_hint": "Нажмите, чтобы узнать подробности",
-    "promo_banner_alt": "English Breakfast — Тренажёр английских слов в Google Play"
+    "promo_banner_alt": "English Breakfast — Тренажёр английских слов в Google Play",
+    "featured_name": "English Breakfast: Vocabulary"
   },
   "uk": {
     "page_title": "Sway Digital Lab — Прості, корисні та продумані цифрові продукти",
@@ -642,6 +648,7 @@ window.TRANSLATIONS = {
     "vision_q3": "Приносити реальну користь.",
     "footer_rights": "© 2026 Sway Digital Lab. Усі права захищені.",
     "card_toggle_hint": "Натисніть для подробиць",
-    "promo_banner_alt": "English Breakfast — Тренажер англійських слів у Google Play"
+    "promo_banner_alt": "English Breakfast — Тренажер англійських слів у Google Play",
+    "featured_name": "English Breakfast: Vocabulary"
   }
 };
