@@ -14,10 +14,10 @@ window.TRANSLATIONS = {
     "apps_text": "Explore digital products created by Sway Digital Lab.",
     "featured_label": "Featured app",
     "featured_tagline": "A focused vocabulary app for practical English — with levels, categories, favorites and personalized settings.",
-    "screenshot_1_alt": "English Breakfast Word of the Day screen",
-    "screenshot_2_alt": "English Breakfast 3D Flashcards & Spaced Repetition",
-    "screenshot_3_alt": "English Breakfast 6,600+ Words & Categories",
-    "screenshot_4_alt": "English Breakfast Global Leagues & Streaks",
+    "screenshot_1_alt": "English Breakfast app, Word of the Day screen: three green buttons labeled Start, Choose category and Repeat favorites, and a golden card showing the word \"skiing\" with its pronunciation and an Elementary level tag.",
+    "screenshot_2_alt": "English Breakfast app, flashcards screen: tabs for Cards, Quiz, Pairs and Test, a progress label \"In learning 1/10\", a card with the word \"president\" and its pronunciation, speaker and favorite buttons, and Learn and Know buttons below.",
+    "screenshot_3_alt": "English Breakfast app, Choose Category list: Elementary Vocabulary with 2,451 words, Irregular Verbs with 149, Phrasal Patterns with 437, Intermediate Vocabulary with 2,116 and Advanced Vocabulary with 1,576.",
+    "screenshot_4_alt": "English Breakfast app, weekly league leaderboard with a countdown timer: a top-four podium led by Nick Lip with 6,184 XP, followed by a ranked list of players with avatars and XP scores.",
     "why_title": "Why English Breakfast",
     "why_desc": "English Breakfast turns English vocabulary into an effortless daily habit. Combining spaced repetition, hands-free audio, and an AI text scanner into one intuitive app.",
     "benefit_audio_title": "Hands-Free Audio in Headphones",
@@ -90,7 +90,7 @@ window.TRANSLATIONS = {
     "vision_q3": "Leave a positive impact.",
     "footer_rights": "© 2026 Sway Digital Lab. All rights reserved.",
     "card_toggle_hint": "Click to expand details",
-    "promo_banner_alt": "English Breakfast — Master English Words on Google Play",
+    "promo_banner_alt": "English Breakfast promo banner: a ginger cat in a tweed vest and bow tie sips tea at a sunlit breakfast table, with floating vocabulary cards (Cup of tea, Marmalade, Newspaper, Teapot, Breakfast) beside the title \"English Breakfast and Master English Words\" and a Get it on Google Play badge.",
     "featured_name": "English Breakfast: Vocabulary"
   },
   "de": {
