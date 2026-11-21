@@ -3147,7 +3147,7 @@
         <div class="container footer-inner">
 
 
-            <div class="footer-brand" id="footerBrand" style="touch-action: manipulation; user-select: none;">
+            <div class="footer-brand">
                 Sway Digital Lab
             </div>
 
@@ -3709,36 +3709,36 @@
                 } catch (e) {}
             }
 
-            // 5-tap detector on footer elements
+            // 5-tap detector strictly on the copyright text (#footerRights)
             var tapCount = 0;
             var tapTimer = null;
-            var footerTargets = [
-                document.getElementById('footerBrand'),
-                document.getElementById('footerRights'),
-                document.querySelector('footer')
-            ];
+            var lastTapTime = 0;
+            var rightsTarget = document.getElementById('footerRights');
 
-            function handleFooterTap(e) {
-                if (e.target && e.target.closest('a')) return;
-                tapCount++;
-                clearTimeout(tapTimer);
-                tapTimer = setTimeout(function () {
-                    tapCount = 0;
-                }, 2500);
+            if (rightsTarget) {
+                rightsTarget.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    var now = Date.now();
+                    // Ignore double-firing / ghost clicks within 150ms
+                    if (now - lastTapTime < 150) return;
+                    lastTapTime = now;
 
-                if (tapCount >= 5) {
-                    tapCount = 0;
+                    tapCount++;
                     clearTimeout(tapTimer);
-                    if (navigator.vibrate) try { navigator.vibrate([40, 60, 40]); } catch (e) {}
-                    openStatsModal();
-                }
-            }
 
-            footerTargets.forEach(function (el) {
-                if (el) {
-                    el.addEventListener('click', handleFooterTap);
-                }
-            });
+                    // Must be deliberate rapid taps (resets if gap > 700ms)
+                    tapTimer = setTimeout(function () {
+                        tapCount = 0;
+                    }, 700);
+
+                    if (tapCount >= 5) {
+                        tapCount = 0;
+                        clearTimeout(tapTimer);
+                        if (navigator.vibrate) try { navigator.vibrate([40, 60, 40]); } catch (err) {}
+                        openStatsModal();
+                    }
+                });
+            }
 
             var modal = document.getElementById('statsModal');
             var closeBtn = document.getElementById('closeStatsModal');
