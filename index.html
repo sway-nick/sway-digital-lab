@@ -23,6 +23,60 @@
         content="#061812"
     >
 
+    <!-- GOOGLE ANALYTICS 4 (G-J1YTNL2LZX) WITH OWNER EXCLUSION -->
+    <script>
+        (function () {
+            try {
+                var params = new URLSearchParams(window.location.search);
+                if (params.get('admin') === '1' || params.get('admin') === 'true') {
+                    localStorage.setItem('sway_admin_mode', 'true');
+                    var cleanUrl = window.location.pathname + window.location.hash;
+                    window.history.replaceState({}, document.title, cleanUrl);
+                    console.info('[Analytics] Режим владельца активирован: ваши визиты не учитываются в статистике.');
+                } else if (params.get('admin') === '0' || params.get('admin') === 'false') {
+                    localStorage.removeItem('sway_admin_mode');
+                    console.info('[Analytics] Режим владельца отключён: статистика снова собирается.');
+                }
+            } catch (e) {}
+
+            // Не отправлять данные, если это браузер владельца сайта
+            if (localStorage.getItem('sway_admin_mode') === 'true') {
+                console.info('[Analytics] Визит владельца сайта: трекинг пропущен.');
+                return;
+            }
+
+            // Инициализация Google Analytics 4 для реальных посетителей
+            var gaId = 'G-J1YTNL2LZX';
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+            document.head.appendChild(s);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { window.dataLayer.push(arguments); }
+            window.gtag = gtag;
+            gtag('js', new Date());
+            gtag('config', gaId, {
+                page_title: document.title,
+                page_location: window.location.href
+            });
+
+            // Отслеживание кликов по кнопке перехода в Google Play
+            document.addEventListener('DOMContentLoaded', function () {
+                document.querySelectorAll('a[href*="play.google.com"]').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        if (typeof window.gtag === 'function') {
+                            window.gtag('event', 'click_google_play', {
+                                event_category: 'outbound',
+                                event_label: 'Google Play Download'
+                            });
+                        }
+                    });
+                });
+            });
+        })();
+    </script>
+
     <link rel="canonical" href="https://sway-nick.github.io/sway-digital-lab/">
 
     <!-- OPEN GRAPH / SOCIAL PREVIEWS -->
