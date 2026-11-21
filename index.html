@@ -478,7 +478,13 @@
 
             right: 0;
 
-            min-width: 175px;
+            min-width: 190px;
+
+            max-height: 380px;
+
+            overflow-y: auto;
+
+            overscroll-behavior: contain;
 
             padding: 6px;
 
@@ -488,13 +494,33 @@
 
             border-radius: 16px;
 
-            box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.55);
 
             backdrop-filter: blur(20px);
 
             -webkit-backdrop-filter: blur(20px);
 
             z-index: 1100;
+        }
+
+
+        .lang-menu::-webkit-scrollbar {
+
+            width: 5px;
+        }
+
+
+        .lang-menu::-webkit-scrollbar-track {
+
+            background: transparent;
+        }
+
+
+        .lang-menu::-webkit-scrollbar-thumb {
+
+            background: rgba(183, 245, 45, 0.35);
+
+            border-radius: 999px;
         }
 
 
@@ -2164,6 +2190,21 @@
                             <span>English</span>
                         </button>
 
+                        <button type="button" role="option" class="lang-item" data-lang="ru" aria-selected="false">
+                            <span class="lang-badge">RU</span>
+                            <span>Русский</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="uk" aria-selected="false">
+                            <span class="lang-badge">UA</span>
+                            <span>Українська</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="es" aria-selected="false">
+                            <span class="lang-badge">ES</span>
+                            <span>Español</span>
+                        </button>
+
                         <button type="button" role="option" class="lang-item" data-lang="de" aria-selected="false">
                             <span class="lang-badge">DE</span>
                             <span>Deutsch</span>
@@ -2174,9 +2215,9 @@
                             <span>Français</span>
                         </button>
 
-                        <button type="button" role="option" class="lang-item" data-lang="pl" aria-selected="false">
-                            <span class="lang-badge">PL</span>
-                            <span>Polski</span>
+                        <button type="button" role="option" class="lang-item" data-lang="pt" aria-selected="false">
+                            <span class="lang-badge">PT</span>
+                            <span>Português</span>
                         </button>
 
                         <button type="button" role="option" class="lang-item" data-lang="it" aria-selected="false">
@@ -2184,14 +2225,144 @@
                             <span>Italiano</span>
                         </button>
 
-                        <button type="button" role="option" class="lang-item" data-lang="ru" aria-selected="false">
-                            <span class="lang-badge">RU</span>
-                            <span>Русский</span>
+                        <button type="button" role="option" class="lang-item" data-lang="pl" aria-selected="false">
+                            <span class="lang-badge">PL</span>
+                            <span>Polski</span>
                         </button>
 
-                        <button type="button" role="option" class="lang-item" data-lang="uk" aria-selected="false">
-                            <span class="lang-badge">UA</span>
-                            <span>Українська</span>
+                        <button type="button" role="option" class="lang-item" data-lang="tr" aria-selected="false">
+                            <span class="lang-badge">TR</span>
+                            <span>Türkçe</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="kk" aria-selected="false">
+                            <span class="lang-badge">KK</span>
+                            <span>Қазақша</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="ar" aria-selected="false">
+                            <span class="lang-badge">AR</span>
+                            <span>العربية</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="hi" aria-selected="false">
+                            <span class="lang-badge">HI</span>
+                            <span>हिन्दी</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="zh" aria-selected="false">
+                            <span class="lang-badge">ZH</span>
+                            <span>中文</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="ja" aria-selected="false">
+                            <span class="lang-badge">JA</span>
+                            <span>日本語</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="ko" aria-selected="false">
+                            <span class="lang-badge">KO</span>
+                            <span>한국어</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="id" aria-selected="false">
+                            <span class="lang-badge">ID</span>
+                            <span>Bahasa Indonesia</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="vi" aria-selected="false">
+                            <span class="lang-badge">VI</span>
+                            <span>Tiếng Việt</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="th" aria-selected="false">
+                            <span class="lang-badge">TH</span>
+                            <span>ไทย</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="bn" aria-selected="false">
+                            <span class="lang-badge">BN</span>
+                            <span>বাংলা</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="fa" aria-selected="false">
+                            <span class="lang-badge">FA</span>
+                            <span>فارسی</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="ur" aria-selected="false">
+                            <span class="lang-badge">UR</span>
+                            <span>اردو</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="cs" aria-selected="false">
+                            <span class="lang-badge">CS</span>
+                            <span>Čeština</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="ro" aria-selected="false">
+                            <span class="lang-badge">RO</span>
+                            <span>Română</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="bg" aria-selected="false">
+                            <span class="lang-badge">BG</span>
+                            <span>Български</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="el" aria-selected="false">
+                            <span class="lang-badge">EL</span>
+                            <span>Ελληνικά</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="hu" aria-selected="false">
+                            <span class="lang-badge">HU</span>
+                            <span>Magyar</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="sk" aria-selected="false">
+                            <span class="lang-badge">SK</span>
+                            <span>Slovenčina</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="sl" aria-selected="false">
+                            <span class="lang-badge">SL</span>
+                            <span>Slovenščina</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="hr" aria-selected="false">
+                            <span class="lang-badge">HR</span>
+                            <span>Hrvatski</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="sv" aria-selected="false">
+                            <span class="lang-badge">SV</span>
+                            <span>Svenska</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="da" aria-selected="false">
+                            <span class="lang-badge">DA</span>
+                            <span>Dansk</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="fi" aria-selected="false">
+                            <span class="lang-badge">FI</span>
+                            <span>Suomi</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="et" aria-selected="false">
+                            <span class="lang-badge">ET</span>
+                            <span>Eesti</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="lv" aria-selected="false">
+                            <span class="lang-badge">LV</span>
+                            <span>Latviešu</span>
+                        </button>
+
+                        <button type="button" role="option" class="lang-item" data-lang="lt" aria-selected="false">
+                            <span class="lang-badge">LT</span>
+                            <span>Lietuvių</span>
                         </button>
 
                     </div>
@@ -3252,7 +3423,7 @@
          TRANSLATIONS SCRIPT
     ========================================== -->
 
-    <script src="assets/translations.js?v=7000"></script>
+    <script src="assets/translations.js?v=36locales"></script>
 
 
     <!-- =========================================
@@ -3359,17 +3530,17 @@
 
         (function () {
 
-            const supportedLangs = ['en', 'de', 'fr', 'pl', 'it', 'ru', 'uk'];
+            const supportedLangs = [
+                'en', 'ru', 'uk', 'es', 'de', 'fr', 'pt', 'it', 'pl', 'tr',
+                'kk', 'ar', 'hi', 'zh', 'ja', 'ko', 'id', 'vi', 'th', 'bn',
+                'fa', 'ur', 'cs', 'ro', 'bg', 'el', 'hu', 'sk', 'sl', 'hr',
+                'sv', 'da', 'fi', 'et', 'lv', 'lt'
+            ];
 
-            const codes = {
-                en: 'EN',
-                de: 'DE',
-                fr: 'FR',
-                pl: 'PL',
-                it: 'IT',
-                ru: 'RU',
-                uk: 'UA'
-            };
+            function getLangBadge(lang) {
+                if (lang === 'uk') return 'UA';
+                return (lang || 'EN').toUpperCase();
+            }
 
             function detectUserLanguage() {
 
@@ -3387,7 +3558,7 @@
 
                     if (!loc) continue;
 
-                    const code = loc.toLowerCase().slice(0, 2);
+                    const code = loc.toLowerCase().split(/[-_]/)[0];
 
                     if (supportedLangs.includes(code)) {
                         return code;
@@ -3412,10 +3583,11 @@
                 } catch (e) {}
 
                 document.documentElement.lang = lang;
+                document.documentElement.dir = ['ar', 'fa', 'ur'].includes(lang) ? 'rtl' : 'ltr';
 
+                const fallbackDict = (window.TRANSLATIONS && window.TRANSLATIONS['en']) || {};
                 const dict = (window.TRANSLATIONS && window.TRANSLATIONS[lang]) ?
-                    window.TRANSLATIONS[lang] :
-                    ((window.TRANSLATIONS && window.TRANSLATIONS['en']) || {});
+                    window.TRANSLATIONS[lang] : fallbackDict;
 
                 // Document Title & Meta Description
                 if (dict.page_title) {
@@ -3431,9 +3603,10 @@
                 document.querySelectorAll('[data-i18n]').forEach(function(el) {
 
                     const key = el.getAttribute('data-i18n');
+                    const val = (dict && dict[key] !== undefined) ? dict[key] : fallbackDict[key];
 
-                    if (dict[key] !== undefined) {
-                        el.textContent = dict[key];
+                    if (val !== undefined) {
+                        el.textContent = val;
                     }
 
                 });
@@ -3442,9 +3615,10 @@
                 document.querySelectorAll('[data-i18n-ph]').forEach(function(el) {
 
                     const key = el.getAttribute('data-i18n-ph');
+                    const val = (dict && dict[key] !== undefined) ? dict[key] : fallbackDict[key];
 
-                    if (dict[key] !== undefined) {
-                        el.placeholder = dict[key];
+                    if (val !== undefined) {
+                        el.placeholder = val;
                     }
 
                 });
@@ -3453,22 +3627,23 @@
                 document.querySelectorAll('[data-i18n-alt]').forEach(function(el) {
 
                     const key = el.getAttribute('data-i18n-alt');
+                    const val = (dict && dict[key] !== undefined) ? dict[key] : fallbackDict[key];
 
-                    if (dict[key] !== undefined) {
-                        el.alt = dict[key];
+                    if (val !== undefined) {
+                        el.alt = val;
                     }
 
                 });
 
                 // Submit button if idle
                 const submitBtn = document.getElementById('submitButton');
-                if (submitBtn && !submitBtn.disabled && dict.form_btn_send) {
-                    submitBtn.textContent = dict.form_btn_send;
+                if (submitBtn && !submitBtn.disabled) {
+                    submitBtn.textContent = dict.form_btn_send || fallbackDict.form_btn_send || "Send proposal →";
                 }
 
                 // Update Header Selector Button
                 const codeEl = document.getElementById('langCurrentCode');
-                if (codeEl) codeEl.textContent = codes[lang] || 'EN';
+                if (codeEl) codeEl.textContent = getLangBadge(lang);
 
                 // Update Active State in Menu
                 document.querySelectorAll('.lang-item').forEach(function(item) {
