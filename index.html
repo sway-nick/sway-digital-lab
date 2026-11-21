@@ -3147,12 +3147,12 @@
         <div class="container footer-inner">
 
 
-            <div class="footer-brand">
+            <div class="footer-brand" id="footerBrand" style="touch-action: manipulation; user-select: none;">
                 Sway Digital Lab
             </div>
 
 
-            <div data-i18n="footer_rights">
+            <div data-i18n="footer_rights" id="footerRights" style="touch-action: manipulation; user-select: none;">
                 © 2026 Sway Digital Lab. All rights reserved.
             </div>
 
@@ -3168,6 +3168,64 @@
         </div>
 
     </footer>
+
+
+    <!-- =========================================
+         STATS MODAL (SECRET 5-TAP ADMIN VIEW)
+    ========================================== -->
+
+    <div id="statsModal" style="display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.78); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 99999; align-items: center; justify-content: center; padding: 20px;">
+
+        <div style="background: #081e17; border: 1px solid rgba(183, 245, 45, 0.35); border-radius: 24px; padding: 32px 28px; max-width: 440px; width: 100%; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(183, 245, 45, 0.15); color: #f6f8f5; font-family: inherit; position: relative; animation: statsPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);">
+
+            <button id="closeStatsModal" type="button" aria-label="Close" style="position: absolute; top: 18px; right: 20px; background: none; border: none; color: #b8c8c0; font-size: 26px; cursor: pointer; line-height: 1; padding: 4px; transition: color 0.2s;">✕</button>
+
+            <div style="font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; color: #b7f52d; font-weight: 700; margin-bottom: 6px;">
+                📊 Sway Digital Lab
+            </div>
+
+            <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 22px; color: #ffffff;">
+                Статистика посещений
+            </h3>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px;">
+
+                <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 18px 14px; text-align: center;">
+                    <div style="font-size: 13px; color: #b8c8c0; margin-bottom: 6px; font-weight: 500;">
+                        Всего визитов
+                    </div>
+                    <div id="statsTotalCount" style="font-size: 30px; font-weight: 900; color: #b7f52d; line-height: 1.2;">
+                        ...
+                    </div>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 18px 14px; text-align: center;">
+                    <div style="font-size: 13px; color: #b8c8c0; margin-bottom: 6px; font-weight: 500;">
+                        За сегодня
+                    </div>
+                    <div id="statsTodayCount" style="font-size: 30px; font-weight: 900; color: #b7f52d; line-height: 1.2;">
+                        ...
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="background: rgba(183, 245, 45, 0.07); border: 1px solid rgba(183, 245, 45, 0.22); border-radius: 16px; padding: 14px 16px; margin-bottom: 18px; font-size: 13px; line-height: 1.5;">
+                <div id="statsAdminStatus" style="font-weight: 700; color: #b7f52d; margin-bottom: 4px;">
+                    🛡️ Режим владельца: АКТИВЕН
+                </div>
+                <div id="statsAdminDesc" style="color: #b8c8c0; font-size: 12px;">
+                    Ваши визиты с этого браузера исключены и не накручивают счётчики.
+                </div>
+            </div>
+
+            <button id="toggleAdminBtn" type="button" style="width: 100%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.16); color: #f6f8f5; border-radius: 12px; padding: 12px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+                Переключить режим владельца
+            </button>
+
+        </div>
+
+    </div>
 
 
     <!-- =========================================
@@ -3590,6 +3648,145 @@
 
             }
         );
+
+
+        /* =======================================
+           VISITOR COUNTER & 5-TAP STATS MODAL
+        ======================================= */
+
+        (function () {
+
+            var COUNT_API_BASE = 'https://countapi.mileshilliard.com/api/v1/';
+            var TOTAL_KEY = 'sway_lab_visits_total_v2';
+
+            function getDayKey() {
+                var d = new Date();
+                return 'sway_lab_day_' + d.getFullYear() + '_' + String(d.getMonth() + 1).padStart(2, '0') + '_' + String(d.getDate()).padStart(2, '0');
+            }
+
+            var todayKey = getDayKey();
+            var isAdmin = localStorage.getItem('sway_admin_mode') === 'true';
+
+            // Only count if not owner/admin, once per day per session
+            if (!isAdmin) {
+                var sessionKey = 'sway_counted_' + todayKey;
+                try {
+                    if (!sessionStorage.getItem(sessionKey)) {
+                        sessionStorage.setItem(sessionKey, '1');
+                        fetch(COUNT_API_BASE + 'hit/' + TOTAL_KEY).catch(function () {});
+                        fetch(COUNT_API_BASE + 'hit/' + todayKey).catch(function () {});
+                    }
+                } catch (e) {}
+            }
+
+            // 5-tap detector on footer elements
+            var tapCount = 0;
+            var tapTimer = null;
+            var footerTargets = [
+                document.getElementById('footerBrand'),
+                document.getElementById('footerRights'),
+                document.querySelector('footer')
+            ];
+
+            function handleFooterTap(e) {
+                if (e.target && e.target.closest('a')) return;
+                tapCount++;
+                clearTimeout(tapTimer);
+                tapTimer = setTimeout(function () {
+                    tapCount = 0;
+                }, 2500);
+
+                if (tapCount >= 5) {
+                    tapCount = 0;
+                    clearTimeout(tapTimer);
+                    if (navigator.vibrate) try { navigator.vibrate([40, 60, 40]); } catch (e) {}
+                    openStatsModal();
+                }
+            }
+
+            footerTargets.forEach(function (el) {
+                if (el) {
+                    el.addEventListener('click', handleFooterTap);
+                }
+            });
+
+            var modal = document.getElementById('statsModal');
+            var closeBtn = document.getElementById('closeStatsModal');
+            var totalCountEl = document.getElementById('statsTotalCount');
+            var todayCountEl = document.getElementById('statsTodayCount');
+            var adminStatusEl = document.getElementById('statsAdminStatus');
+            var adminDescEl = document.getElementById('statsAdminDesc');
+            var toggleAdminBtn = document.getElementById('toggleAdminBtn');
+
+            function updateAdminStatusUI() {
+                var currentAdmin = localStorage.getItem('sway_admin_mode') === 'true';
+                if (currentAdmin) {
+                    adminStatusEl.innerHTML = '🛡️ Режим владельца: <strong>АКТИВЕН</strong>';
+                    adminStatusEl.style.color = '#b7f52d';
+                    adminDescEl.textContent = 'Ваши визиты с этого браузера исключены и не накручивают счётчики.';
+                    toggleAdminBtn.textContent = 'Отключить режим владельца';
+                } else {
+                    adminStatusEl.innerHTML = '👁️ Режим посетителя: <strong>ВЫ УЧИТЫВАЕТЕСЬ</strong>';
+                    adminStatusEl.style.color = '#f97316';
+                    adminDescEl.textContent = 'Внимание: ваши визиты сейчас засчитываются в статистику.';
+                    toggleAdminBtn.textContent = 'Включить режим владельца (скрыть себя)';
+                }
+            }
+
+            function openStatsModal() {
+                if (!modal) return;
+                modal.style.display = 'flex';
+                totalCountEl.textContent = '...';
+                todayCountEl.textContent = '...';
+                updateAdminStatusUI();
+
+                // Fetch total
+                fetch(COUNT_API_BASE + 'get/' + TOTAL_KEY)
+                    .then(function (r) { return r.json(); })
+                    .then(function (d) {
+                        totalCountEl.textContent = (d && typeof d.value === 'number') ? d.value.toLocaleString() : '0';
+                    })
+                    .catch(function () { totalCountEl.textContent = '0'; });
+
+                // Fetch today
+                fetch(COUNT_API_BASE + 'get/' + getDayKey())
+                    .then(function (r) { return r.json(); })
+                    .then(function (d) {
+                        todayCountEl.textContent = (d && typeof d.value === 'number') ? d.value.toLocaleString() : '0';
+                    })
+                    .catch(function () { todayCountEl.textContent = '0'; });
+            }
+
+            function closeStatsModal() {
+                if (modal) modal.style.display = 'none';
+            }
+
+            if (closeBtn) closeBtn.addEventListener('click', closeStatsModal);
+            if (modal) {
+                modal.addEventListener('click', function (e) {
+                    if (e.target === modal) closeStatsModal();
+                });
+            }
+
+            if (toggleAdminBtn) {
+                toggleAdminBtn.addEventListener('click', function () {
+                    var current = localStorage.getItem('sway_admin_mode') === 'true';
+                    if (current) {
+                        localStorage.removeItem('sway_admin_mode');
+                    } else {
+                        localStorage.setItem('sway_admin_mode', 'true');
+                    }
+                    updateAdminStatusUI();
+                });
+            }
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal && modal.style.display === 'flex') {
+                    closeStatsModal();
+                }
+            });
+
+        })();
 
     </script>
 
